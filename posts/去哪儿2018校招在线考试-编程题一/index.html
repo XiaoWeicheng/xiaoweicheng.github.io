@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="C++,笔试,广度优先搜索,去哪儿,">
+  <meta name="keywords" content="C++,笔试,去哪儿,广度优先搜索,">
 
 
 
@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目 最少转机描述去哪儿网将机票业务扩展到了大魏国， 宇文玥和楚乔都是去哪儿网的忠实用户，经常坐飞机双宿双飞， 现在已知大魏国有n个城市，共有m条国内航线，航线都是可往返的， 已知他们所居住的城市和他们想要达到的城市，请给出最小转机次数。 如果两城市间不可到达，则返回DISCONNECTED 输入第一行两个数n，m（2≤n≤100，1≤m≤100） ;  紧随其后的是两个城市的名称，代表居住城市和">
-<meta name="keywords" content="C++,笔试,广度优先搜索,去哪儿">
+<meta name="description" content="题目 最少转机描述去哪儿网将机票业务扩展到了大魏国， 宇文玥和楚乔都是去哪儿网的忠实用户，经常坐飞机双宿双飞， 现在已知大魏国有n个城市，共有m条国内航线，航线都是可往返的， 已知他们所居住的城市和他们想要达到的城市，请给出最小转机次数。 如果两城市间不可到达，则返回DISCONNECTED输入第一行两个数n，m（2≤n≤100，1≤m≤100） ;  紧随其后的是两个城市的名称，代表居住城市和想">
+<meta name="keywords" content="C++,笔试,去哪儿,广度优先搜索">
 <meta property="og:type" content="article">
 <meta property="og:title" content="去哪儿2018校招在线考试-编程题一">
 <meta property="og:url" content="http://bestmind.space/posts/去哪儿2018校招在线考试-编程题一/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目 最少转机描述去哪儿网将机票业务扩展到了大魏国， 宇文玥和楚乔都是去哪儿网的忠实用户，经常坐飞机双宿双飞， 现在已知大魏国有n个城市，共有m条国内航线，航线都是可往返的， 已知他们所居住的城市和他们想要达到的城市，请给出最小转机次数。 如果两城市间不可到达，则返回DISCONNECTED 输入第一行两个数n，m（2≤n≤100，1≤m≤100） ;  紧随其后的是两个城市的名称，代表居住城市和">
+<meta property="og:description" content="题目 最少转机描述去哪儿网将机票业务扩展到了大魏国， 宇文玥和楚乔都是去哪儿网的忠实用户，经常坐飞机双宿双飞， 现在已知大魏国有n个城市，共有m条国内航线，航线都是可往返的， 已知他们所居住的城市和他们想要达到的城市，请给出最小转机次数。 如果两城市间不可到达，则返回DISCONNECTED输入第一行两个数n，m（2≤n≤100，1≤m≤100） ;  紧随其后的是两个城市的名称，代表居住城市和想">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.410Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="去哪儿2018校招在线考试-编程题一">
-<meta name="twitter:description" content="题目 最少转机描述去哪儿网将机票业务扩展到了大魏国， 宇文玥和楚乔都是去哪儿网的忠实用户，经常坐飞机双宿双飞， 现在已知大魏国有n个城市，共有m条国内航线，航线都是可往返的， 已知他们所居住的城市和他们想要达到的城市，请给出最小转机次数。 如果两城市间不可到达，则返回DISCONNECTED 输入第一行两个数n，m（2≤n≤100，1≤m≤100） ;  紧随其后的是两个城市的名称，代表居住城市和">
+<meta name="twitter:description" content="题目 最少转机描述去哪儿网将机票业务扩展到了大魏国， 宇文玥和楚乔都是去哪儿网的忠实用户，经常坐飞机双宿双飞， 现在已知大魏国有n个城市，共有m条国内航线，航线都是可往返的， 已知他们所居住的城市和他们想要达到的城市，请给出最小转机次数。 如果两城市间不可到达，则返回DISCONNECTED输入第一行两个数n，m（2≤n≤100，1≤m≤100） ;  紧随其后的是两个城市的名称，代表居住城市和想">
 
 
 
@@ -415,19 +415,14 @@
 宇文玥和楚乔都是去哪儿网的忠实用户，经常坐飞机双宿双飞，
 现在已知大魏国有n个城市，共有m条国内航线，航线都是可往返的，
 已知他们所居住的城市和他们想要达到的城市，请给出最小转机次数。
-如果两城市间不可到达，则返回DISCONNECTED
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第一行两个数n，m（2≤n≤100，1≤m≤100） ; 
+如果两城市间不可到达，则返回DISCONNECTED</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第一行两个数n，m（2≤n≤100，1≤m≤100） ; 
 紧随其后的是两个城市的名称，代表居住城市和想要到达的城市
-接下来m行，分别为各个航线间的两个城市（城市名称间以空格隔开）
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出最少转机次数
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>5 5 LuoYang JinLing
+接下来m行，分别为各个航线间的两个城市（城市名称间以空格隔开）</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出最少转机次数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>5 5 LuoYang JinLing
 ChangAn LuoYang
 LuoYang JianKang
 LuoYang LangYe
 JianKang LangYe
-JianKang JinLing
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>2
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h3><ul>
+JianKang JinLing</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>2</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h3><ul>
 <li>使用邻接矩阵存储机票</li>
 <li>因为只需要计算转机数,所以计边的权重为 1</li>
 <li>所有边的权重相同,则可采用 BFS 解决最短路问题</li>
@@ -472,9 +467,9 @@ JianKang JinLing
           
             <a href="/tags/笔试/" rel="tag"># 笔试</a>
           
-            <a href="/tags/广度优先搜索/" rel="tag"># 广度优先搜索</a>
-          
             <a href="/tags/去哪儿/" rel="tag"># 去哪儿</a>
+          
+            <a href="/tags/广度优先搜索/" rel="tag"># 广度优先搜索</a>
           
         </div>
       
@@ -578,7 +573,7 @@ JianKang JinLing
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -589,7 +584,7 @@ JianKang JinLing
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -600,7 +595,7 @@ JianKang JinLing
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -680,7 +675,7 @@ JianKang JinLing
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

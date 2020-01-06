@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目 最长公共子串描述有两个字符串（可能包含空格）,请找出其中最长的公共连续子串, 输出其长度。 输入给定两行字符串 输出输出这两个字符串的最长公共连续子串的长度 ExampleInputabcde bcd Output3 题解动态规划 定义 len(i,j) 为串 1 在位置 i 处结尾与串 2 在位置 j 出结尾的公共子串的长度 动态更新最大长度 状态转移方程  12len(I,j) = |-">
+<meta name="description" content="题目 最长公共子串描述有两个字符串（可能包含空格）,请找出其中最长的公共连续子串, 输出其长度。输入给定两行字符串输出输出这两个字符串的最长公共连续子串的长度ExampleInputabcde bcdOutput3题解动态规划 定义 len(i,j) 为串 1 在位置 i 处结尾与串 2 在位置 j 出结尾的公共子串的长度 动态更新最大长度 状态转移方程  12len(I,j) = |-&amp;gt;">
 <meta name="keywords" content="C++,笔试,动态规划,美图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="美图 2018校招 后端研发工程师在线考试-编程题二">
 <meta property="og:url" content="http://bestmind.space/posts/美图-2018校招-后端研发工程师在线考试-编程题二/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目 最长公共子串描述有两个字符串（可能包含空格）,请找出其中最长的公共连续子串, 输出其长度。 输入给定两行字符串 输出输出这两个字符串的最长公共连续子串的长度 ExampleInputabcde bcd Output3 题解动态规划 定义 len(i,j) 为串 1 在位置 i 处结尾与串 2 在位置 j 出结尾的公共子串的长度 动态更新最大长度 状态转移方程  12len(I,j) = |-">
+<meta property="og:description" content="题目 最长公共子串描述有两个字符串（可能包含空格）,请找出其中最长的公共连续子串, 输出其长度。输入给定两行字符串输出输出这两个字符串的最长公共连续子串的长度ExampleInputabcde bcdOutput3题解动态规划 定义 len(i,j) 为串 1 在位置 i 处结尾与串 2 在位置 j 出结尾的公共子串的长度 动态更新最大长度 状态转移方程  12len(I,j) = |-&amp;gt;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="美图 2018校招 后端研发工程师在线考试-编程题二">
-<meta name="twitter:description" content="题目 最长公共子串描述有两个字符串（可能包含空格）,请找出其中最长的公共连续子串, 输出其长度。 输入给定两行字符串 输出输出这两个字符串的最长公共连续子串的长度 ExampleInputabcde bcd Output3 题解动态规划 定义 len(i,j) 为串 1 在位置 i 处结尾与串 2 在位置 j 出结尾的公共子串的长度 动态更新最大长度 状态转移方程  12len(I,j) = |-">
+<meta name="twitter:description" content="题目 最长公共子串描述有两个字符串（可能包含空格）,请找出其中最长的公共连续子串, 输出其长度。输入给定两行字符串输出输出这两个字符串的最长公共连续子串的长度ExampleInputabcde bcdOutput3题解动态规划 定义 len(i,j) 为串 1 在位置 i 处结尾与串 2 在位置 j 出结尾的公共子串的长度 动态更新最大长度 状态转移方程  12len(I,j) = |-&amp;gt;">
 
 
 
@@ -411,18 +411,14 @@
       
 
       
-        <h2 id="题目-最长公共子串"><a href="#题目-最长公共子串" class="headerlink" title="题目 最长公共子串"></a>题目 最长公共子串</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>有两个字符串（可能包含空格）,请找出其中最长的公共连续子串, 输出其长度。
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>给定两行字符串
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出这两个字符串的最长公共连续子串的长度
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>abcde
-bcd
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>3
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ul>
+        <h2 id="题目-最长公共子串"><a href="#题目-最长公共子串" class="headerlink" title="题目 最长公共子串"></a>题目 最长公共子串</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>有两个字符串（可能包含空格）,请找出其中最长的公共连续子串, 输出其长度。</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>给定两行字符串</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出这两个字符串的最长公共连续子串的长度</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>abcde
+bcd</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>3</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ul>
 <li>定义 len(i,j) 为串 1 在位置 i 处结尾与串 2 在位置 j 出结尾的公共子串的长度</li>
 <li>动态更新最大长度</li>
 <li>状态转移方程</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">len(I,j) = |-&gt; 0  (str1[i]!=str2[i])</span><br><span class="line">           |-&gt; len(i-1,j-1)+1  (str1[i]==str2[i])</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> str1[<span class="number">2005</span>],str2[<span class="number">2005</span>];</span><br><span class="line"><span class="keyword">int</span> commLen[<span class="number">2005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;str1&gt;&gt;str2)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> len1=<span class="built_in">strlen</span>(str1),len2=<span class="built_in">strlen</span>(str2),maxLen=<span class="number">0</span>;;</span><br><span class="line">        <span class="built_in">memset</span>(commLen,<span class="number">0</span>,<span class="keyword">sizeof</span> commLen);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=len1;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=len2;j&gt;<span class="number">0</span>;--j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(str1[i<span class="number">-1</span>]==str2[j<span class="number">-1</span>])</span><br><span class="line">                &#123;</span><br><span class="line">                    commLen[j]=commLen[j<span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line">                    maxLen=max(maxLen,commLen[j]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    commLen[i][j]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;maxLen&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -568,7 +564,7 @@ bcd
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -579,7 +575,7 @@ bcd
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -590,7 +586,7 @@ bcd
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -670,7 +666,7 @@ bcd
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

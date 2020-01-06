@@ -414,21 +414,17 @@
         <h2 id="题目-改考卷"><a href="#题目-改考卷" class="headerlink" title="题目:改考卷"></a>题目:改考卷</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>在上小学的时候，我们经常碰到这样的事：
     考完试后老师懒得改试卷，于是让我们同桌相互交换试卷后为对方批改。但是后来老师发现这样作容易出现作弊，于是他想了一个新办法。老师将同学分成了 n 个组，其中编号为𝑖的组中有si 个人。然后老师会按某种顺序依次访问这些组。
     对于他访问的第一个组，他会将这组内的所有试卷都收走，放置在桌上；对于他后续访问的每一个组，首先他会从桌上的试卷最上方拿出该组对应人数数量的试卷，随机分配给该组每个人一张试卷让他们进行批改，而后再将这组学生自己考的试卷收走放置在桌面试卷的最下方。当他访问完所有的组后他会将桌面上剩余的所有试卷随机分配给他第一个访问的组的学生进行批改。
-    但他发现这种方法有时候也会出现问题：有可能在中途访问到某个组的时候桌面上的试卷不够分配给这组学生每人一张；也有可能最后会有学生分配到批改自己的试卷，而且这两种情况是否出现是与他访问每个组的顺序有关的。现在他想知道是否存在一种访问顺序能够使以上两种情况都不出现，顺利完成试卷批改呢？ 
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第一个整数 n，表示学生组数。2 ≤ n ≤ 30
-第二行包含 n 个整数，s1 ,s2 ,…,sn ，分别表示每组学生的人数。1 ≤ si ≤ 10000
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>若存在一种访问顺序能使试卷顺利批改完成，输出 Yes，否则输出 No。
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>2
+    但他发现这种方法有时候也会出现问题：有可能在中途访问到某个组的时候桌面上的试卷不够分配给这组学生每人一张；也有可能最后会有学生分配到批改自己的试卷，而且这两种情况是否出现是与他访问每个组的顺序有关的。现在他想知道是否存在一种访问顺序能够使以上两种情况都不出现，顺利完成试卷批改呢？ </code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第一个整数 n，表示学生组数。2 ≤ n ≤ 30
+第二行包含 n 个整数，s1 ,s2 ,…,sn ，分别表示每组学生的人数。1 ≤ si ≤ 10000</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>若存在一种访问顺序能使试卷顺利批改完成，输出 Yes，否则输出 No。</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>2
 10 20
 4
-2 3 3 1
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>No
-Yes
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+2 3 3 1</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>No
+Yes</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
 <li>把 s1…sn 按降序排列,不会出现第一种情况</li>
 <li>若人数最多的一组的人数不比其他所有组的人数之和,则不会出现第二种情况</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,group[<span class="number">30</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;group[i];</span><br><span class="line">        &#125;</span><br><span class="line">        sort(group,group+n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-2</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">        &#123;</span><br><span class="line">            group[i]+=group[i+<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(group[<span class="number">0</span>]&lt;(group[n<span class="number">-1</span>]&lt;&lt;<span class="number">1</span>))</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"No"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"Yes"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -572,7 +568,7 @@ Yes
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -583,7 +579,7 @@ Yes
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -594,7 +590,7 @@ Yes
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -674,7 +670,7 @@ Yes
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -407,21 +407,27 @@
 <li>循环结束,循环次数 c 即为所求<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3>每次循环将消去二进制数 n 的一个最低位 1<h3 id="C-代码"><a href="#C-代码" class="headerlink" title="C++代码"></a>C++代码</h3></li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bitCount</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> c=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(n)</span><br><span class="line">	&#123;</span><br><span class="line">		n=n&amp;(n<span class="number">-1</span>);</span><br><span class="line">		++c;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="分组统计"><a href="#分组统计" class="headerlink" title="分组统计"></a>分组统计</h2><h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p>代码简洁,理解稍难</p>
 <h3 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h3><ul>
-<li>将整数 n 按二进制分为 m 组,每组包含 4 个二进制位</li>
-<li>对于每组,计算 1 的个数 e</li>
-<li>然后计算 e[1]-e[m] 的和 eSum<h3 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h3></li>
+<li><p>将整数 n 按二进制分为 m 组,每组包含 4 个二进制位</p>
+</li>
+<li><p>对于每组,计算 1 的个数 e</p>
+</li>
+<li><p>然后计算 e[1]-e[m] 的和 eSum</p>
+<h3 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h3></li>
 <li><p>e的计算</p>
 <p>  假设按照从高到低的顺序,各二进制的值分别为 a,b,c,d,即,a为最高位,d为最低位<br>  设每组的值为 v,则 v=8<em>a+4</em>b+2<em>c+d<br>  设每组所含的1的个数为 e,则 e=a+b+c+d=(8</em>a+4<em>b+2</em>c+d)-(4<em>a+2</em>b+2<em>c)-(2</em>a+2*b)-a=v-v/2-v/4-v/8</p>
 </li>
 <li><p>eSum的计算</p>
 <p>  使用公式 (2^p*x) mod (2^p-1)=x mod (2^p-1)<br>  计算出来的 eSum 是小于 2^p-1 的,所以需要适时的调整 p 的大小</p>
 <h3 id="C-代码-1"><a href="#C-代码-1" class="headerlink" title="C++代码"></a>C++代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bitCount</span><span class="params">(<span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    x=n-((n&gt;&gt;<span class="number">1</span>)&amp;<span class="number">0x7777777777777777</span>)</span><br><span class="line">        -((n&gt;&gt;<span class="number">2</span>)&amp;<span class="number">0x3333333333333333</span>)</span><br><span class="line">        -((n&gt;&gt;<span class="number">3</span>)&amp;<span class="number">0x1111111111111111</span>);</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">int</span>)((x+(x&gt;&gt;<span class="number">4</span>))&amp;<span class="number">0x0f0f0f0f0f0f0f0f</span>)%<span class="number">255</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="C-bitset对象"><a href="#C-bitset对象" class="headerlink" title="C++ bitset对象"></a>C++ bitset对象</h2><h3 id="介绍-2"><a href="#介绍-2" class="headerlink" title="介绍"></a>介绍</h3><p>使用最为简单,需要导入 bitset 头文件</p>
 <h3 id="C-代码-2"><a href="#C-代码-2" class="headerlink" title="C++代码"></a>C++代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bitCount</span><span class="params">(<span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">bitset</span>&lt;<span class="number">64</span>&gt;(n).count();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <hr>
 <p>References : <a href="http://www.cnblogs.com/graphics/archive/2010/06/21/1752421.html" target="_blank" rel="noopener">算法-求二进制数中1的个数</a></p>
 
@@ -567,7 +573,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -578,7 +584,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -589,7 +595,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -669,7 +675,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目 路径匹配描述每个路径都形如&amp;quot;/a/b...&amp;quot;, 不会以 &amp;quot;/&amp;quot; 结尾 路径 &amp;quot;/a/b&amp;quot; 为路径 &amp;quot;/a/b/c&amp;quot; 的前缀路径,而并非 &amp;quot;/a/bc&amp;quot; 的前缀路径 给出已知路径及编号,求某个路径的最大前缀路径的编号 若不存在,输出 0 输入从第 1 行开始,直到某一行出现 &amp;quot;-&amp;qu">
+<meta name="description" content="题目 路径匹配描述每个路径都形如&amp;quot;/a/b...&amp;quot;, 不会以 &amp;quot;/&amp;quot; 结尾 路径 &amp;quot;/a/b&amp;quot; 为路径 &amp;quot;/a/b/c&amp;quot; 的前缀路径,而并非 &amp;quot;/a/bc&amp;quot; 的前缀路径 给出已知路径及编号,求某个路径的最大前缀路径的编号 若不存在,输出 0输入从第 1 行开始,直到某一行出现 &amp;quot;-&amp;quo">
 <meta name="keywords" content="C++,笔试,字符串,小米,字典树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小米2018校招在线考试-编程题二">
 <meta property="og:url" content="http://bestmind.space/posts/小米2018校招在线考试-编程题二/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目 路径匹配描述每个路径都形如&amp;quot;/a/b...&amp;quot;, 不会以 &amp;quot;/&amp;quot; 结尾 路径 &amp;quot;/a/b&amp;quot; 为路径 &amp;quot;/a/b/c&amp;quot; 的前缀路径,而并非 &amp;quot;/a/bc&amp;quot; 的前缀路径 给出已知路径及编号,求某个路径的最大前缀路径的编号 若不存在,输出 0 输入从第 1 行开始,直到某一行出现 &amp;quot;-&amp;qu">
+<meta property="og:description" content="题目 路径匹配描述每个路径都形如&amp;quot;/a/b...&amp;quot;, 不会以 &amp;quot;/&amp;quot; 结尾 路径 &amp;quot;/a/b&amp;quot; 为路径 &amp;quot;/a/b/c&amp;quot; 的前缀路径,而并非 &amp;quot;/a/bc&amp;quot; 的前缀路径 给出已知路径及编号,求某个路径的最大前缀路径的编号 若不存在,输出 0输入从第 1 行开始,直到某一行出现 &amp;quot;-&amp;quo">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小米2018校招在线考试-编程题二">
-<meta name="twitter:description" content="题目 路径匹配描述每个路径都形如&amp;quot;/a/b...&amp;quot;, 不会以 &amp;quot;/&amp;quot; 结尾 路径 &amp;quot;/a/b&amp;quot; 为路径 &amp;quot;/a/b/c&amp;quot; 的前缀路径,而并非 &amp;quot;/a/bc&amp;quot; 的前缀路径 给出已知路径及编号,求某个路径的最大前缀路径的编号 若不存在,输出 0 输入从第 1 行开始,直到某一行出现 &amp;quot;-&amp;qu">
+<meta name="twitter:description" content="题目 路径匹配描述每个路径都形如&amp;quot;/a/b...&amp;quot;, 不会以 &amp;quot;/&amp;quot; 结尾 路径 &amp;quot;/a/b&amp;quot; 为路径 &amp;quot;/a/b/c&amp;quot; 的前缀路径,而并非 &amp;quot;/a/bc&amp;quot; 的前缀路径 给出已知路径及编号,求某个路径的最大前缀路径的编号 若不存在,输出 0输入从第 1 行开始,直到某一行出现 &amp;quot;-&amp;quo">
 
 
 
@@ -415,12 +415,9 @@
 不会以 &quot;/&quot; 结尾
 路径 &quot;/a/b&quot; 为路径 &quot;/a/b/c&quot; 的前缀路径,而并非 &quot;/a/bc&quot; 的前缀路径
 给出已知路径及编号,求某个路径的最大前缀路径的编号
-若不存在,输出 0
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>从第 1 行开始,直到某一行出现 &quot;-&quot; 为止,
+若不存在,输出 0</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>从第 1 行开始,直到某一行出现 &quot;-&quot; 为止,
 每行有两个字符串,第一个为路径,第二个为路径编号
-接下来每行一个路径
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>每行输出对应的路径的最大前缀路径的编号
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>/a 1
+接下来每行一个路径</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>每行输出对应的路径的最大前缀路径的编号</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>/a 1
 /a/b 2
 /a/b/c 3
 /a/b/cde 4
@@ -429,13 +426,11 @@
 /a/b
 /a/b/c/d
 /a/b/cd
-/b
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>1
+/b</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>1
 2
 3
 2
-0
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="字典树"><a href="#字典树" class="headerlink" title="字典树"></a>字典树</h3><ul>
+0</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="字典树"><a href="#字典树" class="headerlink" title="字典树"></a>字典树</h3><ul>
 <li>root 结点编号为 0</li>
 <li>若匹配完成或无法继续匹配,当前结点编号即为所求</li>
 </ul>
@@ -586,7 +581,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -597,7 +592,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -608,7 +603,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -688,7 +683,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目描述有 n 个学生站成一排，每个学生有一个能力值， 牛牛想从这 n 个学生中按照顺序选取 k 名学生， 要求相邻两个学生的位置编号的差不超过 d， 使得这 k 个学生的能力值的乘积最大， 你能返回最大的乘积吗？ 输入每个输入包含 1 个测试用例。 每个测试数据的第一行包含一个整数 n (1 &amp;lt;= n &amp;lt;= 50)， 表示学生的个数，接下来的一行，包含 n 个整数， 按顺序表示每个学">
+<meta name="description" content="题目描述有 n 个学生站成一排，每个学生有一个能力值， 牛牛想从这 n 个学生中按照顺序选取 k 名学生， 要求相邻两个学生的位置编号的差不超过 d， 使得这 k 个学生的能力值的乘积最大， 你能返回最大的乘积吗？输入每个输入包含 1 个测试用例。 每个测试数据的第一行包含一个整数 n (1 &amp;lt;= n &amp;lt;= 50)， 表示学生的个数，接下来的一行，包含 n 个整数， 按顺序表示每个学生">
 <meta name="keywords" content="C++,动态规划,牛客,2017校招">
 <meta property="og:type" content="article">
 <meta property="og:title" content="牛客-合唱团">
 <meta property="og:url" content="http://bestmind.space/posts/牛客-合唱团/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目描述有 n 个学生站成一排，每个学生有一个能力值， 牛牛想从这 n 个学生中按照顺序选取 k 名学生， 要求相邻两个学生的位置编号的差不超过 d， 使得这 k 个学生的能力值的乘积最大， 你能返回最大的乘积吗？ 输入每个输入包含 1 个测试用例。 每个测试数据的第一行包含一个整数 n (1 &amp;lt;= n &amp;lt;= 50)， 表示学生的个数，接下来的一行，包含 n 个整数， 按顺序表示每个学">
+<meta property="og:description" content="题目描述有 n 个学生站成一排，每个学生有一个能力值， 牛牛想从这 n 个学生中按照顺序选取 k 名学生， 要求相邻两个学生的位置编号的差不超过 d， 使得这 k 个学生的能力值的乘积最大， 你能返回最大的乘积吗？输入每个输入包含 1 个测试用例。 每个测试数据的第一行包含一个整数 n (1 &amp;lt;= n &amp;lt;= 50)， 表示学生的个数，接下来的一行，包含 n 个整数， 按顺序表示每个学生">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="牛客-合唱团">
-<meta name="twitter:description" content="题目描述有 n 个学生站成一排，每个学生有一个能力值， 牛牛想从这 n 个学生中按照顺序选取 k 名学生， 要求相邻两个学生的位置编号的差不超过 d， 使得这 k 个学生的能力值的乘积最大， 你能返回最大的乘积吗？ 输入每个输入包含 1 个测试用例。 每个测试数据的第一行包含一个整数 n (1 &amp;lt;= n &amp;lt;= 50)， 表示学生的个数，接下来的一行，包含 n 个整数， 按顺序表示每个学">
+<meta name="twitter:description" content="题目描述有 n 个学生站成一排，每个学生有一个能力值， 牛牛想从这 n 个学生中按照顺序选取 k 名学生， 要求相邻两个学生的位置编号的差不超过 d， 使得这 k 个学生的能力值的乘积最大， 你能返回最大的乘积吗？输入每个输入包含 1 个测试用例。 每个测试数据的第一行包含一个整数 n (1 &amp;lt;= n &amp;lt;= 50)， 表示学生的个数，接下来的一行，包含 n 个整数， 按顺序表示每个学生">
 
 
 
@@ -415,24 +415,20 @@
 牛牛想从这 n 个学生中按照顺序选取 k 名学生，
 要求相邻两个学生的位置编号的差不超过 d，
 使得这 k 个学生的能力值的乘积最大，
-你能返回最大的乘积吗？
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>每个输入包含 1 个测试用例。
+你能返回最大的乘积吗？</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>每个输入包含 1 个测试用例。
 每个测试数据的第一行包含一个整数 n (1 &lt;= n &lt;= 50)，
 表示学生的个数，接下来的一行，包含 n 个整数，
 按顺序表示每个学生的能力值 ai（-50 &lt;= ai &lt;= 50）。
-接下来的一行包含两个整数，k 和 d (1 &lt;= k &lt;= 10, 1 &lt;= d &lt;= 50)。
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出一行表示最大的乘积。
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>3
+接下来的一行包含两个整数，k 和 d (1 &lt;= k &lt;= 10, 1 &lt;= d &lt;= 50)。</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出一行表示最大的乘积。</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>3
 7 4 7
-2 50
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>49
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ul>
+2 50</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>49</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ul>
 <li>定义 minstate(i,j),maxstate(i,j) 为从第 1 到第 j 个学生中选取 i 个学生后得到的乘积的最小与最大值,第 j 个学生必选;</li>
 <li>因为能力值可能为负,所以必须维护最大值与最小值;</li>
 <li>max(maxstate(m,x)) (m =&lt; x &lt;= n) 即为所求</li>
 <li>状态转移方程</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">minstate(i,j) = |-&gt; min(minstate(i-1,x))*student(i)  ( student(i)&gt;=0 , j-m &lt;= x &lt;=j-1 )</span><br><span class="line">                |-&gt; max(maxstate(i-1,x))*student(i)  ( student(i)&lt;0 , j-m &lt;= x &lt;=j-1 )</span><br><span class="line"></span><br><span class="line">maxstate(i,j) = |-&gt; max(maxstate(i-1,x))*student(i)  ( student(i)&gt;=0 , j-m &lt;= x &lt;=j-1 )</span><br><span class="line">                |-&gt; min(minstate(i-1,x))*student(i)  ( student(i)&lt;0 , j-m &lt;= x &lt;=j-1 )</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,k;</span><br><span class="line">ll *student,*minstate,*maxstate;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,l,left,right;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    student=<span class="keyword">new</span> ll[n];</span><br><span class="line">    maxstate=<span class="keyword">new</span> ll[n];</span><br><span class="line">    minstate=<span class="keyword">new</span> ll[n];</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;student[i]);</span><br><span class="line">        minstate[i]=maxstate[i]=student[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;m&gt;&gt;k;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;m;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(j=n-m+i;j&gt;=i;--j)</span><br><span class="line">        &#123;</span><br><span class="line">            left=max(i<span class="number">-1</span>,j-k),right=j<span class="number">-1</span>;</span><br><span class="line">            maxstate[j]=max(maxstate[j<span class="number">-1</span>]*student[j],minstate[j<span class="number">-1</span>]*student[j]);</span><br><span class="line">            minstate[j]=min(maxstate[j<span class="number">-1</span>]*student[j],minstate[j<span class="number">-1</span>]*student[j]);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> l=right<span class="number">-1</span>;l&gt;=left;--l)</span><br><span class="line">            &#123;</span><br><span class="line">                maxstate[j]=max(maxstate[j],max(maxstate[l]*student[j],minstate[l]*student[j]));</span><br><span class="line">                minstate[j]=min(minstate[j],min(maxstate[l]*student[j],minstate[l]*student[j]));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll t=maxstate[n<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">for</span>(i=n<span class="number">-2</span>;i&gt;=m;--i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(maxstate[i]&gt;t)t=maxstate[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld"</span>,t);</span><br><span class="line">    <span class="keyword">delete</span>[] maxtate,<span class="keyword">delete</span>[] minstate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -578,7 +574,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -589,7 +585,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -600,7 +596,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -680,7 +676,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

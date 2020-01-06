@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目描述给定一个字符串  S 和有效单词的字典D，请确定可以插入到 S中的最小空格数，使得最终的字符串完全由D中的有效单词组成，并输出解。     如果没有解则应该输出 n/a     输入第一行为字符串 S,第二行为词典单词数目 n,接下来 n行,每行为一个单词   输出只有一行,为插入最少空格后的字符串 ExampleInputilikealibaba 6 i like ali liba ba">
+<meta name="description" content="题目描述给定一个字符串  S 和有效单词的字典D，请确定可以插入到 S中的最小空格数，使得最终的字符串完全由D中的有效单词组成，并输出解。     如果没有解则应该输出 n/a    输入第一行为字符串 S,第二行为词典单词数目 n,接下来 n行,每行为一个单词  输出只有一行,为插入最少空格后的字符串ExampleInputilikealibaba 6 i like ali liba baba">
 <meta name="keywords" content="C++,笔试,二分法,string,DFS,阿里巴巴">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阿里巴巴2018届应届生招聘研发工程师CC++考试-编程题一">
 <meta property="og:url" content="http://bestmind.space/posts/阿里巴巴2018届应届生招聘研发工程师CC++考试-编程题一/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目描述给定一个字符串  S 和有效单词的字典D，请确定可以插入到 S中的最小空格数，使得最终的字符串完全由D中的有效单词组成，并输出解。     如果没有解则应该输出 n/a     输入第一行为字符串 S,第二行为词典单词数目 n,接下来 n行,每行为一个单词   输出只有一行,为插入最少空格后的字符串 ExampleInputilikealibaba 6 i like ali liba ba">
+<meta property="og:description" content="题目描述给定一个字符串  S 和有效单词的字典D，请确定可以插入到 S中的最小空格数，使得最终的字符串完全由D中的有效单词组成，并输出解。     如果没有解则应该输出 n/a    输入第一行为字符串 S,第二行为词典单词数目 n,接下来 n行,每行为一个单词  输出只有一行,为插入最少空格后的字符串ExampleInputilikealibaba 6 i like ali liba baba">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿里巴巴2018届应届生招聘研发工程师CC++考试-编程题一">
-<meta name="twitter:description" content="题目描述给定一个字符串  S 和有效单词的字典D，请确定可以插入到 S中的最小空格数，使得最终的字符串完全由D中的有效单词组成，并输出解。     如果没有解则应该输出 n/a     输入第一行为字符串 S,第二行为词典单词数目 n,接下来 n行,每行为一个单词   输出只有一行,为插入最少空格后的字符串 ExampleInputilikealibaba 6 i like ali liba ba">
+<meta name="twitter:description" content="题目描述给定一个字符串  S 和有效单词的字典D，请确定可以插入到 S中的最小空格数，使得最终的字符串完全由D中的有效单词组成，并输出解。     如果没有解则应该输出 n/a    输入第一行为字符串 S,第二行为词典单词数目 n,接下来 n行,每行为一个单词  输出只有一行,为插入最少空格后的字符串ExampleInputilikealibaba 6 i like ali liba baba">
 
 
 
@@ -412,23 +412,19 @@
 
       
         <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>给定一个字符串  S 和有效单词的字典D，请确定可以插入到 S中的最小空格数，使得最终的字符串完全由D中的有效单词组成，并输出解。    
-如果没有解则应该输出 n/a    
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第一行为字符串 S,第二行为词典单词数目 n,接下来 n行,每行为一个单词  
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>只有一行,为插入最少空格后的字符串
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>ilikealibaba
+如果没有解则应该输出 n/a    </code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第一行为字符串 S,第二行为词典单词数目 n,接下来 n行,每行为一个单词  </code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>只有一行,为插入最少空格后的字符串</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>ilikealibaba
 6
 i
 like
 ali
 liba
 baba
-alibaba  
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>i like alibaba
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><ul>
+alibaba  </code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>i like alibaba</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><ul>
 <li>深搜所有符合要求的解,过程剪枝</li>
 <li>选择最优解输出</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> newStr;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mincut</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, <span class="keyword">const</span> <span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt;&amp; dict,<span class="keyword">int</span> s,<span class="built_in">string</span> sstr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(s==str.length()&amp;&amp;sstr.length()&lt;newStr.length())</span><br><span class="line">	&#123;</span><br><span class="line">	    newStr=sstr;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> it=dict.begin();it!=dict.end();it++)</span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="built_in">string</span> t=*it;</span><br><span class="line">	    <span class="keyword">int</span> i;</span><br><span class="line">	    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;t.length();++i)</span><br><span class="line">	        <span class="keyword">if</span>(t[i]!=str[i+s])<span class="keyword">break</span>;</span><br><span class="line">	    <span class="keyword">if</span>(i==t.length()&amp;&amp;s+i&lt;=str.length())</span><br><span class="line">	   	&#123;</span><br><span class="line">	    	<span class="keyword">if</span>(s) t=<span class="string">" "</span>+t;</span><br><span class="line">	        mincut(str,dict,s+i,sstr+t);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> strS;</span><br><span class="line">	<span class="built_in">string</span> dictStr;</span><br><span class="line">	<span class="keyword">int</span> nDict;</span><br><span class="line">	<span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt; dict;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;strS;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;nDict;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nDict; i++)</span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="built_in">cin</span>&gt;&gt;dictStr;</span><br><span class="line">	    dict.insert(dictStr);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	newStr=strS+strS;</span><br><span class="line"></span><br><span class="line">	mincut(strS, dict,<span class="number">0</span>,<span class="built_in">string</span>());</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(newStr.length())</span><br><span class="line">	    <span class="built_in">cout</span>&lt;&lt;newStr;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	    <span class="built_in">cout</span>&lt;&lt;<span class="string">"n/a"</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h3><ul>
 <li>把字典按长度降序排序</li>
 <li>匹配区间为 (s, e)</li>
@@ -590,7 +586,7 @@ alibaba
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -601,7 +597,7 @@ alibaba
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -612,7 +608,7 @@ alibaba
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -692,7 +688,7 @@ alibaba
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

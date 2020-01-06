@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="C++,笔试,最短距离,深度优先搜索,腾讯,无向图,">
+  <meta name="keywords" content="C++,笔试,最短距离,深度优先搜索,无向图,腾讯,">
 
 
 
@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目描述给定一个 n 阶无向完全图,求第 1 个节点到第 2 个节点的最短距离, 其中可以把 k 条边的距离减半 输入第 1 行 n,k ,n-节点个数,k-可减半的边的条数 2 到 n+1 行,包含 n 个 0-9 数字的字符串,为第 i 个节点到各个节点的距离 对于所有合法的 i ,dis[i][i]=0; 输出1 行,最短路径 ExampleInputOutput题解深度优先搜索 无负权值,">
-<meta name="keywords" content="C++,笔试,最短距离,深度优先搜索,腾讯,无向图">
+<meta name="description" content="题目描述给定一个 n 阶无向完全图,求第 1 个节点到第 2 个节点的最短距离, 其中可以把 k 条边的距离减半输入第 1 行 n,k ,n-节点个数,k-可减半的边的条数 2 到 n+1 行,包含 n 个 0-9 数字的字符串,为第 i 个节点到各个节点的距离 对于所有合法的 i ,dis[i][i]=0;输出1 行,最短路径ExampleInputOutput题解深度优先搜索 无负权值,两点之">
+<meta name="keywords" content="C++,笔试,最短距离,深度优先搜索,无向图,腾讯">
 <meta property="og:type" content="article">
 <meta property="og:title" content="腾讯2018校招软件开发在线笔试-编程题一">
 <meta property="og:url" content="http://bestmind.space/posts/腾讯2018校招软件开发在线笔试-编程题一/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目描述给定一个 n 阶无向完全图,求第 1 个节点到第 2 个节点的最短距离, 其中可以把 k 条边的距离减半 输入第 1 行 n,k ,n-节点个数,k-可减半的边的条数 2 到 n+1 行,包含 n 个 0-9 数字的字符串,为第 i 个节点到各个节点的距离 对于所有合法的 i ,dis[i][i]=0; 输出1 行,最短路径 ExampleInputOutput题解深度优先搜索 无负权值,">
+<meta property="og:description" content="题目描述给定一个 n 阶无向完全图,求第 1 个节点到第 2 个节点的最短距离, 其中可以把 k 条边的距离减半输入第 1 行 n,k ,n-节点个数,k-可减半的边的条数 2 到 n+1 行,包含 n 个 0-9 数字的字符串,为第 i 个节点到各个节点的距离 对于所有合法的 i ,dis[i][i]=0;输出1 行,最短路径ExampleInputOutput题解深度优先搜索 无负权值,两点之">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="腾讯2018校招软件开发在线笔试-编程题一">
-<meta name="twitter:description" content="题目描述给定一个 n 阶无向完全图,求第 1 个节点到第 2 个节点的最短距离, 其中可以把 k 条边的距离减半 输入第 1 行 n,k ,n-节点个数,k-可减半的边的条数 2 到 n+1 行,包含 n 个 0-9 数字的字符串,为第 i 个节点到各个节点的距离 对于所有合法的 i ,dis[i][i]=0; 输出1 行,最短路径 ExampleInputOutput题解深度优先搜索 无负权值,">
+<meta name="twitter:description" content="题目描述给定一个 n 阶无向完全图,求第 1 个节点到第 2 个节点的最短距离, 其中可以把 k 条边的距离减半输入第 1 行 n,k ,n-节点个数,k-可减半的边的条数 2 到 n+1 行,包含 n 个 0-9 数字的字符串,为第 i 个节点到各个节点的距离 对于所有合法的 i ,dis[i][i]=0;输出1 行,最短路径ExampleInputOutput题解深度优先搜索 无负权值,两点之">
 
 
 
@@ -412,12 +412,9 @@
 
       
         <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>给定一个 n 阶无向完全图,求第 1 个节点到第 2 个节点的最短距离,
-其中可以把 k 条边的距离减半
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第 1 行 n,k ,n-节点个数,k-可减半的边的条数
+其中可以把 k 条边的距离减半</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第 1 行 n,k ,n-节点个数,k-可减半的边的条数
 2 到 n+1 行,包含 n 个 0-9 数字的字符串,为第 i 个节点到各个节点的距离
-对于所有合法的 i ,dis[i][i]=0;
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>1 行,最短路径
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><ul>
+对于所有合法的 i ,dis[i][i]=0;</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>1 行,最短路径</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><ul>
 <li>无负权值,两点之间最短距离,Dijkstra算法,这是看到这个题的想法,然而,不对!</li>
 <li>用 stack 记录路径,同时用 set 记录路径权值 , ksum 记录前 k 大权值和,sum 记录全路径权值和, </li>
 <li>深搜全部路径,求出最小值</li>
@@ -465,9 +462,9 @@
           
             <a href="/tags/深度优先搜索/" rel="tag"># 深度优先搜索</a>
           
-            <a href="/tags/腾讯/" rel="tag"># 腾讯</a>
-          
             <a href="/tags/无向图/" rel="tag"># 无向图</a>
+          
+            <a href="/tags/腾讯/" rel="tag"># 腾讯</a>
           
         </div>
       
@@ -571,7 +568,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -582,7 +579,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -593,7 +590,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -673,7 +670,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="C++,笔试,二分法,二叉排序树,腾讯,">
+  <meta name="keywords" content="C++,笔试,二分法,腾讯,二叉排序树,">
 
 
 
@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目描述对于一颗满二叉排序树深度为 K,结点数为 2^K-1;节点值为 1 至 (2^K-1). 给出任意三个节点的值,输出包含该三个节点的最小子树的根节点值. 输入输入包括一行, 第一个数为树的深读 K 后三个数为任意三个节点值 输出输出包含一行,一个数字,为包含该三个节点的最小子树的根节点值 ExampleInput4 10 15 13   Output12 题解二分查找 二分查找判断当前根节">
-<meta name="keywords" content="C++,笔试,二分法,二叉排序树,腾讯">
+<meta name="description" content="题目描述对于一颗满二叉排序树深度为 K,结点数为 2^K-1;节点值为 1 至 (2^K-1). 给出任意三个节点的值,输出包含该三个节点的最小子树的根节点值.输入输入包括一行, 第一个数为树的深读 K 后三个数为任意三个节点值输出输出包含一行,一个数字,为包含该三个节点的最小子树的根节点值ExampleInput4 10 15 13  Output12题解二分查找 二分查找判断当前根节点值 ro">
+<meta name="keywords" content="C++,笔试,二分法,腾讯,二叉排序树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="腾讯2018校园招聘在线笔试模拟考-编程题">
 <meta property="og:url" content="http://bestmind.space/posts/腾讯2018校园招聘在线笔试模拟考-编程题/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目描述对于一颗满二叉排序树深度为 K,结点数为 2^K-1;节点值为 1 至 (2^K-1). 给出任意三个节点的值,输出包含该三个节点的最小子树的根节点值. 输入输入包括一行, 第一个数为树的深读 K 后三个数为任意三个节点值 输出输出包含一行,一个数字,为包含该三个节点的最小子树的根节点值 ExampleInput4 10 15 13   Output12 题解二分查找 二分查找判断当前根节">
+<meta property="og:description" content="题目描述对于一颗满二叉排序树深度为 K,结点数为 2^K-1;节点值为 1 至 (2^K-1). 给出任意三个节点的值,输出包含该三个节点的最小子树的根节点值.输入输入包括一行, 第一个数为树的深读 K 后三个数为任意三个节点值输出输出包含一行,一个数字,为包含该三个节点的最小子树的根节点值ExampleInput4 10 15 13  Output12题解二分查找 二分查找判断当前根节点值 ro">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="腾讯2018校园招聘在线笔试模拟考-编程题">
-<meta name="twitter:description" content="题目描述对于一颗满二叉排序树深度为 K,结点数为 2^K-1;节点值为 1 至 (2^K-1). 给出任意三个节点的值,输出包含该三个节点的最小子树的根节点值. 输入输入包括一行, 第一个数为树的深读 K 后三个数为任意三个节点值 输出输出包含一行,一个数字,为包含该三个节点的最小子树的根节点值 ExampleInput4 10 15 13   Output12 题解二分查找 二分查找判断当前根节">
+<meta name="twitter:description" content="题目描述对于一颗满二叉排序树深度为 K,结点数为 2^K-1;节点值为 1 至 (2^K-1). 给出任意三个节点的值,输出包含该三个节点的最小子树的根节点值.输入输入包括一行, 第一个数为树的深读 K 后三个数为任意三个节点值输出输出包含一行,一个数字,为包含该三个节点的最小子树的根节点值ExampleInput4 10 15 13  Output12题解二分查找 二分查找判断当前根节点值 ro">
 
 
 
@@ -412,14 +412,9 @@
 
       
         <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>对于一颗满二叉排序树深度为 K,结点数为 2^K-1;节点值为 1 至 (2^K-1).
-给出任意三个节点的值,输出包含该三个节点的最小子树的根节点值.
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>输入包括一行,
+给出任意三个节点的值,输出包含该三个节点的最小子树的根节点值.</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>输入包括一行,
 第一个数为树的深读 K
-后三个数为任意三个节点值
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出包含一行,一个数字,为包含该三个节点的最小子树的根节点值
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>4 10 15 13  
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>12
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><ul>
+后三个数为任意三个节点值</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出包含一行,一个数字,为包含该三个节点的最小子树的根节点值</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>4 10 15 13  </code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>12</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><ul>
 <li>二分查找判断当前根节点值 root 与给定三节点中最大与最小值的关系</li>
 <li>若 root 大于最大值,说明三点在 root 左侧,root 赋值为左子树</li>
 <li>若 root 小于最小值,说明三点在 root 左侧,root 赋值为右子树</li>
@@ -466,9 +461,9 @@
           
             <a href="/tags/二分法/" rel="tag"># 二分法</a>
           
-            <a href="/tags/二叉排序树/" rel="tag"># 二叉排序树</a>
-          
             <a href="/tags/腾讯/" rel="tag"># 腾讯</a>
+          
+            <a href="/tags/二叉排序树/" rel="tag"># 二叉排序树</a>
           
         </div>
       
@@ -481,8 +476,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/搜狐集团2018秋季校招笔试题（技术类）- 编程题二/" rel="next" title="搜狐集团2018秋季校招笔试题（技术类）-编程题二">
-                <i class="fa fa-chevron-left"></i> 搜狐集团2018秋季校招笔试题（技术类）-编程题二
+              <a href="/posts/搜狐集团2018秋季校招笔试题（技术类）-编程题一/" rel="next" title="搜狐集团2018秋季校招笔试题（技术类）-编程题一">
+                <i class="fa fa-chevron-left"></i> 搜狐集团2018秋季校招笔试题（技术类）-编程题一
               </a>
             
           </div>
@@ -572,7 +567,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -583,7 +578,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -594,7 +589,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -674,7 +669,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

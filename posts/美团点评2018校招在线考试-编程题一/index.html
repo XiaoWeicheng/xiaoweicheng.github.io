@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目描述序列中任意个连续的元素组成的子序列称为该序列的子串。 现在给你一个序列P和一个整数K，询问元素和是K的倍数的子串的最大长度。 比如序列[1,2,3,4,5]，给定的整数 K 为 5，其中满足条件的子串为{5}、{2,3}、{1,2,3,4}、{1,2,3,4,5}， 那么答案就为 5，因为最长的子串为{1,2,3,4,5}；如果满足条件的子串不存在，就输出 0。 输入第一含一个整数N, 1">
+<meta name="description" content="题目描述序列中任意个连续的元素组成的子序列称为该序列的子串。 现在给你一个序列P和一个整数K，询问元素和是K的倍数的子串的最大长度。 比如序列[1,2,3,4,5]，给定的整数 K 为 5，其中满足条件的子串为{5}、{2,3}、{1,2,3,4}、{1,2,3,4,5}， 那么答案就为 5，因为最长的子串为{1,2,3,4,5}；如果满足条件的子串不存在，就输出 0。输入第一含一个整数N, 1">
 <meta name="keywords" content="C++,笔试,美团点评">
 <meta property="og:type" content="article">
 <meta property="og:title" content="美团点评2018校招在线考试-编程题一">
 <meta property="og:url" content="http://bestmind.space/posts/美团点评2018校招在线考试-编程题一/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目描述序列中任意个连续的元素组成的子序列称为该序列的子串。 现在给你一个序列P和一个整数K，询问元素和是K的倍数的子串的最大长度。 比如序列[1,2,3,4,5]，给定的整数 K 为 5，其中满足条件的子串为{5}、{2,3}、{1,2,3,4}、{1,2,3,4,5}， 那么答案就为 5，因为最长的子串为{1,2,3,4,5}；如果满足条件的子串不存在，就输出 0。 输入第一含一个整数N, 1">
+<meta property="og:description" content="题目描述序列中任意个连续的元素组成的子序列称为该序列的子串。 现在给你一个序列P和一个整数K，询问元素和是K的倍数的子串的最大长度。 比如序列[1,2,3,4,5]，给定的整数 K 为 5，其中满足条件的子串为{5}、{2,3}、{1,2,3,4}、{1,2,3,4,5}， 那么答案就为 5，因为最长的子串为{1,2,3,4,5}；如果满足条件的子串不存在，就输出 0。输入第一含一个整数N, 1">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="美团点评2018校招在线考试-编程题一">
-<meta name="twitter:description" content="题目描述序列中任意个连续的元素组成的子序列称为该序列的子串。 现在给你一个序列P和一个整数K，询问元素和是K的倍数的子串的最大长度。 比如序列[1,2,3,4,5]，给定的整数 K 为 5，其中满足条件的子串为{5}、{2,3}、{1,2,3,4}、{1,2,3,4,5}， 那么答案就为 5，因为最长的子串为{1,2,3,4,5}；如果满足条件的子串不存在，就输出 0。 输入第一含一个整数N, 1">
+<meta name="twitter:description" content="题目描述序列中任意个连续的元素组成的子序列称为该序列的子串。 现在给你一个序列P和一个整数K，询问元素和是K的倍数的子串的最大长度。 比如序列[1,2,3,4,5]，给定的整数 K 为 5，其中满足条件的子串为{5}、{2,3}、{1,2,3,4}、{1,2,3,4,5}， 那么答案就为 5，因为最长的子串为{1,2,3,4,5}；如果满足条件的子串不存在，就输出 0。输入第一含一个整数N, 1">
 
 
 
@@ -414,25 +414,21 @@
         <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>序列中任意个连续的元素组成的子序列称为该序列的子串。
 现在给你一个序列P和一个整数K，询问元素和是K的倍数的子串的最大长度。
 比如序列[1,2,3,4,5]，给定的整数 K 为 5，其中满足条件的子串为{5}、{2,3}、{1,2,3,4}、{1,2,3,4,5}，
-那么答案就为 5，因为最长的子串为{1,2,3,4,5}；如果满足条件的子串不存在，就输出 0。
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第一含一个整数N, 1 ≤ N ≤ 105 。
+那么答案就为 5，因为最长的子串为{1,2,3,4,5}；如果满足条件的子串不存在，就输出 0。</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第一含一个整数N, 1 ≤ N ≤ 105 。
 第二行包含 N 个整数pi ，pi 表示序列 P 第 i 个元素的值。0 ≤ pi ≤ 105 。
-第三行包含一个整数 K， 1 ≤ K ≤ 105 。
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>只有一行,输出元素和是K的倍数的子串的最大长度。
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>5
+第三行包含一个整数 K， 1 ≤ K ≤ 105 。</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>只有一行,输出元素和是K的倍数的子串的最大长度。</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>5
 1 2 3 4 5
 5
 6
 2 1 7 7 7 7
-4
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>5
-5
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+4</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>5
+5</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
 <li>求出 p1…pi(1 &lt;= i &lt;= n)的和,并 mod k,</li>
 <li>对于每个余数 s(0 &lt;= i &lt; k), 求出其第一次出现位置,求出其最后一次出现的位置,两者之间元素之和即能整除 k</li>
 <li>所求即两者之差中的最大值</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,arr[<span class="number">100001</span>],k,first[<span class="number">100001</span>],last[<span class="number">100001</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,maxlen;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)!=EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        first[<span class="number">0</span>]=last[<span class="number">0</span>]=arr[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        maxlen=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;arr[i]);</span><br><span class="line">            <span class="keyword">if</span>(i)</span><br><span class="line">                arr[i]+=arr[i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;k);</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;k;++i)</span><br><span class="line">            first[i]=last[i]=<span class="number">-1</span>;</span><br><span class="line">        maxlen=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            arr[i]%=k;</span><br><span class="line">            <span class="keyword">if</span>(first[arr[i]]&lt;<span class="number">0</span>)</span><br><span class="line">                first[arr[i]]=i;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                maxlen=max(maxlen,i-first[i]);</span><br><span class="line">        &#125;last[<span class="number">0</span>]-first[<span class="number">0</span>];</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;maxlen&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -576,7 +572,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -587,7 +583,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -598,7 +594,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -678,7 +674,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

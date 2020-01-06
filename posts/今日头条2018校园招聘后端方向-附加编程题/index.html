@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目描述有一个字符串,只包含 26 个小写字母,相邻两个字母可以交换, 给定一个字符串 str 及交换次数 m, 试问在交换次数不超 m 的情况下,连续相同的字符长度最大是多少 输入1 行,一个字符串 str 及交换次数 m 输出最大连续相同的字符长度 ExampleInputabacaa 3 Output3 题解思路 作者：桐ヶ谷和人 原文: 今日头条2018校招编程题思路 枚举每种字母，计算该">
+<meta name="description" content="题目描述有一个字符串,只包含 26 个小写字母,相邻两个字母可以交换, 给定一个字符串 str 及交换次数 m, 试问在交换次数不超 m 的情况下,连续相同的字符长度最大是多少输入1 行,一个字符串 str 及交换次数 m输出最大连续相同的字符长度ExampleInputabacaa 3Output3题解思路 作者：桐ヶ谷和人 原文: 今日头条2018校招编程题思路 枚举每种字母，计算该字母在字符">
 <meta name="keywords" content="C++,笔试,今日头条">
 <meta property="og:type" content="article">
 <meta property="og:title" content="今日头条2018校园招聘后端方向-附加编程题">
 <meta property="og:url" content="http://bestmind.space/posts/今日头条2018校园招聘后端方向-附加编程题/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目描述有一个字符串,只包含 26 个小写字母,相邻两个字母可以交换, 给定一个字符串 str 及交换次数 m, 试问在交换次数不超 m 的情况下,连续相同的字符长度最大是多少 输入1 行,一个字符串 str 及交换次数 m 输出最大连续相同的字符长度 ExampleInputabacaa 3 Output3 题解思路 作者：桐ヶ谷和人 原文: 今日头条2018校招编程题思路 枚举每种字母，计算该">
+<meta property="og:description" content="题目描述有一个字符串,只包含 26 个小写字母,相邻两个字母可以交换, 给定一个字符串 str 及交换次数 m, 试问在交换次数不超 m 的情况下,连续相同的字符长度最大是多少输入1 行,一个字符串 str 及交换次数 m输出最大连续相同的字符长度ExampleInputabacaa 3Output3题解思路 作者：桐ヶ谷和人 原文: 今日头条2018校招编程题思路 枚举每种字母，计算该字母在字符">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="今日头条2018校园招聘后端方向-附加编程题">
-<meta name="twitter:description" content="题目描述有一个字符串,只包含 26 个小写字母,相邻两个字母可以交换, 给定一个字符串 str 及交换次数 m, 试问在交换次数不超 m 的情况下,连续相同的字符长度最大是多少 输入1 行,一个字符串 str 及交换次数 m 输出最大连续相同的字符长度 ExampleInputabacaa 3 Output3 题解思路 作者：桐ヶ谷和人 原文: 今日头条2018校招编程题思路 枚举每种字母，计算该">
+<meta name="twitter:description" content="题目描述有一个字符串,只包含 26 个小写字母,相邻两个字母可以交换, 给定一个字符串 str 及交换次数 m, 试问在交换次数不超 m 的情况下,连续相同的字符长度最大是多少输入1 行,一个字符串 str 及交换次数 m输出最大连续相同的字符长度ExampleInputabacaa 3Output3题解思路 作者：桐ヶ谷和人 原文: 今日头条2018校招编程题思路 枚举每种字母，计算该字母在字符">
 
 
 
@@ -413,12 +413,7 @@
       
         <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>有一个字符串,只包含 26 个小写字母,相邻两个字母可以交换,
 给定一个字符串 str 及交换次数 m,
-试问在交换次数不超 m 的情况下,连续相同的字符长度最大是多少
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行,一个字符串 str 及交换次数 m
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>最大连续相同的字符长度
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>abacaa 3
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>3
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+试问在交换次数不超 m 的情况下,连续相同的字符长度最大是多少</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行,一个字符串 str 及交换次数 m</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>最大连续相同的字符长度</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>abacaa 3</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>3</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
 <li>作者：桐ヶ谷和人</li>
 <li>原文: <a href="https://www.nowcoder.com/discuss/39775" target="_blank" rel="noopener">今日头条2018校招编程题思路</a></li>
 <li>枚举每种字母，计算该字母在字符串中出现的位置。</li>
@@ -568,7 +563,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -579,7 +574,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -590,7 +585,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -670,7 +665,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

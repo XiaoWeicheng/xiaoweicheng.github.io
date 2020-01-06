@@ -425,23 +425,18 @@
     再继续你从温哥华到西雅图的旅途。
 给出一组优惠的机票，以及一条或多条旅游路线，你要确定为了使旅行费用最少，应该如何购买机票。
 现假设：优惠机票航线不多于10条，每组优惠机票的测试用例旅行路线不多于10条，
-每张机票的航段数不多于5个，每个优惠航线票价不高于10000元
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>包含一组测试用例，测试用例中描述一组优惠机票和一组旅行路线
+每张机票的航段数不多于5个，每个优惠航线票价不高于10000元</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>包含一组测试用例，测试用例中描述一组优惠机票和一组旅行路线
 每组测试用例由4部分组成：
 第1行为优惠机票航线有多少条（n）
 第2行~第2+n-1行描述优惠机票编号，每张优惠机票的价格、航段数和航段顺序
-第2+n行描述了测试用例的旅行路线
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>对于每条旅行路线，输出两行，包括路线的最小花费；
+第2+n行描述了测试用例的旅行路线</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>对于每条旅行路线，输出两行，包括路线的最小花费；
 然后按使用顺序输出本次旅行所使用的机票编号，具体输出格式见样例，保证答案唯一。
-如果输入参数不合法，则返回Error。
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>3
+如果输入参数不合法，则返回Error。</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>3
 1 700 2 HongKong Seattle
 2 700 3 Beijing Seattle Vancouver
 3 1400 3 Beijing HongKong Vancouver
-3 Beijing HongKong Seattle
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>2100
-3 1
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+3 Beijing HongKong Seattle</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>2100
+3 1</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
 <li>最短路径的变异题,每条边上有一个起点,一个终点,多个途经点</li>
 <li>由于给了路径,所以难度降低,Dijkstra 算法变形即可</li>
 </ul>
@@ -590,7 +585,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -601,7 +596,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -612,7 +607,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -692,7 +687,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

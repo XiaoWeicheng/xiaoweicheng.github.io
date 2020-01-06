@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目描述玥玥带乔乔一起逃亡,现在有许多东西要放到乔乔的包里面, 但是包的大小有限,所以我们只能够在里面放入非常重要的物品. 现在给出该种物品的数量,体积,价值的数值, 希望你能够算出怎样能使背包的价值最大的组合方式, 并且输出这个数值,乔乔会非常感谢你的 输入第 1 行有两个整数,物品种数 n 和背包装载体积v; 第 2 到 n+1 行每行三个整数,为第 i 种物品的数量 m,体积 v,价值s">
+<meta name="description" content="题目描述玥玥带乔乔一起逃亡,现在有许多东西要放到乔乔的包里面, 但是包的大小有限,所以我们只能够在里面放入非常重要的物品. 现在给出该种物品的数量,体积,价值的数值, 希望你能够算出怎样能使背包的价值最大的组合方式, 并且输出这个数值,乔乔会非常感谢你的输入第 1 行有两个整数,物品种数 n 和背包装载体积v; 第 2 到 n+1 行每行三个整数,为第 i 种物品的数量 m,体积 v,价值s 输出">
 <meta name="keywords" content="C++,笔试,动态规划,链家">
 <meta property="og:type" content="article">
 <meta property="og:title" content="链家2018链习生招聘考试-编程题一">
 <meta property="og:url" content="http://bestmind.space/posts/链家2018链习生招聘考试-编程题一/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目描述玥玥带乔乔一起逃亡,现在有许多东西要放到乔乔的包里面, 但是包的大小有限,所以我们只能够在里面放入非常重要的物品. 现在给出该种物品的数量,体积,价值的数值, 希望你能够算出怎样能使背包的价值最大的组合方式, 并且输出这个数值,乔乔会非常感谢你的 输入第 1 行有两个整数,物品种数 n 和背包装载体积v; 第 2 到 n+1 行每行三个整数,为第 i 种物品的数量 m,体积 v,价值s">
+<meta property="og:description" content="题目描述玥玥带乔乔一起逃亡,现在有许多东西要放到乔乔的包里面, 但是包的大小有限,所以我们只能够在里面放入非常重要的物品. 现在给出该种物品的数量,体积,价值的数值, 希望你能够算出怎样能使背包的价值最大的组合方式, 并且输出这个数值,乔乔会非常感谢你的输入第 1 行有两个整数,物品种数 n 和背包装载体积v; 第 2 到 n+1 行每行三个整数,为第 i 种物品的数量 m,体积 v,价值s 输出">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="链家2018链习生招聘考试-编程题一">
-<meta name="twitter:description" content="题目描述玥玥带乔乔一起逃亡,现在有许多东西要放到乔乔的包里面, 但是包的大小有限,所以我们只能够在里面放入非常重要的物品. 现在给出该种物品的数量,体积,价值的数值, 希望你能够算出怎样能使背包的价值最大的组合方式, 并且输出这个数值,乔乔会非常感谢你的 输入第 1 行有两个整数,物品种数 n 和背包装载体积v; 第 2 到 n+1 行每行三个整数,为第 i 种物品的数量 m,体积 v,价值s">
+<meta name="twitter:description" content="题目描述玥玥带乔乔一起逃亡,现在有许多东西要放到乔乔的包里面, 但是包的大小有限,所以我们只能够在里面放入非常重要的物品. 现在给出该种物品的数量,体积,价值的数值, 希望你能够算出怎样能使背包的价值最大的组合方式, 并且输出这个数值,乔乔会非常感谢你的输入第 1 行有两个整数,物品种数 n 和背包装载体积v; 第 2 到 n+1 行每行三个整数,为第 i 种物品的数量 m,体积 v,价值s 输出">
 
 
 
@@ -415,21 +415,17 @@
 但是包的大小有限,所以我们只能够在里面放入非常重要的物品.
 现在给出该种物品的数量,体积,价值的数值,
 希望你能够算出怎样能使背包的价值最大的组合方式,
-并且输出这个数值,乔乔会非常感谢你的
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第 1 行有两个整数,物品种数 n 和背包装载体积v;
-第 2 到 n+1 行每行三个整数,为第 i 种物品的数量 m,体积 v,价值s 
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>仅包含一个整数,即为能拿到的最大的物品价值总和
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>2 10
+并且输出这个数值,乔乔会非常感谢你的</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第 1 行有两个整数,物品种数 n 和背包装载体积v;
+第 2 到 n+1 行每行三个整数,为第 i 种物品的数量 m,体积 v,价值s </code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>仅包含一个整数,即为能拿到的最大的物品价值总和</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>2 10
 3 4 3
-2 2 5
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>13
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ul>
+2 2 5</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>13</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ul>
 <li>定义 value(i,j) 为在背包装载体积为 i,物品为第 1 到 j 个的情况下,背包的最大价值</li>
 <li>value(v,sum(m[i])) 即为所求</li>
 <li>可以把空间复杂度从 O(nv) 降到 O(v)</li>
 <li>状态转移方程:</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">value(i,j) = |-&gt; max(value(i-w[j],j-1)+s[j],value(i-1,j-1) (i-w[j] &gt;= 0)</span><br><span class="line">             |-&gt; value(i-1,j-1) (i-w[j] &lt; 0)</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,v,c=<span class="number">0</span>,maxs=<span class="number">0</span>,value[<span class="number">501</span>],w[<span class="number">20001</span>],s[<span class="number">20001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(value,<span class="number">0</span>,<span class="keyword">sizeof</span> value);</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;v;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,j=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;m,&amp;w[j],&amp;s[j]);</span><br><span class="line">        c+=m;</span><br><span class="line">        <span class="keyword">int</span> k=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(;k&lt;m;++k)</span><br><span class="line">        &#123;</span><br><span class="line">            w[k+j]=w[j],s[k+j]=s[j];</span><br><span class="line">        &#125;</span><br><span class="line">        j+=k;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=c;++j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=v;i&gt;<span class="number">0</span>;--i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> k=i-w[j];</span><br><span class="line">            value[i]=(k&gt;=<span class="number">0</span>?max(value[k]+s[j],value[i<span class="number">-1</span>]):value[i<span class="number">-1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;value[v];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -575,7 +571,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -586,7 +582,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -597,7 +593,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -677,7 +673,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="C++,笔试,滴滴,贪心,">
+  <meta name="keywords" content="C++,笔试,贪心,滴滴,">
 
 
 
@@ -96,7 +96,7 @@
 
 
 <meta name="description" content="题目描述给出 n 个数字 a[i],,,a[n],问最多有多少不重复的非空区间, 使得每个区间 内数字的 xor 都等于 0 即找出最大的 k,使得存在 k 个区间 (l[i],r[i]), 满足 1&amp;lt;=l[i]&amp;lt;=r[i]&amp;lt;=n (1&amp;lt;=i&amp;lt;=k),r[i]&amp;lt;l[i+1] (1&amp;lt;=i&amp;lt;=k) 且 a[l[i]] xor a[l[i]+1] xor.">
-<meta name="keywords" content="C++,笔试,滴滴,贪心">
+<meta name="keywords" content="C++,笔试,贪心,滴滴">
 <meta property="og:type" content="article">
 <meta property="og:title" content="滴滴出行2018校园招聘网申笔试-研发工程师-编程题一">
 <meta property="og:url" content="http://bestmind.space/posts/滴滴出行2018校园招聘网申笔试-研发工程师-编程题一/index.html">
@@ -415,13 +415,8 @@
 使得每个区间 内数字的 xor 都等于 0
 即找出最大的 k,使得存在 k 个区间 (l[i],r[i]),
 满足 1&lt;=l[i]&lt;=r[i]&lt;=n (1&lt;=i&lt;=k),r[i]&lt;l[i+1] (1&lt;=i&lt;=k)
-且 a[l[i]] xor a[l[i]+1] xor...xora[r[i]]=0 (1&lt;=i&lt;=k)
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第 1 行一个整数 n,第 2 行 n 个整数 a[i]...a[n]
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>1 个整数表示最多区间的个数
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>4
-3 0 2 2
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>2
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h3><ul>
+且 a[l[i]] xor a[l[i]+1] xor...xora[r[i]]=0 (1&lt;=i&lt;=k)</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第 1 行一个整数 n,第 2 行 n 个整数 a[i]...a[n]</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>1 个整数表示最多区间的个数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>4
+3 0 2 2</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>2</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h3><ul>
 <li>记开始处为 s=1,计数器 c=0</li>
 <li>寻找第一个满足条件的连续子序列,假设为 i~j (s&lt;=i&lt;=j=n)</li>
 <li>计数器 c=c+1</li>
@@ -468,9 +463,9 @@
           
             <a href="/tags/笔试/" rel="tag"># 笔试</a>
           
-            <a href="/tags/滴滴/" rel="tag"># 滴滴</a>
-          
             <a href="/tags/贪心/" rel="tag"># 贪心</a>
+          
+            <a href="/tags/滴滴/" rel="tag"># 滴滴</a>
           
         </div>
       
@@ -574,7 +569,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -585,7 +580,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -596,7 +591,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -676,7 +671,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

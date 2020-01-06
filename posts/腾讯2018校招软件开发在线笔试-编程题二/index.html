@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目描述有两个数 a,b 只能进行以下操作 * +1 * *2 现有 a,b,A,B 四个数,对 a,b 同时进行以上同样的操作,求最少多少步可以 a 变为 A,b 变为 B 若不行则输出 -1 输入1 行 4 个数 a,b,A,B 输出最少步数 ExampleInputOutput题解深度优先搜索 当 A 小于 a 或 B 小于 b,不可达 当 A 为偶数,可由 A/2 或 A-1 得到,A 为">
+<meta name="description" content="题目描述有两个数 a,b 只能进行以下操作 * +1 * *2 现有 a,b,A,B 四个数,对 a,b 同时进行以上同样的操作,求最少多少步可以 a 变为 A,b 变为 B 若不行则输出 -1输入1 行 4 个数 a,b,A,B输出最少步数ExampleInputOutput题解深度优先搜索 当 A 小于 a 或 B 小于 b,不可达 当 A 为偶数,可由 A/2 或 A-1 得到,A 为奇数,">
 <meta name="keywords" content="C++,笔试,深度优先搜索,腾讯">
 <meta property="og:type" content="article">
 <meta property="og:title" content="腾讯2018校招软件开发在线笔试-编程题二">
 <meta property="og:url" content="http://bestmind.space/posts/腾讯2018校招软件开发在线笔试-编程题二/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目描述有两个数 a,b 只能进行以下操作 * +1 * *2 现有 a,b,A,B 四个数,对 a,b 同时进行以上同样的操作,求最少多少步可以 a 变为 A,b 变为 B 若不行则输出 -1 输入1 行 4 个数 a,b,A,B 输出最少步数 ExampleInputOutput题解深度优先搜索 当 A 小于 a 或 B 小于 b,不可达 当 A 为偶数,可由 A/2 或 A-1 得到,A 为">
+<meta property="og:description" content="题目描述有两个数 a,b 只能进行以下操作 * +1 * *2 现有 a,b,A,B 四个数,对 a,b 同时进行以上同样的操作,求最少多少步可以 a 变为 A,b 变为 B 若不行则输出 -1输入1 行 4 个数 a,b,A,B输出最少步数ExampleInputOutput题解深度优先搜索 当 A 小于 a 或 B 小于 b,不可达 当 A 为偶数,可由 A/2 或 A-1 得到,A 为奇数,">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="腾讯2018校招软件开发在线笔试-编程题二">
-<meta name="twitter:description" content="题目描述有两个数 a,b 只能进行以下操作 * +1 * *2 现有 a,b,A,B 四个数,对 a,b 同时进行以上同样的操作,求最少多少步可以 a 变为 A,b 变为 B 若不行则输出 -1 输入1 行 4 个数 a,b,A,B 输出最少步数 ExampleInputOutput题解深度优先搜索 当 A 小于 a 或 B 小于 b,不可达 当 A 为偶数,可由 A/2 或 A-1 得到,A 为">
+<meta name="twitter:description" content="题目描述有两个数 a,b 只能进行以下操作 * +1 * *2 现有 a,b,A,B 四个数,对 a,b 同时进行以上同样的操作,求最少多少步可以 a 变为 A,b 变为 B 若不行则输出 -1输入1 行 4 个数 a,b,A,B输出最少步数ExampleInputOutput题解深度优先搜索 当 A 小于 a 或 B 小于 b,不可达 当 A 为偶数,可由 A/2 或 A-1 得到,A 为奇数,">
 
 
 
@@ -415,10 +415,7 @@
 * +1
 * *2
 现有 a,b,A,B 四个数,对 a,b 同时进行以上同样的操作,求最少多少步可以 a 变为 A,b 变为 B
-若不行则输出 -1
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行 4 个数 a,b,A,B
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>最少步数
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><ul>
+若不行则输出 -1</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行 4 个数 a,b,A,B</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>最少步数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><ul>
 <li>当 A 小于 a 或 B 小于 b,不可达</li>
 <li>当 A 为偶数,可由 A/2 或 A-1 得到,A 为奇数,只能由 A-1 得到</li>
 <li>对于其中 A,B 中只要有一个奇数,则只由 A-1,B-1 得到</li>
@@ -569,7 +566,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -580,7 +577,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -591,7 +588,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -671,7 +668,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

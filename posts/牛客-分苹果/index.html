@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目描述n 只奶牛坐在一排，每个奶牛拥有 ai 个苹果， 现在你要在它们之间转移苹果，使得最后所有奶牛拥有的苹果数都相同， 每一次，你只能从一只奶牛身上拿走恰好两个苹果到另一个奶牛上， 问最少需要移动多少次可以平分苹果，如果方案不存在输出 -1。 输入每个输入包含一个测试用例。 每个测试用例的第一行包含一个整数 n（1 &amp;lt;= n &amp;lt;= 100）， 接下来的一行包含 n 个整数 ai（1">
+<meta name="description" content="题目描述n 只奶牛坐在一排，每个奶牛拥有 ai 个苹果， 现在你要在它们之间转移苹果，使得最后所有奶牛拥有的苹果数都相同， 每一次，你只能从一只奶牛身上拿走恰好两个苹果到另一个奶牛上， 问最少需要移动多少次可以平分苹果，如果方案不存在输出 -1。输入每个输入包含一个测试用例。 每个测试用例的第一行包含一个整数 n（1 &amp;lt;= n &amp;lt;= 100）， 接下来的一行包含 n 个整数 ai（1">
 <meta name="keywords" content="C++,牛客,2017校招">
 <meta property="og:type" content="article">
 <meta property="og:title" content="牛客-分苹果">
 <meta property="og:url" content="http://bestmind.space/posts/牛客-分苹果/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目描述n 只奶牛坐在一排，每个奶牛拥有 ai 个苹果， 现在你要在它们之间转移苹果，使得最后所有奶牛拥有的苹果数都相同， 每一次，你只能从一只奶牛身上拿走恰好两个苹果到另一个奶牛上， 问最少需要移动多少次可以平分苹果，如果方案不存在输出 -1。 输入每个输入包含一个测试用例。 每个测试用例的第一行包含一个整数 n（1 &amp;lt;= n &amp;lt;= 100）， 接下来的一行包含 n 个整数 ai（1">
+<meta property="og:description" content="题目描述n 只奶牛坐在一排，每个奶牛拥有 ai 个苹果， 现在你要在它们之间转移苹果，使得最后所有奶牛拥有的苹果数都相同， 每一次，你只能从一只奶牛身上拿走恰好两个苹果到另一个奶牛上， 问最少需要移动多少次可以平分苹果，如果方案不存在输出 -1。输入每个输入包含一个测试用例。 每个测试用例的第一行包含一个整数 n（1 &amp;lt;= n &amp;lt;= 100）， 接下来的一行包含 n 个整数 ai（1">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="牛客-分苹果">
-<meta name="twitter:description" content="题目描述n 只奶牛坐在一排，每个奶牛拥有 ai 个苹果， 现在你要在它们之间转移苹果，使得最后所有奶牛拥有的苹果数都相同， 每一次，你只能从一只奶牛身上拿走恰好两个苹果到另一个奶牛上， 问最少需要移动多少次可以平分苹果，如果方案不存在输出 -1。 输入每个输入包含一个测试用例。 每个测试用例的第一行包含一个整数 n（1 &amp;lt;= n &amp;lt;= 100）， 接下来的一行包含 n 个整数 ai（1">
+<meta name="twitter:description" content="题目描述n 只奶牛坐在一排，每个奶牛拥有 ai 个苹果， 现在你要在它们之间转移苹果，使得最后所有奶牛拥有的苹果数都相同， 每一次，你只能从一只奶牛身上拿走恰好两个苹果到另一个奶牛上， 问最少需要移动多少次可以平分苹果，如果方案不存在输出 -1。输入每个输入包含一个测试用例。 每个测试用例的第一行包含一个整数 n（1 &amp;lt;= n &amp;lt;= 100）， 接下来的一行包含 n 个整数 ai（1">
 
 
 
@@ -414,15 +414,10 @@
         <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>n 只奶牛坐在一排，每个奶牛拥有 ai 个苹果，
 现在你要在它们之间转移苹果，使得最后所有奶牛拥有的苹果数都相同，
 每一次，你只能从一只奶牛身上拿走恰好两个苹果到另一个奶牛上，
-问最少需要移动多少次可以平分苹果，如果方案不存在输出 -1。
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>每个输入包含一个测试用例。
+问最少需要移动多少次可以平分苹果，如果方案不存在输出 -1。</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>每个输入包含一个测试用例。
 每个测试用例的第一行包含一个整数 n（1 &lt;= n &lt;= 100），
-接下来的一行包含 n 个整数 ai（1 &lt;= ai &lt;= 100）。
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出一行表示最少需要移动多少次可以平分苹果，如果方案不存在则输出 -1。
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>4
-7 15 9 5
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>3
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+接下来的一行包含 n 个整数 ai（1 &lt;= ai &lt;= 100）。</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出一行表示最少需要移动多少次可以平分苹果，如果方案不存在则输出 -1。</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>4
+7 15 9 5</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>3</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
 <li>因为每次只能移动两个苹果,所以苹果的个数要么全为奇数,要么全为偶数,</li>
 <li>苹果总数 sum 必须可以被奶牛数量 n 整除;</li>
 <li>每个奶牛平均得到的苹果数的奇偶性应该和苹果初始的奇偶性相同</li>
@@ -571,7 +566,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -582,7 +577,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -593,7 +588,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -673,7 +668,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

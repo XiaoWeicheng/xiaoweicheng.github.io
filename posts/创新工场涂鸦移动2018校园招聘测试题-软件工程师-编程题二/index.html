@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目描述给定一字符串只包含数字，请写一个算法， 找出该字符串中的最长不重复子串 （不重复是指子串中每一元素不同于子串中其他元素） 输入1 行,一个字符全为数字的字符串 输出1 行,最长不重复子串 ExampleInput120135435 Output201354 题解思路 定义 len(i) 为以下标 i 开始的不重复子串的最大长度 初始化 len(i) 为与str[i]相同的下一个字符的距离,">
+<meta name="description" content="题目描述给定一字符串只包含数字，请写一个算法， 找出该字符串中的最长不重复子串 （不重复是指子串中每一元素不同于子串中其他元素）输入1 行,一个字符全为数字的字符串输出1 行,最长不重复子串ExampleInput120135435Output201354题解思路 定义 len(i) 为以下标 i 开始的不重复子串的最大长度 初始化 len(i) 为与str[i]相同的下一个字符的距离,若没有则设">
 <meta name="keywords" content="C++,笔试,动态规划,涂鸦移动">
 <meta property="og:type" content="article">
 <meta property="og:title" content="创新工场涂鸦移动2018校园招聘测试题-软件工程师-编程题二">
 <meta property="og:url" content="http://bestmind.space/posts/创新工场涂鸦移动2018校园招聘测试题-软件工程师-编程题二/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目描述给定一字符串只包含数字，请写一个算法， 找出该字符串中的最长不重复子串 （不重复是指子串中每一元素不同于子串中其他元素） 输入1 行,一个字符全为数字的字符串 输出1 行,最长不重复子串 ExampleInput120135435 Output201354 题解思路 定义 len(i) 为以下标 i 开始的不重复子串的最大长度 初始化 len(i) 为与str[i]相同的下一个字符的距离,">
+<meta property="og:description" content="题目描述给定一字符串只包含数字，请写一个算法， 找出该字符串中的最长不重复子串 （不重复是指子串中每一元素不同于子串中其他元素）输入1 行,一个字符全为数字的字符串输出1 行,最长不重复子串ExampleInput120135435Output201354题解思路 定义 len(i) 为以下标 i 开始的不重复子串的最大长度 初始化 len(i) 为与str[i]相同的下一个字符的距离,若没有则设">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创新工场涂鸦移动2018校园招聘测试题-软件工程师-编程题二">
-<meta name="twitter:description" content="题目描述给定一字符串只包含数字，请写一个算法， 找出该字符串中的最长不重复子串 （不重复是指子串中每一元素不同于子串中其他元素） 输入1 行,一个字符全为数字的字符串 输出1 行,最长不重复子串 ExampleInput120135435 Output201354 题解思路 定义 len(i) 为以下标 i 开始的不重复子串的最大长度 初始化 len(i) 为与str[i]相同的下一个字符的距离,">
+<meta name="twitter:description" content="题目描述给定一字符串只包含数字，请写一个算法， 找出该字符串中的最长不重复子串 （不重复是指子串中每一元素不同于子串中其他元素）输入1 行,一个字符全为数字的字符串输出1 行,最长不重复子串ExampleInput120135435Output201354题解思路 定义 len(i) 为以下标 i 开始的不重复子串的最大长度 初始化 len(i) 为与str[i]相同的下一个字符的距离,若没有则设">
 
 
 
@@ -413,17 +413,13 @@
       
         <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>给定一字符串只包含数字，请写一个算法，
 找出该字符串中的最长不重复子串
-（不重复是指子串中每一元素不同于子串中其他元素）
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行,一个字符全为数字的字符串
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>1 行,最长不重复子串
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>120135435
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>201354
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+（不重复是指子串中每一元素不同于子串中其他元素）</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行,一个字符全为数字的字符串</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>1 行,最长不重复子串</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>120135435</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>201354</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
 <li>定义 len(i) 为以下标 i 开始的不重复子串的最大长度</li>
 <li>初始化 len(i) 为与str[i]相同的下一个字符的距离,若没有则设定下个相同字符的位置为 n</li>
 <li>状态转移方程:</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len(i)=min(len(i),len(i+1)+1)</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//最长不重复子串</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">lookUp</span><span class="params">(<span class="built_in">string</span> str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//获取串长度</span></span><br><span class="line">    <span class="keyword">int</span> n=str.length(); </span><br><span class="line">    <span class="comment">//申请辅助空间,flag[i] 为后一个 i 在 str 中的位置,</span></span><br><span class="line">	<span class="comment">//len[i] 为以 i 为第一个字符的不重复子串的长度</span></span><br><span class="line">    <span class="keyword">int</span> flag[<span class="number">10</span>],*len=<span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">5</span>]; </span><br><span class="line">    <span class="comment">//初始化 flag</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;++i)   </span><br><span class="line">        flag[i]=n;</span><br><span class="line">    <span class="comment">//初始化 len</span></span><br><span class="line">    <span class="built_in">memset</span>(len,<span class="number">0</span>,<span class="keyword">sizeof</span> len);   </span><br><span class="line">    len[n]=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//初始化 len[i] 为当前字符与其后面第一个相同的自字符的距离</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i) </span><br><span class="line">    &#123;</span><br><span class="line">        len[i]=flag[str[i]-<span class="string">'0'</span>]-i;</span><br><span class="line">        flag[str[i]-<span class="string">'0'</span>]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//保存最大子串的首</span></span><br><span class="line">    <span class="keyword">int</span> maxi=n; </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//len[i] 的值更新为 len[i] 与 len[i+1]+1 两数之中的小者</span></span><br><span class="line">        len[i]=min(len[i],len[i+<span class="number">1</span>]+<span class="number">1</span>); </span><br><span class="line">        <span class="comment">//更新最长不重复子串首字符位置 </span></span><br><span class="line">        <span class="keyword">if</span>(len[maxi]&lt;len[i])maxi=i; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//输出最长不重复子串</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=maxi;i-maxi&lt;len[maxi];++i)    </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%c"</span>,str[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;str)</span><br><span class="line">    &#123;</span><br><span class="line">        lookUp(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -569,7 +565,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -580,7 +576,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -591,7 +587,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -671,7 +667,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

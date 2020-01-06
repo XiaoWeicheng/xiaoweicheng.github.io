@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="题目描述在一个圆上选定任意一点为原点 O, 圆上任意一点的坐标为此点与原点 O 的顺时针夹角, 即任意点的坐标区间为[0,360), 定义两个点之间的距离为两点之间与圆心形成的最大圆心劣角的大小, 现在给出 n 个圆上的点,求出这些点之间的最大距离, 且保留至小数点后 8 位 输入n+1 行, 第 1 行 n 为点的个数 第 2 行到第 n+1 行为每个点的坐标 输出1 行,这些点之间的最大距离">
+<meta name="description" content="题目描述在一个圆上选定任意一点为原点 O, 圆上任意一点的坐标为此点与原点 O 的顺时针夹角, 即任意点的坐标区间为[0,360), 定义两个点之间的距离为两点之间与圆心形成的最大圆心劣角的大小, 现在给出 n 个圆上的点,求出这些点之间的最大距离, 且保留至小数点后 8 位输入n+1 行, 第 1 行 n 为点的个数 第 2 行到第 n+1 行为每个点的坐标输出1 行,这些点之间的最大距离Exa">
 <meta name="keywords" content="C++,笔试,动态规划,搜狗">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搜狗2018校招在线考试-编程题">
 <meta property="og:url" content="http://bestmind.space/posts/搜狗2018校招在线考试-编程题/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="题目描述在一个圆上选定任意一点为原点 O, 圆上任意一点的坐标为此点与原点 O 的顺时针夹角, 即任意点的坐标区间为[0,360), 定义两个点之间的距离为两点之间与圆心形成的最大圆心劣角的大小, 现在给出 n 个圆上的点,求出这些点之间的最大距离, 且保留至小数点后 8 位 输入n+1 行, 第 1 行 n 为点的个数 第 2 行到第 n+1 行为每个点的坐标 输出1 行,这些点之间的最大距离">
+<meta property="og:description" content="题目描述在一个圆上选定任意一点为原点 O, 圆上任意一点的坐标为此点与原点 O 的顺时针夹角, 即任意点的坐标区间为[0,360), 定义两个点之间的距离为两点之间与圆心形成的最大圆心劣角的大小, 现在给出 n 个圆上的点,求出这些点之间的最大距离, 且保留至小数点后 8 位输入n+1 行, 第 1 行 n 为点的个数 第 2 行到第 n+1 行为每个点的坐标输出1 行,这些点之间的最大距离Exa">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-07T10:49:29.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搜狗2018校招在线考试-编程题">
-<meta name="twitter:description" content="题目描述在一个圆上选定任意一点为原点 O, 圆上任意一点的坐标为此点与原点 O 的顺时针夹角, 即任意点的坐标区间为[0,360), 定义两个点之间的距离为两点之间与圆心形成的最大圆心劣角的大小, 现在给出 n 个圆上的点,求出这些点之间的最大距离, 且保留至小数点后 8 位 输入n+1 行, 第 1 行 n 为点的个数 第 2 行到第 n+1 行为每个点的坐标 输出1 行,这些点之间的最大距离">
+<meta name="twitter:description" content="题目描述在一个圆上选定任意一点为原点 O, 圆上任意一点的坐标为此点与原点 O 的顺时针夹角, 即任意点的坐标区间为[0,360), 定义两个点之间的距离为两点之间与圆心形成的最大圆心劣角的大小, 现在给出 n 个圆上的点,求出这些点之间的最大距离, 且保留至小数点后 8 位输入n+1 行, 第 1 行 n 为点的个数 第 2 行到第 n+1 行为每个点的坐标输出1 行,这些点之间的最大距离Exa">
 
 
 
@@ -416,18 +416,13 @@
 即任意点的坐标区间为[0,360),
 定义两个点之间的距离为两点之间与圆心形成的最大圆心劣角的大小,
 现在给出 n 个圆上的点,求出这些点之间的最大距离,
-且保留至小数点后 8 位
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>n+1 行,
+且保留至小数点后 8 位</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>n+1 行,
 第 1 行 n 为点的个数
-第 2 行到第 n+1 行为每个点的坐标
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>1 行,这些点之间的最大距离
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>4
+第 2 行到第 n+1 行为每个点的坐标</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>1 行,这些点之间的最大距离</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>4
 10.00000000
 180.00000000
 183.00000000
-198.00000000
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>173.00000000
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ol>
+198.00000000</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>173.00000000</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ol>
 <li>记录当前开始位置 s,终止位置 e</li>
 <li>初始值 s=0,e=1</li>
 <li>依次增大 e ,计算 s,e 之间的距离 d</li>
@@ -588,7 +583,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -599,7 +594,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -610,7 +605,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -690,7 +685,7 @@
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

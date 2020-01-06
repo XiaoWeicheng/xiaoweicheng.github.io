@@ -425,18 +425,13 @@
 * 根据下面的规则识别出组件中的单词，并使用下划线将单词进行分隔（具体参照输入输出样例）：
     * 第一个大写字母与后面连续的小写字母一起识别为一个单词，如果不以大写字母开头，则直接将连续的小写字母识别为一个单词；
     * 连续的大写字母一起识别为一个单词，但是如果最后一个大写字母后面跟着小写字母，则最后一个大写字母不包含在内；
-    * 连续的数字一起识别为一个单词；
-</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>多行字符串，每行是一个类名
-</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>多行字符串，每行是一个转化后的include guard宏，与输入对应
-</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>a
+    * 连续的数字一起识别为一个单词；</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>多行字符串，每行是一个类名</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>多行字符串，每行是一个转化后的include guard宏，与输入对应</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>a
 my.ABC
 simple.HelloService
-MY.ASTParser12
-</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>_A_
+MY.ASTParser12</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>_A_
 _MY_ABC_
 _SIMPLE_HELLO_SERVICE_
-_MY_AST_PARSER_12_
-</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+_MY_AST_PARSER_12_</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
 <li>暴力,注意替换和添加’_’的条件</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">1000</span>];</span><br><span class="line"><span class="keyword">char</span> tmp[<span class="number">2000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;str)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> len=<span class="built_in">strlen</span>(str);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;i&lt;len;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!i) tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">            <span class="keyword">if</span>(str[i]==<span class="string">'.'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str[i]&gt;=<span class="string">'A'</span>&amp;&amp;str[i]&lt;=<span class="string">'Z'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>( i &amp;&amp; tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span> &amp;&amp;</span><br><span class="line">                   ( str[i<span class="number">-1</span>]&lt;<span class="string">'A'</span>||str[i<span class="number">-1</span>]&gt;<span class="string">'Z'</span> ||</span><br><span class="line">                     str[i<span class="number">-1</span>]&gt;=<span class="string">'A'</span>&amp;&amp;str[i<span class="number">-1</span>]&lt;=<span class="string">'Z'</span> &amp;&amp;</span><br><span class="line">                     str[i+<span class="number">1</span>]&gt;=<span class="string">'a'</span>&amp;&amp;str[i+<span class="number">1</span>]&lt;=<span class="string">'z'</span></span><br><span class="line">                    )</span><br><span class="line">                   )</span><br><span class="line">                    tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">                tmp[j++]=str[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str[i]&gt;=<span class="string">'a'</span>&amp;&amp;str[i]&lt;=<span class="string">'z'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i &amp;&amp; tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span> &amp;&amp;</span><br><span class="line">                   ( str[i<span class="number">-1</span>]&lt;<span class="string">'A'</span> || str[i<span class="number">-1</span>]&gt;<span class="string">'Z'</span> &amp;&amp;</span><br><span class="line">                     str[i<span class="number">-1</span>]&lt;<span class="string">'a'</span> || str[i<span class="number">-1</span>]&gt;<span class="string">'z'</span></span><br><span class="line">                    )</span><br><span class="line">                   )</span><br><span class="line">                    tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">                tmp[j++]=str[i]<span class="number">-32</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str[i]&gt;=<span class="string">'0'</span>&amp;&amp;str[i]&lt;=<span class="string">'9'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i &amp;&amp; tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span> &amp;&amp;</span><br><span class="line">                   ( str[i<span class="number">-1</span>]&lt;<span class="string">'0'</span>||str[i<span class="number">-1</span>]&gt;<span class="string">'9'</span> )</span><br><span class="line">                   )</span><br><span class="line">                    tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">                tmp[j++]=str[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str[i]=<span class="string">'_'</span>&amp;&amp;tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span>)</span><br><span class="line">                tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">            <span class="keyword">if</span>(i==len<span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span>)</span><br><span class="line">                    tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">                tmp[j++]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;tmp&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -584,7 +579,7 @@ _MY_AST_PARSER_12_
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -595,7 +590,7 @@ _MY_AST_PARSER_12_
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -606,7 +601,7 @@ _MY_AST_PARSER_12_
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -686,7 +681,7 @@ _MY_AST_PARSER_12_
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

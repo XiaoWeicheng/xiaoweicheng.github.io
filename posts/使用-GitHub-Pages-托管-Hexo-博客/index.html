@@ -420,34 +420,27 @@
   type: git
   repo: &lt;repository url&gt;
   branch: [branch]
-  message: [message]
-</code></pre><ul>
+  message: [message]</code></pre><ul>
 <li>repo: 仓库的URL,就是刚才新建的仓库地址<br></li>
 <li>branch: 要同步的分支( 因为是用Github Pages 做服务器,分支这里必须填 master )<br></li>
 <li>message: 提交信息.</li>
 </ul>
 <h2 id="发布网站到-GitHub-Pages"><a href="#发布网站到-GitHub-Pages" class="headerlink" title="发布网站到 GitHub Pages"></a>发布网站到 GitHub Pages</h2><p>一下三种之中任意一种都可以</p>
 <h3 id="命令-I"><a href="#命令-I" class="headerlink" title="命令 I"></a>命令 I</h3><pre><code>hexo generate
-hexo deploy
-</code></pre><p>当然可以简化为</p>
+hexo deploy</code></pre><p>当然可以简化为</p>
 <pre><code>hexo g
-hexo d
-</code></pre><h3 id="命令-II"><a href="#命令-II" class="headerlink" title="命令 II"></a>命令 II</h3><pre><code>hexo generate --deploy
-</code></pre><p>简化</p>
-<pre><code>hexo g -d
-</code></pre><h3 id="命令-III"><a href="#命令-III" class="headerlink" title="命令 III"></a>命令 III</h3><pre><code>hexo deploy --generate
-</code></pre><p>简化</p>
-<pre><code>hexo d -g
-</code></pre><h3 id="命令执行结果"><a href="#命令执行结果" class="headerlink" title="命令执行结果"></a>命令执行结果</h3><p>必须看到以下 Log 才算完全成功</p>
-<pre><code>INFO  Deploy done:
-</code></pre><h2 id="查看你的博客"><a href="#查看你的博客" class="headerlink" title="查看你的博客"></a>查看你的博客</h2><p>浏览器地址栏输入 <font color="orange">username</font><font color="skyblue">.github.io</font> </p>
+hexo d</code></pre><h3 id="命令-II"><a href="#命令-II" class="headerlink" title="命令 II"></a>命令 II</h3><pre><code>hexo generate --deploy</code></pre><p>简化</p>
+<pre><code>hexo g -d</code></pre><h3 id="命令-III"><a href="#命令-III" class="headerlink" title="命令 III"></a>命令 III</h3><pre><code>hexo deploy --generate</code></pre><p>简化</p>
+<pre><code>hexo d -g</code></pre><h3 id="命令执行结果"><a href="#命令执行结果" class="headerlink" title="命令执行结果"></a>命令执行结果</h3><p>必须看到以下 Log 才算完全成功</p>
+<pre><code>INFO  Deploy done:</code></pre><h2 id="查看你的博客"><a href="#查看你的博客" class="headerlink" title="查看你的博客"></a>查看你的博客</h2><p>浏览器地址栏输入 <font color="orange">username</font><font color="skyblue">.github.io</font> </p>
 <h2 id="接下来说说把整个项目同步到-GitHub"><a href="#接下来说说把整个项目同步到-GitHub" class="headerlink" title="接下来说说把整个项目同步到 GitHub"></a>接下来说说把整个项目同步到 GitHub</h2><p>有两种方法</p>
 <ul>
 <li>放到 username.github.io 仓库下</li>
 <li>放到其他仓库下( 当然是你自己建的仓库,仓库名根据自己的喜好取 )</li>
 </ul>
 <h3 id="username-github-io"><a href="#username-github-io" class="headerlink" title="username.github.io"></a>username.github.io</h3><ul>
-<li>在你自己的 username.github.io 下新建 Branch (分支),分支名自取,例: hexo</li>
+<li><p>在你自己的 username.github.io 下新建 Branch (分支),分支名自取,例: hexo</p>
+</li>
 <li><p>初始化 git</p>
 <p>  git init</p>
 </li>
@@ -471,7 +464,8 @@ hexo d
 </li>
 </ul>
 <h3 id="其他仓库"><a href="#其他仓库" class="headerlink" title="其他仓库"></a>其他仓库</h3><ul>
-<li>在自己的 GitHub 新建一个仓库,例: hexo</li>
+<li><p>在自己的 GitHub 新建一个仓库,例: hexo</p>
+</li>
 <li><p>初始化 git</p>
 <p>  git init</p>
 </li>
@@ -629,7 +623,7 @@ hexo d
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -640,7 +634,7 @@ hexo d
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -651,7 +645,7 @@ hexo d
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -731,7 +725,7 @@ hexo d
         <div class="copyright">
   
   &copy;  2017 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
