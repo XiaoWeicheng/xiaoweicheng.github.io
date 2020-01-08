@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Best Mind">
 <meta property="og:description" content="简介MyBatis 是一款优秀的持久层框架，它支持定制化 SQL、存储过程以及高级映射。MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 POJOs(Plain Old Java Objects,普通的 Java对象)映射成数据库中的记录。 文件MyBatis配置文件：配置全局设">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-08T08:24:47.498Z">
+<meta property="og:updated_time" content="2020-01-08T08:53:58.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis入门">
 <meta name="twitter:description" content="简介MyBatis 是一款优秀的持久层框架，它支持定制化 SQL、存储过程以及高级映射。MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 POJOs(Plain Old Java Objects,普通的 Java对象)映射成数据库中的记录。 文件MyBatis配置文件：配置全局设">
@@ -340,8 +340,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-06T14:49:58+08:00">
-                2020-01-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T19:58:58+08:00">
+                2017-12-18
               </time>
             
 
@@ -426,6 +426,8 @@
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SqlSession session = sqlSessionFactory.openSession();</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>获取Mapper</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mapper mapper = session.getMapper(Mapper.class);</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h1 id="Mybatis配置文件"><a href="#Mybatis配置文件" class="headerlink" title="Mybatis配置文件"></a>Mybatis配置文件</h1><h2 id="properties标签"><a href="#properties标签" class="headerlink" title="properties标签"></a>properties标签</h2><p>properties配置，可以引入外部配置也可以在标签内设置<br>详见：<a href="http://www.mybatis.org/mybatis-3/zh/configuration.html#properties" target="_blank" rel="noopener">MyBatisXML:properties</a></p>
@@ -444,8 +446,9 @@
 <li>insert – 映射插入语句</li>
 <li>update – 映射更新语句</li>
 <li>delete – 映射删除语句</li>
-<li>select – 映射查询语句<h2 id="select标签"><a href="#select标签" class="headerlink" title="select标签"></a>select标签</h2>查询语句</li>
+<li>select – 映射查询语句</li>
 </ul>
+<h2 id="select标签"><a href="#select标签" class="headerlink" title="select标签"></a>select标签</h2><p>查询语句</p>
 <h3 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h3><table>
 <thead>
 <tr>
@@ -465,11 +468,8 @@
 <td>resultType</td>
 <td>从这条语句中返回的期望类型的类的完全限定名或别名。注意如果是集合情形，那应该是集合可以包含的类型，而不能是集合本身。使用 resultType 或 resultMap，但不能同时使用。</td>
 </tr>
-<tr>
-<td>详见：<a href="http://www.mybatis.org/mybatis-3/zh/sqlmap-xml.html#select" target="_blank" rel="noopener">Mapper:select</a></td>
-<td></td>
-</tr>
 </tbody></table>
+<p>详见：<a href="http://www.mybatis.org/mybatis-3/zh/sqlmap-xml.html#select" target="_blank" rel="noopener">Mapper:select</a></p>
 <h2 id="insert-update-delete标签"><a href="#insert-update-delete标签" class="headerlink" title="insert,update,delete标签"></a>insert,update,delete标签</h2><p>插入，更新，删除</p>
 <h3 id="常用属性-1"><a href="#常用属性-1" class="headerlink" title="常用属性"></a>常用属性</h3><table>
 <thead>
@@ -486,11 +486,8 @@
 <td>parameterType</td>
 <td>将要传入语句的参数的完全限定类名或别名。这个属性是可选的，因为 MyBatis 可以通过 TypeHandler 推断出具体传入语句的参数，默认值为 unset。</td>
 </tr>
-<tr>
-<td>详见：<a href="http://www.mybatis.org/mybatis-3/zh/sqlmap-xml.html#insert_update_and_delete" target="_blank" rel="noopener">Mapper:insert,update,delete</a></td>
-<td></td>
-</tr>
 </tbody></table>
+<p>详见：<a href="http://www.mybatis.org/mybatis-3/zh/sqlmap-xml.html#insert_update_and_delete" target="_blank" rel="noopener">Mapper:insert,update,delete</a></p>
 <h2 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h2><p>当参数名和对应接口中的参数名相同时可以在接口中省略@Param，且MyBatis会根据参数名智能匹配自定义数据类型的成员变量<br>详见：<a href="http://www.mybatis.org/mybatis-3/zh/sqlmap-xml.html#Parameters" target="_blank" rel="noopener">Mapper:Parameters</a></p>
 <h2 id="Result-Maps"><a href="#Result-Maps" class="headerlink" title="Result Maps"></a>Result Maps</h2><p>若数据库中字段名与Java中实体类中成员变量名完全吻合，MyBatis可以智能匹配并注入结果，若不吻合，则需要开发者自定以Result Map，以实现数据库查询结果到实体类的映射<br>详见：<a href="http://www.mybatis.org/mybatis-3/zh/sqlmap-xml.html#Parameters" target="_blank" rel="noopener">Mapper:Result Maps</a></p>
 <h1 id="注解配置Mapper"><a href="#注解配置Mapper" class="headerlink" title="注解配置Mapper"></a>注解配置Mapper</h1><p>对于注解配置MyBatis，不推荐使用，注解写在Java源代码中，失去了原有的灵活性，若是需要修改，必须修改源文件，增加了风险，已经确定不会改变的可以使用注解配置<br>详见：<a href="http://www.mybatis.org/mybatis-3/zh/sqlmap-xml.html#Result_Maps" target="_blank" rel="noopener">MyBatis:Java Api</a></p>
@@ -589,8 +586,8 @@ public void setProperties(Properties properties)</code></pre>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/Eclipse-Memory-Analyzer-MAT-使用入门/" rel="next" title="Eclipse Memory Analyzer (MAT) 使用入门">
-                <i class="fa fa-chevron-left"></i> Eclipse Memory Analyzer (MAT) 使用入门
+              <a href="/posts/去哪儿2018校招在线考试-编程题三/" rel="next" title="去哪儿2018校招在线考试-编程题三">
+                <i class="fa fa-chevron-left"></i> 去哪儿2018校招在线考试-编程题三
               </a>
             
           </div>
@@ -598,6 +595,10 @@ public void setProperties(Properties properties)</code></pre>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/设计模式/" rel="prev" title="设计模式">
+                设计模式 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
