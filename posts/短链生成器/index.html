@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Best Mind">
 <meta property="og:description" content="为什么要用短链 长度限制  短信、微博等内容长度有限制，若其中连接缩短，则可编辑内容增加，利于节省费用、文案排版等 便于分享  长链二维码过于密集识别难度大，部分软件平台链接长度有限制，链接太长无法被识别短链本质链接标识与原链接的一对一映射短链跳转的原理 浏览器请求短链 后端服务根据短链标识获取原链接 后端向浏览器返回301或302状态码与原链接 301 永久重定向 浏览器请求短链后会缓存原链接，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-03T04:24:51.856Z">
+<meta property="og:updated_time" content="2020-04-03T05:05:44.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="短链生成器">
 <meta name="twitter:description" content="为什么要用短链 长度限制  短信、微博等内容长度有限制，若其中连接缩短，则可编辑内容增加，利于节省费用、文案排版等 便于分享  长链二维码过于密集识别难度大，部分软件平台链接长度有限制，链接太长无法被识别短链本质链接标识与原链接的一对一映射短链跳转的原理 浏览器请求短链 后端服务根据短链标识获取原链接 后端向浏览器返回301或302状态码与原链接 301 永久重定向 浏览器请求短链后会缓存原链接，">
@@ -431,7 +431,10 @@
 </li>
 </ul>
 </li>
-<li><h2 id="UUID-Universally-Unique-Identifier"><a href="#UUID-Universally-Unique-Identifier" class="headerlink" title="UUID(Universally Unique Identifier)"></a>UUID(Universally Unique Identifier)</h2>  Id较长且无序，插入数据库是会导致频繁的页分裂，影响数据库性能，单一组件不能保证密等性（页分裂：）</li>
+<li><h2 id="随机字符串"><a href="#随机字符串" class="headerlink" title="随机字符串"></a>随机字符串</h2><ul>
+<li>UUID(Universally Unique Identifier)<br>  Id较长且无序，插入数据库是会导致频繁的页分裂，影响数据库性能，单一组件不能保证密等性（页分裂：）</li>
+</ul>
+</li>
 <li><h2 id="自增ID"><a href="#自增ID" class="headerlink" title="自增ID"></a>自增ID</h2>  一种无碰撞的方法，因为是有序数字，可能存在安全问题<ul>
 <li>数据库 自增主键，使用简单，实现方便，可以借助于唯一索引保证密等性</li>
 <li>Redis 分布式全局唯一自增ID，需要手动实现，适用于分布式系统，单一组件不能保证密等性<h1 id="短链存储"><a href="#短链存储" class="headerlink" title="短链存储"></a>短链存储</h1></li>
@@ -439,7 +442,7 @@
 </li>
 <li><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2>  持久存储，部分数据库拥有自增主键，可以同时实现短链标识的生成和存储工作，性能不及Hbase与Redis</li>
 <li><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><ul>
-<li>MemCache<br>  本地换存，性能最高，无法持久化，适用于单机存储，建议与数据库搭配使用</li>
+<li>MemCache<br>  本地缓存，无法持久化，适用于单机，建议与数据库搭配使用</li>
 <li>Redis<br>  分布式缓存，存在数据过期机制，属于缓存类组件，数据无法持久化，不适用于大量数据存储, 性能较高</li>
 </ul>
 </li>
@@ -662,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要用短链"><span class="nav-number">1.</span> <span class="nav-text">为什么要用短链</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#短链本质"><span class="nav-number">2.</span> <span class="nav-text">短链本质</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#短链跳转的原理"><span class="nav-number">3.</span> <span class="nav-text">短链跳转的原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#短链生成"><span class="nav-number">4.</span> <span class="nav-text">短链生成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希算法（摘要算法）"><span class="nav-number">4.1.</span> <span class="nav-text">哈希算法（摘要算法）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UUID-Universally-Unique-Identifier"><span class="nav-number">4.2.</span> <span class="nav-text">UUID(Universally Unique Identifier)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自增ID"><span class="nav-number">4.3.</span> <span class="nav-text">自增ID</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#短链存储"><span class="nav-number">5.</span> <span class="nav-text">短链存储</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">5.1.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">5.2.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库-缓存"><span class="nav-number">5.3.</span> <span class="nav-text">数据库+缓存</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hash算法冲突解决"><span class="nav-number">6.</span> <span class="nav-text">Hash算法冲突解决</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库-1"><span class="nav-number">6.1.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布隆过滤器"><span class="nav-number">6.2.</span> <span class="nav-text">布隆过滤器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#示例代码"><span class="nav-number">7.</span> <span class="nav-text">示例代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要用短链"><span class="nav-number">1.</span> <span class="nav-text">为什么要用短链</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#短链本质"><span class="nav-number">2.</span> <span class="nav-text">短链本质</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#短链跳转的原理"><span class="nav-number">3.</span> <span class="nav-text">短链跳转的原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#短链生成"><span class="nav-number">4.</span> <span class="nav-text">短链生成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希算法（摘要算法）"><span class="nav-number">4.1.</span> <span class="nav-text">哈希算法（摘要算法）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机字符串"><span class="nav-number">4.2.</span> <span class="nav-text">随机字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自增ID"><span class="nav-number">4.3.</span> <span class="nav-text">自增ID</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#短链存储"><span class="nav-number">5.</span> <span class="nav-text">短链存储</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">5.1.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">5.2.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库-缓存"><span class="nav-number">5.3.</span> <span class="nav-text">数据库+缓存</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hash算法冲突解决"><span class="nav-number">6.</span> <span class="nav-text">Hash算法冲突解决</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库-1"><span class="nav-number">6.1.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布隆过滤器"><span class="nav-number">6.2.</span> <span class="nav-text">布隆过滤器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#示例代码"><span class="nav-number">7.</span> <span class="nav-text">示例代码</span></a></li></ol></div>
             
 
           </div>
