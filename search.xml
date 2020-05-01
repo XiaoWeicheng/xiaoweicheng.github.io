@@ -118,6 +118,35 @@
     
     
     <entry>
+      <title>Tomcat简介</title>
+      <link href="/posts/Tomcat%E7%AE%80%E4%BB%8B/"/>
+      <url>/posts/Tomcat%E7%AE%80%E4%BB%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>Tomcat是一款免费的开源并实现了Java Servlet、Java Server Pages、Java Expression Language 以及 Web Socket 等技术的 Web 应用服务器</p><ul><li>Web服务器</li><li>Servlet容器</li><li>基于Servlet规范</li></ul><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><ul><li>bin</li><li>config</li><li>logs</li><li>temp</li><li>webapps</li><li>work</li></ul><h2 id="Servlet-Web应用开发步骤"><a href="#Servlet-Web应用开发步骤" class="headerlink" title="Servlet Web应用开发步骤"></a>Servlet Web应用开发步骤</h2><p>Java环境搭建 → Tomcat环境搭建 → 建立Web目录结构 → Coding → 发布</p><h2 id="Tomcat配置server-xml"><a href="#Tomcat配置server-xml" class="headerlink" title="Tomcat配置server.xml"></a>Tomcat配置server.xml</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Listener</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">GlobalNamingResources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Resource</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">GlobalNamingResources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Service</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Connector</span> <span class="attr">URIEncoding</span>=<span class="string">"UTF-8"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Engine</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Host</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Context</span>&gt;</span><span class="tag">&lt;/<span class="name">Context</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">Engine</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Service</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Server</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="Container容器"><a href="#Container容器" class="headerlink" title="Container容器"></a>Container容器</h2><ul><li>Engine：定义一些基本关联</li><li>Host：Engine子容器，代表一个虚拟主机，负责运行多个应用</li><li>Context：Host子容器，代表Servlet的Context，具备运行Servlet的基本环节</li><li>Wrapper：代表一个Servlet，负责管理Servlet生命周期</li></ul><h1 id="编解码"><a href="#编解码" class="headerlink" title="编解码"></a>编解码</h1><h2 id="字符集（常用）"><a href="#字符集（常用）" class="headerlink" title="字符集（常用）"></a>字符集（常用）</h2><ul><li>ASCII（单字节编码，128字符）</li><li>ISO-8859-1（单字节编码，256字符）</li><li>UTF-16（统一编码双字节编码，所有字符）</li><li>UTF-8（变长编码）</li><li>GB2312（汉子双字节编码，6736个汉字）</li><li>GBK（兼容GB2312,23940个汉字）</li></ul><h2 id="POST设置字符集"><a href="#POST设置字符集" class="headerlink" title="POST设置字符集"></a>POST设置字符集</h2><p>request.setCharacterEncoding在第一次调用getParameter()之前设置</p><h2 id="Response设置编码字符集"><a href="#Response设置编码字符集" class="headerlink" title="Response设置编码字符集"></a>Response设置编码字符集</h2><ul><li>response.setCharacterEncoding</li><li><meta http-equiv="“Content-Type"" content="text/html;charset=" utf-8"></li></ul><h2 id="数据库连接设置字符集"><a href="#数据库连接设置字符集" class="headerlink" title="数据库连接设置字符集"></a>数据库连接设置字符集</h2><p>在url的参数中添加useUnicode=true&amp;characterEncoding=UTF-8</p><h1 id="Tomcat常用配置"><a href="#Tomcat常用配置" class="headerlink" title="Tomcat常用配置"></a>Tomcat常用配置</h1><h2 id="server-xml"><a href="#server-xml" class="headerlink" title="server.xml"></a>server.xml</h2><p>设置connector</p><h2 id="远程调试"><a href="#远程调试" class="headerlink" title="远程调试"></a>远程调试</h2><ul><li>在startenv.sh中加入远程调试参数，重启Tomcat</li><li>在IDEA中新建remote启动</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+          <category> Tomcat </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Tomcat </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java Lambda Expression</title>
       <link href="/posts/Java-Lambda-Expression/"/>
       <url>/posts/Java-Lambda-Expression/</url>
@@ -149,6 +178,39 @@
     
     
     <entry>
+      <title>去哪儿2018校招在线考试-编程题一</title>
+      <link href="/posts/%E5%8E%BB%E5%93%AA%E5%84%BF2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
+      <url>/posts/%E5%8E%BB%E5%93%AA%E5%84%BF2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目-最少转机"><a href="#题目-最少转机" class="headerlink" title="题目 最少转机"></a>题目 最少转机</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>去哪儿网将机票业务扩展到了大魏国，宇文玥和楚乔都是去哪儿网的忠实用户，经常坐飞机双宿双飞，现在已知大魏国有n个城市，共有m条国内航线，航线都是可往返的，已知他们所居住的城市和他们想要达到的城市，请给出最小转机次数。如果两城市间不可到达，则返回DISCONNECTED</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第一行两个数n，m（2≤n≤100，1≤m≤100） ; 紧随其后的是两个城市的名称，代表居住城市和想要到达的城市接下来m行，分别为各个航线间的两个城市（城市名称间以空格隔开）</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出最少转机次数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>5 5 LuoYang JinLingChangAn LuoYangLuoYang JianKangLuoYang LangYeJianKang LangYeJianKang JinLing</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>2</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h3><ul><li>使用邻接矩阵存储机票</li><li>因为只需要计算转机数,所以计边的权重为 1</li><li>所有边的权重相同,则可采用 BFS 解决最短路问题</li><li>时间复杂度 O(n),空间复杂度 O(n^2)</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,orgC,desC;</span><br><span class="line"><span class="built_in">string</span> org,des;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt;city;</span><br><span class="line"><span class="keyword">bool</span> route[<span class="number">105</span>][<span class="number">105</span>];</span><br><span class="line"><span class="keyword">int</span> minDis[<span class="number">105</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[<span class="number">105</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">minDistance</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; cQueue;</span><br><span class="line">    cQueue.push(orgC);</span><br><span class="line">    <span class="keyword">int</span> now;</span><br><span class="line">    <span class="keyword">while</span>(cQueue.size())</span><br><span class="line">    &#123;</span><br><span class="line">        now=cQueue.front();</span><br><span class="line">        <span class="keyword">if</span>(now==desC)<span class="keyword">return</span> ;</span><br><span class="line">        cQueue.pop();</span><br><span class="line">        vis[now]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(route[now][i]&amp;&amp;!vis[i])</span><br><span class="line">            &#123;</span><br><span class="line">                cQueue.push(i);</span><br><span class="line">                minDis[i]=minDis[now]+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(route,<span class="number">0</span>,<span class="keyword">sizeof</span> route);</span><br><span class="line">    <span class="built_in">memset</span>(minDis,<span class="number">0</span>,<span class="keyword">sizeof</span> minDis);</span><br><span class="line">    <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span> vis);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">string</span> tmp1,tmp2;</span><br><span class="line">    <span class="keyword">int</span> cIndex=<span class="number">0</span>,tmpI1,tmpI2;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m&gt;&gt;org&gt;&gt;des;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(m--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;tmp1&gt;&gt;tmp2;</span><br><span class="line">        <span class="keyword">if</span>(!city.count(tmp1))</span><br><span class="line">            city[tmp1]=cIndex++;</span><br><span class="line">        <span class="keyword">if</span>(!city.count(tmp2))</span><br><span class="line">            city[tmp2]=cIndex++;</span><br><span class="line">        tmpI1=city[tmp1],tmpI2=city[tmp2];</span><br><span class="line">        route[tmpI1][tmpI2]=<span class="number">1</span>;</span><br><span class="line">        route[tmpI2][tmpI1]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    orgC=city[org],desC=city[des];</span><br><span class="line"></span><br><span class="line">    minDistance();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(minDis[desC])</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;minDis[desC];</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"DISCONNECTED"</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔试 </category>
+          
+          <category> 去哪儿 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 笔试 </tag>
+            
+            <tag> 广度优先搜索 </tag>
+            
+            <tag> 去哪儿 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>去哪儿2018校招在线考试-编程题三</title>
       <link href="/posts/%E5%8E%BB%E5%93%AA%E5%84%BF2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/"/>
       <url>/posts/%E5%8E%BB%E5%93%AA%E5%84%BF2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/</url>
@@ -171,9 +233,9 @@
             
             <tag> 笔试 </tag>
             
-            <tag> 最短距离 </tag>
-            
             <tag> 去哪儿 </tag>
+            
+            <tag> 最短距离 </tag>
             
         </tags>
       
@@ -207,39 +269,6 @@
             <tag> 动态规划 </tag>
             
             <tag> 去哪儿 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>去哪儿2018校招在线考试-编程题一</title>
-      <link href="/posts/%E5%8E%BB%E5%93%AA%E5%84%BF2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
-      <url>/posts/%E5%8E%BB%E5%93%AA%E5%84%BF2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
-      
-        <content type="html"><![CDATA[<h2 id="题目-最少转机"><a href="#题目-最少转机" class="headerlink" title="题目 最少转机"></a>题目 最少转机</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>去哪儿网将机票业务扩展到了大魏国，宇文玥和楚乔都是去哪儿网的忠实用户，经常坐飞机双宿双飞，现在已知大魏国有n个城市，共有m条国内航线，航线都是可往返的，已知他们所居住的城市和他们想要达到的城市，请给出最小转机次数。如果两城市间不可到达，则返回DISCONNECTED</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第一行两个数n，m（2≤n≤100，1≤m≤100） ; 紧随其后的是两个城市的名称，代表居住城市和想要到达的城市接下来m行，分别为各个航线间的两个城市（城市名称间以空格隔开）</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出最少转机次数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>5 5 LuoYang JinLingChangAn LuoYangLuoYang JianKangLuoYang LangYeJianKang LangYeJianKang JinLing</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>2</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h3><ul><li>使用邻接矩阵存储机票</li><li>因为只需要计算转机数,所以计边的权重为 1</li><li>所有边的权重相同,则可采用 BFS 解决最短路问题</li><li>时间复杂度 O(n),空间复杂度 O(n^2)</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,orgC,desC;</span><br><span class="line"><span class="built_in">string</span> org,des;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt;city;</span><br><span class="line"><span class="keyword">bool</span> route[<span class="number">105</span>][<span class="number">105</span>];</span><br><span class="line"><span class="keyword">int</span> minDis[<span class="number">105</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[<span class="number">105</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">minDistance</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; cQueue;</span><br><span class="line">    cQueue.push(orgC);</span><br><span class="line">    <span class="keyword">int</span> now;</span><br><span class="line">    <span class="keyword">while</span>(cQueue.size())</span><br><span class="line">    &#123;</span><br><span class="line">        now=cQueue.front();</span><br><span class="line">        <span class="keyword">if</span>(now==desC)<span class="keyword">return</span> ;</span><br><span class="line">        cQueue.pop();</span><br><span class="line">        vis[now]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(route[now][i]&amp;&amp;!vis[i])</span><br><span class="line">            &#123;</span><br><span class="line">                cQueue.push(i);</span><br><span class="line">                minDis[i]=minDis[now]+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(route,<span class="number">0</span>,<span class="keyword">sizeof</span> route);</span><br><span class="line">    <span class="built_in">memset</span>(minDis,<span class="number">0</span>,<span class="keyword">sizeof</span> minDis);</span><br><span class="line">    <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span> vis);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">string</span> tmp1,tmp2;</span><br><span class="line">    <span class="keyword">int</span> cIndex=<span class="number">0</span>,tmpI1,tmpI2;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m&gt;&gt;org&gt;&gt;des;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(m--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;tmp1&gt;&gt;tmp2;</span><br><span class="line">        <span class="keyword">if</span>(!city.count(tmp1))</span><br><span class="line">            city[tmp1]=cIndex++;</span><br><span class="line">        <span class="keyword">if</span>(!city.count(tmp2))</span><br><span class="line">            city[tmp2]=cIndex++;</span><br><span class="line">        tmpI1=city[tmp1],tmpI2=city[tmp2];</span><br><span class="line">        route[tmpI1][tmpI2]=<span class="number">1</span>;</span><br><span class="line">        route[tmpI2][tmpI1]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    orgC=city[org],desC=city[des];</span><br><span class="line"></span><br><span class="line">    minDistance();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(minDis[desC])</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;minDis[desC];</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"DISCONNECTED"</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 笔试 </category>
-          
-          <category> 去哪儿 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
-            <tag> 笔试 </tag>
-            
-            <tag> 去哪儿 </tag>
-            
-            <tag> 广度优先搜索 </tag>
             
         </tags>
       
@@ -378,6 +407,60 @@
     
     
     <entry>
+      <title>人人公司2017校园招聘在线考试-编程一</title>
+      <link href="/posts/%E4%BA%BA%E4%BA%BA%E5%85%AC%E5%8F%B82017%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E4%B8%80/"/>
+      <url>/posts/%E4%BA%BA%E4%BA%BA%E5%85%AC%E5%8F%B82017%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E4%B8%80/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目-伪随机数"><a href="#题目-伪随机数" class="headerlink" title="题目-伪随机数"></a>题目-伪随机数</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>有一天小M得到了一个随机数生成器，它是这样工作的：* 首先你需要输入一个正整数n表示你要生成的随机数的位数。* 然后它会生成一个n位的不包含前导0的正十进制数。* 但是小M发现这个生成器有一个性质，它生成的数在第i位上(从左向右数)的数字永远不等于i。比如生成位数长度为1的数，那么它不会生成0和1；如果生成位数长度为2的数，它不会生成10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 22, 32, 42, 52, 62, 72, 82和92。现在小M想知道对于一个给定的输入n，它一共可能生成多少种不同的数？</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第一行包含一个整数n。1&lt;=n&lt;=100</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出对应的答案。</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>1</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>8</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>递推公式 f(1)=8,f(n)=f(n-1)<em>10-f(n-1) (n&lt;=9),f(n)=f(9)</em>10^(n-9) (n&gt;9)</li><li>注意 n 的范围<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">double</span> c=<span class="number">8</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=min(<span class="number">9</span>,n);++i)</span><br><span class="line">        &#123;</span><br><span class="line">            c=<span class="number">10</span>*c-c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;c;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=min(<span class="number">9</span>,n)+<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> language </tag>
+            
+            <tag> source </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>腾讯2018校招软件开发在线笔试-编程题二</title>
+      <link href="/posts/%E8%85%BE%E8%AE%AF2018%E6%A0%A1%E6%8B%9B%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/"/>
+      <url>/posts/%E8%85%BE%E8%AE%AF2018%E6%A0%A1%E6%8B%9B%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>有两个数 a,b 只能进行以下操作* +1* *2现有 a,b,A,B 四个数,对 a,b 同时进行以上同样的操作,求最少多少步可以 a 变为 A,b 变为 B若不行则输出 -1</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行 4 个数 a,b,A,B</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>最少步数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><ul><li>当 A 小于 a 或 B 小于 b,不可达</li><li>当 A 为偶数,可由 A/2 或 A-1 得到,A 为奇数,只能由 A-1 得到</li><li>对于其中 A,B 中只要有一个奇数,则只由 A-1,B-1 得到</li><li>优先搜索 *2 的情况,再搜索 +1 情况,若是搜索不到输出-1</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔试 </category>
+          
+          <category> 腾讯 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 笔试 </tag>
+            
+            <tag> 深度优先搜索 </tag>
+            
+            <tag> 腾讯 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>中兴C++软件开发技术面试</title>
       <link href="/posts/%E4%B8%AD%E5%85%B4C-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95/"/>
       <url>/posts/%E4%B8%AD%E5%85%B4C-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95/</url>
@@ -441,60 +524,6 @@
             <tag> language </tag>
             
             <tag> source </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>人人公司2017校园招聘在线考试-编程一</title>
-      <link href="/posts/%E4%BA%BA%E4%BA%BA%E5%85%AC%E5%8F%B82017%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E4%B8%80/"/>
-      <url>/posts/%E4%BA%BA%E4%BA%BA%E5%85%AC%E5%8F%B82017%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E4%B8%80/</url>
-      
-        <content type="html"><![CDATA[<h2 id="题目-伪随机数"><a href="#题目-伪随机数" class="headerlink" title="题目-伪随机数"></a>题目-伪随机数</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>有一天小M得到了一个随机数生成器，它是这样工作的：* 首先你需要输入一个正整数n表示你要生成的随机数的位数。* 然后它会生成一个n位的不包含前导0的正十进制数。* 但是小M发现这个生成器有一个性质，它生成的数在第i位上(从左向右数)的数字永远不等于i。比如生成位数长度为1的数，那么它不会生成0和1；如果生成位数长度为2的数，它不会生成10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 22, 32, 42, 52, 62, 72, 82和92。现在小M想知道对于一个给定的输入n，它一共可能生成多少种不同的数？</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第一行包含一个整数n。1&lt;=n&lt;=100</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出对应的答案。</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>1</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>8</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>递推公式 f(1)=8,f(n)=f(n-1)<em>10-f(n-1) (n&lt;=9),f(n)=f(9)</em>10^(n-9) (n&gt;9)</li><li>注意 n 的范围<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">double</span> c=<span class="number">8</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=min(<span class="number">9</span>,n);++i)</span><br><span class="line">        &#123;</span><br><span class="line">            c=<span class="number">10</span>*c-c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;c;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=min(<span class="number">9</span>,n)+<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> language </tag>
-            
-            <tag> source </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>腾讯2018校招软件开发在线笔试-编程题二</title>
-      <link href="/posts/%E8%85%BE%E8%AE%AF2018%E6%A0%A1%E6%8B%9B%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/"/>
-      <url>/posts/%E8%85%BE%E8%AE%AF2018%E6%A0%A1%E6%8B%9B%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/</url>
-      
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>有两个数 a,b 只能进行以下操作* +1* *2现有 a,b,A,B 四个数,对 a,b 同时进行以上同样的操作,求最少多少步可以 a 变为 A,b 变为 B若不行则输出 -1</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行 4 个数 a,b,A,B</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>最少步数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><ul><li>当 A 小于 a 或 B 小于 b,不可达</li><li>当 A 为偶数,可由 A/2 或 A-1 得到,A 为奇数,只能由 A-1 得到</li><li>对于其中 A,B 中只要有一个奇数,则只由 A-1,B-1 得到</li><li>优先搜索 *2 的情况,再搜索 +1 情况,若是搜索不到输出-1</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 笔试 </category>
-          
-          <category> 腾讯 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
-            <tag> 笔试 </tag>
-            
-            <tag> 深度优先搜索 </tag>
-            
-            <tag> 腾讯 </tag>
             
         </tags>
       
@@ -567,80 +596,18 @@
     
     
     <entry>
-      <title>巨人网络2018校招在线笔试-代码题</title>
-      <link href="/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E4%BB%A3%E7%A0%81%E9%A2%98/"/>
-      <url>/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E4%BB%A3%E7%A0%81%E9%A2%98/</url>
+      <title>滴滴出行2018校园招聘网申笔试-研发工程师-编程题二</title>
+      <link href="/posts/%E6%BB%B4%E6%BB%B4%E5%87%BA%E8%A1%8C2018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E7%BD%91%E7%94%B3%E7%AC%94%E8%AF%95-%E7%A0%94%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/"/>
+      <url>/posts/%E6%BB%B4%E6%BB%B4%E5%87%BA%E8%A1%8C2018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E7%BD%91%E7%94%B3%E7%AC%94%E8%AF%95-%E7%A0%94%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/</url>
       
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>给定一个三角形 ABC,一点 P,求 P 是否在三角形 ABC 内部</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>点 P 和点 C 在 向量 AB 同侧</li><li>点 P 和点 B 在 向量 AC 同侧</li><li>点 P 和点 A 在 向量 BC 同侧</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">crossPro</span><span class="params">(<span class="keyword">int</span> o[<span class="number">2</span>],<span class="keyword">int</span> p1[<span class="number">2</span>],<span class="keyword">int</span> p2[<span class="number">2</span>])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> u[]=&#123;p1[<span class="number">0</span>]-o[<span class="number">0</span>],p1[<span class="number">1</span>]-o[<span class="number">1</span>]&#125;;</span><br><span class="line">    <span class="keyword">int</span> v[]=&#123;p2[<span class="number">0</span>]-o[<span class="number">0</span>],p2[<span class="number">1</span>]-o[<span class="number">1</span>]&#125;;</span><br><span class="line">    <span class="keyword">return</span> u[<span class="number">0</span>]*v[<span class="number">1</span>]-u[<span class="number">1</span>]*v[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">sameSide</span><span class="params">(<span class="keyword">int</span> ls[<span class="number">2</span>],<span class="keyword">int</span> le[<span class="number">2</span>],<span class="keyword">int</span> p1[<span class="number">2</span>],<span class="keyword">int</span> p2[<span class="number">2</span>])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cP[<span class="number">2</span>];</span><br><span class="line">    cP[<span class="number">0</span>]=crossPro(ls,le,p1);</span><br><span class="line">    cP[<span class="number">1</span>]=crossPro(ls,le,p2);</span><br><span class="line">    <span class="keyword">return</span> cP[<span class="number">0</span>]*cP[<span class="number">1</span>]&gt;<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">inner</span><span class="params">(<span class="keyword">int</span> triangle[<span class="number">3</span>][<span class="number">2</span>],<span class="keyword">int</span> p[<span class="number">2</span>])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">bool</span> sS[<span class="number">3</span>];</span><br><span class="line">    sS[<span class="number">0</span>]=sameSide(triangle[<span class="number">0</span>],triangle[<span class="number">1</span>],triangle[<span class="number">2</span>],p);</span><br><span class="line">    sS[<span class="number">1</span>]=sameSide(triangle[<span class="number">0</span>],triangle[<span class="number">2</span>],triangle[<span class="number">1</span>],p);</span><br><span class="line">    sS[<span class="number">2</span>]=sameSide(triangle[<span class="number">1</span>],triangle[<span class="number">2</span>],triangle[<span class="number">0</span>],p);</span><br><span class="line">    <span class="keyword">return</span> sS[<span class="number">0</span>]&amp;&amp;sS[<span class="number">1</span>]&amp;&amp;sS[<span class="number">2</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 笔试 </category>
-          
-          <category> 巨人网络 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 笔试 </tag>
-            
-            <tag> 算法 </tag>
-            
-            <tag> 巨人网络 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>巨人网络2018校招在线笔试-编程题一</title>
-      <link href="/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
-      <url>/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
-      
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>把 36 分为 3 个互不相同整数的乘积,并降序输出每个因子,中间以空格隔开</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>无</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>降序输出每个因子,中间以空格隔开</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>9 2 2</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>神.推理.题</li><li>因为说是和某家的门牌号相同,而且还需要别的信息说明有多组对应一个门牌号</li><li>年龄最大的狗狗有点矮,说明年龄最大的狗狗年龄不重复</li></ul><pre><code></code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>N</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>第 N 个丑数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>7</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>8</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>剑指offer 原题</li><li>定义 m2,m3,m5,c,now 分别为 2 的倍数,3 的倍数,5 的倍数,已找到的丑数个数,当前的丑数,</li><li>第 i 个丑数取 m2,m3,m5 三者中的最小值,然后更新 m2,m3,m5,c</li><li>时间复杂度 O(n)</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m2,m3,m5,c,now;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    now=c=<span class="number">1</span>;</span><br><span class="line">    m2=<span class="number">2</span>,m3=<span class="number">3</span>,m5=<span class="number">5</span>;</span><br><span class="line">    <span class="keyword">while</span>(c&lt;n)</span><br><span class="line">    &#123;</span><br><span class="line">        now=min(m2,min(m3,m5));</span><br><span class="line">        <span class="keyword">if</span>(m2==now) m2+=<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(m3==now) m3+=<span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(m5==now) m5+=<span class="number">5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;now;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
           
           <category> 笔试 </category>
           
-          <category> 巨人网络 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 笔试 </tag>
-            
-            <tag> 巨人网络 </tag>
-            
-            <tag> 推理 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>巨人网络2018校招在线笔试-编程题三</title>
-      <link href="/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/"/>
-      <url>/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/</url>
-      
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>数列 1...n 当数列中的个数大于 1 时进行以下操作删除以一个元素,把新第一个元素放到末尾</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>一个数 n</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>最后剩余的 一个数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>3</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>2</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>队列</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">q.push(i);</span><br><span class="line"><span class="keyword">while</span>(q.size()&gt;<span class="number">1</span>)</span><br><span class="line">q.pop(),q.push(q.front()),q.pop();</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;q.front();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 笔试 </category>
-          
-          <category> 巨人网络 </category>
+          <category> 滴滴 </category>
           
       </categories>
       
@@ -651,7 +618,7 @@
             
             <tag> 笔试 </tag>
             
-            <tag> 巨人网络 </tag>
+            <tag> 滴滴 </tag>
             
         </tags>
       
@@ -660,42 +627,11 @@
     
     
     <entry>
-      <title>巨人网络2018校招在线笔试-编程题二</title>
-      <link href="/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/"/>
-      <url>/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/</url>
+      <title>今日头条2018校园招聘后端方向-编程题一</title>
+      <link href="/posts/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A12018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%90%8E%E7%AB%AF%E6%96%B9%E5%90%91-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
+      <url>/posts/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A12018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%90%8E%E7%AB%AF%E6%96%B9%E5%90%91-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
       
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>给定一个字符串,仅包括 A,L,O 三个字符,若 A 的个数大于 1,则字符串不符合规则若连续的 L 的个数大于 2,则字符串不符合规则</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>一个字符串</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>若符合规则输出 YES若不符合输出 NO</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>LLOLALL</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>YES</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>统计字符数…</li></ul><pre><code></code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 笔试 </category>
-          
-          <category> 巨人网络 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
-            <tag> 笔试 </tag>
-            
-            <tag> 巨人网络 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>今日头条2018校园招聘后端方向-附加编程题</title>
-      <link href="/posts/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A12018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%90%8E%E7%AB%AF%E6%96%B9%E5%90%91-%E9%99%84%E5%8A%A0%E7%BC%96%E7%A8%8B%E9%A2%98/"/>
-      <url>/posts/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A12018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%90%8E%E7%AB%AF%E6%96%B9%E5%90%91-%E9%99%84%E5%8A%A0%E7%BC%96%E7%A8%8B%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>有一个字符串,只包含 26 个小写字母,相邻两个字母可以交换,给定一个字符串 str 及交换次数 m,试问在交换次数不超 m 的情况下,连续相同的字符长度最大是多少</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行,一个字符串 str 及交换次数 m</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>最大连续相同的字符长度</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>abacaa 3</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>3</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>作者：桐ヶ谷和人</li><li>原文: <a href="https://www.nowcoder.com/discuss/39775" target="_blank" rel="noopener">今日头条2018校招编程题思路</a></li><li>枚举每种字母，计算该字母在字符串中出现的位置。</li><li>再枚举以该字符每个位置为中心点，两边的字符往这个中心靠拢，计算一个距离的前缀和， 再枚举左端点，二分找右端点。</li><li>复杂度O(26*|s|*|s|*log(|s|))</li></ul><iframe frameborder="0" src="http://paste.ubuntu.com/25506324/" width="120%" height="1250px" margin="20px -10% 20px -10%" scrolling="no"></iframe>]]></content>
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>有一条手链上有 n 个串珠,每个串珠有不同的颜色,也可以是无色,颜色一共有 c 种,但是有个规定,在连续的 m 个串珠里颜色不能能重复,求重复的颜色有多少</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第 1 行 n,m,c第 2 到 n+1 行,每行第一个数为串珠的颜色数 ci,后跟 ci 个数为串珠的颜色1&lt;=n&lt;=10000,1&lt;=m&lt;=1000,1&lt;=c&lt;=50</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>重复的颜色的种类数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>5 2 33 1 2 302 2 31 21 3</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>2</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h3><ul><li>颜色转为二进制存储</li><li>使用滑动窗口遍历,窗口大小为 m,判断窗口内的重复情况</li><li>时间复杂度 O(n)</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,c,tc,tt,bad;</span><br><span class="line">ll balls[<span class="number">10000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m&gt;&gt;c;</span><br><span class="line">    <span class="built_in">memset</span>(balls,<span class="number">0</span>,<span class="keyword">sizeof</span> balls);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;tc);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;tc;++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;tt);</span><br><span class="line">            balls[i]|=(<span class="number">1</span>&lt;&lt;tt);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(m==<span class="number">1</span>) <span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        ll badCF=<span class="number">0</span>,flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">0</span>,r=<span class="number">0</span>;m&gt;n?r&lt;n:l&lt;n;++r%=n)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>((r-l+n)%n+<span class="number">1</span>&gt;m)</span><br><span class="line">                flag^=balls[l],++l;</span><br><span class="line">            badCF|=(flag&amp;balls[r]);</span><br><span class="line">            flag^=balls[r];</span><br><span class="line">        &#125;</span><br><span class="line">        bad=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(badCF)</span><br><span class="line">            badCF&amp;=(badCF<span class="number">-1</span>),++bad;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;bad;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -712,6 +648,8 @@
             <tag> C++ </tag>
             
             <tag> 笔试 </tag>
+            
+            <tag> 滑动窗口 </tag>
             
             <tag> 今日头条 </tag>
             
@@ -755,11 +693,11 @@
     
     
     <entry>
-      <title>今日头条2018校园招聘后端方向-编程题一</title>
-      <link href="/posts/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A12018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%90%8E%E7%AB%AF%E6%96%B9%E5%90%91-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
-      <url>/posts/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A12018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%90%8E%E7%AB%AF%E6%96%B9%E5%90%91-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
+      <title>今日头条2018校园招聘后端方向-附加编程题</title>
+      <link href="/posts/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A12018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%90%8E%E7%AB%AF%E6%96%B9%E5%90%91-%E9%99%84%E5%8A%A0%E7%BC%96%E7%A8%8B%E9%A2%98/"/>
+      <url>/posts/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A12018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%90%8E%E7%AB%AF%E6%96%B9%E5%90%91-%E9%99%84%E5%8A%A0%E7%BC%96%E7%A8%8B%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>有一条手链上有 n 个串珠,每个串珠有不同的颜色,也可以是无色,颜色一共有 c 种,但是有个规定,在连续的 m 个串珠里颜色不能能重复,求重复的颜色有多少</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第 1 行 n,m,c第 2 到 n+1 行,每行第一个数为串珠的颜色数 ci,后跟 ci 个数为串珠的颜色1&lt;=n&lt;=10000,1&lt;=m&lt;=1000,1&lt;=c&lt;=50</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>重复的颜色的种类数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>5 2 33 1 2 302 2 31 21 3</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>2</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h3><ul><li>颜色转为二进制存储</li><li>使用滑动窗口遍历,窗口大小为 m,判断窗口内的重复情况</li><li>时间复杂度 O(n)</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,c,tc,tt,bad;</span><br><span class="line">ll balls[<span class="number">10000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m&gt;&gt;c;</span><br><span class="line">    <span class="built_in">memset</span>(balls,<span class="number">0</span>,<span class="keyword">sizeof</span> balls);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;tc);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;tc;++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;tt);</span><br><span class="line">            balls[i]|=(<span class="number">1</span>&lt;&lt;tt);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(m==<span class="number">1</span>) <span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        ll badCF=<span class="number">0</span>,flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">0</span>,r=<span class="number">0</span>;m&gt;n?r&lt;n:l&lt;n;++r%=n)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>((r-l+n)%n+<span class="number">1</span>&gt;m)</span><br><span class="line">                flag^=balls[l],++l;</span><br><span class="line">            badCF|=(flag&amp;balls[r]);</span><br><span class="line">            flag^=balls[r];</span><br><span class="line">        &#125;</span><br><span class="line">        bad=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(badCF)</span><br><span class="line">            badCF&amp;=(badCF<span class="number">-1</span>),++bad;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;bad;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>有一个字符串,只包含 26 个小写字母,相邻两个字母可以交换,给定一个字符串 str 及交换次数 m,试问在交换次数不超 m 的情况下,连续相同的字符长度最大是多少</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行,一个字符串 str 及交换次数 m</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>最大连续相同的字符长度</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>abacaa 3</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>3</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>作者：桐ヶ谷和人</li><li>原文: <a href="https://www.nowcoder.com/discuss/39775" target="_blank" rel="noopener">今日头条2018校招编程题思路</a></li><li>枚举每种字母，计算该字母在字符串中出现的位置。</li><li>再枚举以该字符每个位置为中心点，两边的字符往这个中心靠拢，计算一个距离的前缀和， 再枚举左端点，二分找右端点。</li><li>复杂度O(26*|s|*|s|*log(|s|))</li></ul><iframe frameborder="0" src="http://paste.ubuntu.com/25506324/" width="120%" height="1250px" margin="20px -10% 20px -10%" scrolling="no"></iframe>]]></content>
       
       
       <categories>
@@ -777,8 +715,6 @@
             
             <tag> 笔试 </tag>
             
-            <tag> 滑动窗口 </tag>
-            
             <tag> 今日头条 </tag>
             
         </tags>
@@ -788,18 +724,18 @@
     
     
     <entry>
-      <title>滴滴出行2018校园招聘网申笔试-研发工程师-编程题二</title>
-      <link href="/posts/%E6%BB%B4%E6%BB%B4%E5%87%BA%E8%A1%8C2018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E7%BD%91%E7%94%B3%E7%AC%94%E8%AF%95-%E7%A0%94%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/"/>
-      <url>/posts/%E6%BB%B4%E6%BB%B4%E5%87%BA%E8%A1%8C2018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E7%BD%91%E7%94%B3%E7%AC%94%E8%AF%95-%E7%A0%94%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/</url>
+      <title>巨人网络2018校招在线笔试-编程题三</title>
+      <link href="/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/"/>
+      <url>/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/</url>
       
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>N</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>第 N 个丑数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>7</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>8</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>剑指offer 原题</li><li>定义 m2,m3,m5,c,now 分别为 2 的倍数,3 的倍数,5 的倍数,已找到的丑数个数,当前的丑数,</li><li>第 i 个丑数取 m2,m3,m5 三者中的最小值,然后更新 m2,m3,m5,c</li><li>时间复杂度 O(n)</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m2,m3,m5,c,now;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    now=c=<span class="number">1</span>;</span><br><span class="line">    m2=<span class="number">2</span>,m3=<span class="number">3</span>,m5=<span class="number">5</span>;</span><br><span class="line">    <span class="keyword">while</span>(c&lt;n)</span><br><span class="line">    &#123;</span><br><span class="line">        now=min(m2,min(m3,m5));</span><br><span class="line">        <span class="keyword">if</span>(m2==now) m2+=<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(m3==now) m3+=<span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(m5==now) m5+=<span class="number">5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;now;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>数列 1...n 当数列中的个数大于 1 时进行以下操作删除以一个元素,把新第一个元素放到末尾</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>一个数 n</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>最后剩余的 一个数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>3</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>2</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>队列</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">q.push(i);</span><br><span class="line"><span class="keyword">while</span>(q.size()&gt;<span class="number">1</span>)</span><br><span class="line">q.pop(),q.push(q.front()),q.pop();</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;q.front();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
           
           <category> 笔试 </category>
           
-          <category> 滴滴 </category>
+          <category> 巨人网络 </category>
           
       </categories>
       
@@ -810,7 +746,100 @@
             
             <tag> 笔试 </tag>
             
-            <tag> 滴滴 </tag>
+            <tag> 巨人网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>巨人网络2018校招在线笔试-代码题</title>
+      <link href="/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E4%BB%A3%E7%A0%81%E9%A2%98/"/>
+      <url>/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E4%BB%A3%E7%A0%81%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>给定一个三角形 ABC,一点 P,求 P 是否在三角形 ABC 内部</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>点 P 和点 C 在 向量 AB 同侧</li><li>点 P 和点 B 在 向量 AC 同侧</li><li>点 P 和点 A 在 向量 BC 同侧</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">crossPro</span><span class="params">(<span class="keyword">int</span> o[<span class="number">2</span>],<span class="keyword">int</span> p1[<span class="number">2</span>],<span class="keyword">int</span> p2[<span class="number">2</span>])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> u[]=&#123;p1[<span class="number">0</span>]-o[<span class="number">0</span>],p1[<span class="number">1</span>]-o[<span class="number">1</span>]&#125;;</span><br><span class="line">    <span class="keyword">int</span> v[]=&#123;p2[<span class="number">0</span>]-o[<span class="number">0</span>],p2[<span class="number">1</span>]-o[<span class="number">1</span>]&#125;;</span><br><span class="line">    <span class="keyword">return</span> u[<span class="number">0</span>]*v[<span class="number">1</span>]-u[<span class="number">1</span>]*v[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">sameSide</span><span class="params">(<span class="keyword">int</span> ls[<span class="number">2</span>],<span class="keyword">int</span> le[<span class="number">2</span>],<span class="keyword">int</span> p1[<span class="number">2</span>],<span class="keyword">int</span> p2[<span class="number">2</span>])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cP[<span class="number">2</span>];</span><br><span class="line">    cP[<span class="number">0</span>]=crossPro(ls,le,p1);</span><br><span class="line">    cP[<span class="number">1</span>]=crossPro(ls,le,p2);</span><br><span class="line">    <span class="keyword">return</span> cP[<span class="number">0</span>]*cP[<span class="number">1</span>]&gt;<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">inner</span><span class="params">(<span class="keyword">int</span> triangle[<span class="number">3</span>][<span class="number">2</span>],<span class="keyword">int</span> p[<span class="number">2</span>])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">bool</span> sS[<span class="number">3</span>];</span><br><span class="line">    sS[<span class="number">0</span>]=sameSide(triangle[<span class="number">0</span>],triangle[<span class="number">1</span>],triangle[<span class="number">2</span>],p);</span><br><span class="line">    sS[<span class="number">1</span>]=sameSide(triangle[<span class="number">0</span>],triangle[<span class="number">2</span>],triangle[<span class="number">1</span>],p);</span><br><span class="line">    sS[<span class="number">2</span>]=sameSide(triangle[<span class="number">1</span>],triangle[<span class="number">2</span>],triangle[<span class="number">0</span>],p);</span><br><span class="line">    <span class="keyword">return</span> sS[<span class="number">0</span>]&amp;&amp;sS[<span class="number">1</span>]&amp;&amp;sS[<span class="number">2</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔试 </category>
+          
+          <category> 巨人网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔试 </tag>
+            
+            <tag> 巨人网络 </tag>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>巨人网络2018校招在线笔试-编程题二</title>
+      <link href="/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/"/>
+      <url>/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>给定一个字符串,仅包括 A,L,O 三个字符,若 A 的个数大于 1,则字符串不符合规则若连续的 L 的个数大于 2,则字符串不符合规则</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>一个字符串</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>若符合规则输出 YES若不符合输出 NO</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>LLOLALL</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>YES</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>统计字符数…</li></ul><pre><code></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔试 </category>
+          
+          <category> 巨人网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 笔试 </tag>
+            
+            <tag> 巨人网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>巨人网络2018校招在线笔试-编程题一</title>
+      <link href="/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
+      <url>/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>把 36 分为 3 个互不相同整数的乘积,并降序输出每个因子,中间以空格隔开</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>无</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>降序输出每个因子,中间以空格隔开</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>9 2 2</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>神.推理.题</li><li>因为说是和某家的门牌号相同,而且还需要别的信息说明有多组对应一个门牌号</li><li>年龄最大的狗狗有点矮,说明年龄最大的狗狗年龄不重复</li></ul><pre><code></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔试 </category>
+          
+          <category> 巨人网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔试 </tag>
+            
+            <tag> 巨人网络 </tag>
+            
+            <tag> 推理 </tag>
             
         </tags>
       
@@ -969,9 +998,9 @@
             
             <tag> 牛客 </tag>
             
-            <tag> 二分法 </tag>
-            
             <tag> 2017校招 </tag>
+            
+            <tag> 二分法 </tag>
             
         </tags>
       
@@ -1033,9 +1062,9 @@
             
             <tag> 牛客 </tag>
             
-            <tag> 二分法 </tag>
-            
             <tag> 2017校招 </tag>
+            
+            <tag> 二分法 </tag>
             
         </tags>
       
@@ -1234,33 +1263,6 @@
     
     
     <entry>
-      <title>使用 GitHub Pages 托管 Hexo 博客</title>
-      <link href="/posts/%E4%BD%BF%E7%94%A8-GitHub-Pages-%E6%89%98%E7%AE%A1-Hexo-%E5%8D%9A%E5%AE%A2/"/>
-      <url>/posts/%E4%BD%BF%E7%94%A8-GitHub-Pages-%E6%89%98%E7%AE%A1-Hexo-%E5%8D%9A%E5%AE%A2/</url>
-      
-        <content type="html"><![CDATA[<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><h3 id="搭建好的-Hexo-本地博客"><a href="#搭建好的-Hexo-本地博客" class="headerlink" title="搭建好的 Hexo 本地博客"></a>搭建好的 Hexo 本地博客</h3><p>还没有搭建好的童鞋,请看 <a href="/posts/Windows系统下搭建Hexo个人博客/">Windows系统下搭建Hexo个人博客</a></p><h3 id="GitHub-账号"><a href="#GitHub-账号" class="headerlink" title="GitHub 账号"></a>GitHub 账号</h3><p>还没有注册的童鞋,请到 <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> 注册</p><h2 id="GitHub-准备"><a href="#GitHub-准备" class="headerlink" title="GitHub 准备"></a>GitHub 准备</h2><h3 id="新建代码仓库"><a href="#新建代码仓库" class="headerlink" title="新建代码仓库"></a>新建代码仓库</h3><ul><li>直接在你的 GitHub 上新建 Repository,名称必须为 username.github.io</li><li>username 就是你的用户名,下同 </li></ul><h2 id="Hexo-配置准备"><a href="#Hexo-配置准备" class="headerlink" title="Hexo 配置准备"></a>Hexo 配置准备</h2><h3 id="安装-Hexo-Git-插件"><a href="#安装-Hexo-Git-插件" class="headerlink" title="安装 Hexo-Git 插件"></a>安装 Hexo-Git 插件</h3><p>在 PowerShell 或 CMD 中,运行以下命令: <br><br>(啥,你问为啥用 PowerShell 而不用 CMD ?,因为 PoweShell 更 Powerful 啊,当然,要是没有 PowerShell 那只能用 CMD 了,不过有可能出现问题,先打个预防针)<br><br>注:所有的命令均需要在你的 Hexo 项目路径下执行</p><ul><li><p>稳定版</p><p>  npm install hexo-deployer-git –save </p></li><li><p>最新版</p><p>  <code>npm install git+git@github.com:hexojs/hexo-deployer-git.git --save</code></p></li></ul><h3 id="配置-config-yml-文件"><a href="#配置-config-yml-文件" class="headerlink" title="配置 _config.yml 文件"></a>配置 _config.yml 文件</h3><p>这里只说常用几个配置详细请看 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">Hexo-deployer-git</a>,没错你没看错,就是英文的,但是都是基本词汇,不难</p><pre><code>deploy:  type: git  repo: &lt;repository url&gt;  branch: [branch]  message: [message]</code></pre><ul><li>repo: 仓库的URL,就是刚才新建的仓库地址<br></li><li>branch: 要同步的分支( 因为是用Github Pages 做服务器,分支这里必须填 master )<br></li><li>message: 提交信息.</li></ul><h2 id="发布网站到-GitHub-Pages"><a href="#发布网站到-GitHub-Pages" class="headerlink" title="发布网站到 GitHub Pages"></a>发布网站到 GitHub Pages</h2><p>一下三种之中任意一种都可以</p><h3 id="命令-I"><a href="#命令-I" class="headerlink" title="命令 I"></a>命令 I</h3><pre><code>hexo generatehexo deploy</code></pre><p>当然可以简化为</p><pre><code>hexo ghexo d</code></pre><h3 id="命令-II"><a href="#命令-II" class="headerlink" title="命令 II"></a>命令 II</h3><pre><code>hexo generate --deploy</code></pre><p>简化</p><pre><code>hexo g -d</code></pre><h3 id="命令-III"><a href="#命令-III" class="headerlink" title="命令 III"></a>命令 III</h3><pre><code>hexo deploy --generate</code></pre><p>简化</p><pre><code>hexo d -g</code></pre><h3 id="命令执行结果"><a href="#命令执行结果" class="headerlink" title="命令执行结果"></a>命令执行结果</h3><p>必须看到以下 Log 才算完全成功</p><pre><code>INFO  Deploy done:</code></pre><h2 id="查看你的博客"><a href="#查看你的博客" class="headerlink" title="查看你的博客"></a>查看你的博客</h2><p>浏览器地址栏输入 <font color="orange">username</font><font color="skyblue">.github.io</font> </p><h2 id="接下来说说把整个项目同步到-GitHub"><a href="#接下来说说把整个项目同步到-GitHub" class="headerlink" title="接下来说说把整个项目同步到 GitHub"></a>接下来说说把整个项目同步到 GitHub</h2><p>有两种方法</p><ul><li>放到 username.github.io 仓库下</li><li>放到其他仓库下( 当然是你自己建的仓库,仓库名根据自己的喜好取 )</li></ul><h3 id="username-github-io"><a href="#username-github-io" class="headerlink" title="username.github.io"></a>username.github.io</h3><ul><li><p>在你自己的 username.github.io 下新建 Branch (分支),分支名自取,例: hexo</p></li><li><p>初始化 git</p><p>  git init</p></li><li><p>新建分支 hexo (替换为你刚才在 username.github.io 下新建的分支,下同)</p><p>  git branch hexo</p></li><li><p>切换分支</p><p>  git checkout hexo</p></li><li><p>关联远程仓库</p><p>  git remote add origin <a href="https://github.com/username/username.github.io.git" target="_blank" rel="noopener">https://github.com/username/username.github.io.git</a></p></li><li><p>添加文件</p><p>  git add -A<br>  ( -A 为添加所有改动文件,也可以单独指定文件或文件夹)</p></li><li><p>提交改动</p><p>  git commit -m message<br>  ( message 为改动信息,自己填,如果有空格需要用 “ “ 引起来 )</p></li><li><p>同步到远程仓库</p><p>  git push origin hexo<br>  (注:分支名 hexo 加不加都可以,因为已经切换到 hexo 分支,若不在 hexo 必须加)</p></li></ul><h3 id="其他仓库"><a href="#其他仓库" class="headerlink" title="其他仓库"></a>其他仓库</h3><ul><li><p>在自己的 GitHub 新建一个仓库,例: hexo</p></li><li><p>初始化 git</p><p>  git init</p></li><li><p>关联远程仓库,替换 username,hexo 为自己的用户名和仓库名</p><p>  git remote add origin <a href="https://github.com/username/hexo.git" target="_blank" rel="noopener">https://github.com/username/hexo.git</a></p></li><li><p>添加文件</p><p>  git add -A<br>  ( -A 为添加所有改动文件,也可以单独指定文件或文件夹)</p></li><li><p>提交改动</p><p>  git commit -m message<br>  ( message 为改动信息,自己填,如果有空格需要用 “ “ 引起来 )</p></li><li><p>同步到远程仓库</p><p>  git push origin master<br>  (注:分支名 master 加不加都可以,因为默认在 master 分支,若不在 master 必须加)</p></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Hexo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
-            
-            <tag> 博客 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>C++开源项目汇总</title>
       <link href="/posts/C-%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%B1%87%E6%80%BB/"/>
       <url>/posts/C-%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%B1%87%E6%80%BB/</url>
@@ -1315,27 +1317,25 @@
     
     
     <entry>
-      <title>美图 2018校招 后端研发工程师在线考试-编程题一</title>
-      <link href="/posts/%E7%BE%8E%E5%9B%BE-2018%E6%A0%A1%E6%8B%9B-%E5%90%8E%E7%AB%AF%E7%A0%94%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
-      <url>/posts/%E7%BE%8E%E5%9B%BE-2018%E6%A0%A1%E6%8B%9B-%E5%90%8E%E7%AB%AF%E7%A0%94%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
+      <title>使用 GitHub Pages 托管 Hexo 博客</title>
+      <link href="/posts/%E4%BD%BF%E7%94%A8-GitHub-Pages-%E6%89%98%E7%AE%A1-Hexo-%E5%8D%9A%E5%AE%A2/"/>
+      <url>/posts/%E4%BD%BF%E7%94%A8-GitHub-Pages-%E6%89%98%E7%AE%A1-Hexo-%E5%8D%9A%E5%AE%A2/</url>
       
-        <content type="html"><![CDATA[<h2 id="题目-Bit位数计算"><a href="#题目-Bit位数计算" class="headerlink" title="题目 Bit位数计算"></a>题目 Bit位数计算</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>两个 int32 整数 m 和 n 的二进制表达，计算有多少个位 (bit) 不同？</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>一行中给定两个数字</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出这两个数字中bit不同的个数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>15 8</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>3</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>两数异或</li><li>统计 1 的个数</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> m,n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;m&gt;&gt;n)</span><br><span class="line">    &#123;</span><br><span class="line">        m^=n;</span><br><span class="line">        <span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(m)</span><br><span class="line">        &#123;</span><br><span class="line">            m&amp;=m<span class="number">-1</span>;</span><br><span class="line">            ++count;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;count&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><h3 id="搭建好的-Hexo-本地博客"><a href="#搭建好的-Hexo-本地博客" class="headerlink" title="搭建好的 Hexo 本地博客"></a>搭建好的 Hexo 本地博客</h3><p>还没有搭建好的童鞋,请看 <a href="/posts/Windows系统下搭建Hexo个人博客/">Windows系统下搭建Hexo个人博客</a></p><h3 id="GitHub-账号"><a href="#GitHub-账号" class="headerlink" title="GitHub 账号"></a>GitHub 账号</h3><p>还没有注册的童鞋,请到 <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> 注册</p><h2 id="GitHub-准备"><a href="#GitHub-准备" class="headerlink" title="GitHub 准备"></a>GitHub 准备</h2><h3 id="新建代码仓库"><a href="#新建代码仓库" class="headerlink" title="新建代码仓库"></a>新建代码仓库</h3><ul><li>直接在你的 GitHub 上新建 Repository,名称必须为 username.github.io</li><li>username 就是你的用户名,下同 </li></ul><h2 id="Hexo-配置准备"><a href="#Hexo-配置准备" class="headerlink" title="Hexo 配置准备"></a>Hexo 配置准备</h2><h3 id="安装-Hexo-Git-插件"><a href="#安装-Hexo-Git-插件" class="headerlink" title="安装 Hexo-Git 插件"></a>安装 Hexo-Git 插件</h3><p>在 PowerShell 或 CMD 中,运行以下命令: <br><br>(啥,你问为啥用 PowerShell 而不用 CMD ?,因为 PoweShell 更 Powerful 啊,当然,要是没有 PowerShell 那只能用 CMD 了,不过有可能出现问题,先打个预防针)<br><br>注:所有的命令均需要在你的 Hexo 项目路径下执行</p><ul><li><p>稳定版</p><p>  npm install hexo-deployer-git –save </p></li><li><p>最新版</p><p>  <code>npm install git+git@github.com:hexojs/hexo-deployer-git.git --save</code></p></li></ul><h3 id="配置-config-yml-文件"><a href="#配置-config-yml-文件" class="headerlink" title="配置 _config.yml 文件"></a>配置 _config.yml 文件</h3><p>这里只说常用几个配置详细请看 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">Hexo-deployer-git</a>,没错你没看错,就是英文的,但是都是基本词汇,不难</p><pre><code>deploy:  type: git  repo: &lt;repository url&gt;  branch: [branch]  message: [message]</code></pre><ul><li>repo: 仓库的URL,就是刚才新建的仓库地址<br></li><li>branch: 要同步的分支( 因为是用Github Pages 做服务器,分支这里必须填 master )<br></li><li>message: 提交信息.</li></ul><h2 id="发布网站到-GitHub-Pages"><a href="#发布网站到-GitHub-Pages" class="headerlink" title="发布网站到 GitHub Pages"></a>发布网站到 GitHub Pages</h2><p>一下三种之中任意一种都可以</p><h3 id="命令-I"><a href="#命令-I" class="headerlink" title="命令 I"></a>命令 I</h3><pre><code>hexo generatehexo deploy</code></pre><p>当然可以简化为</p><pre><code>hexo ghexo d</code></pre><h3 id="命令-II"><a href="#命令-II" class="headerlink" title="命令 II"></a>命令 II</h3><pre><code>hexo generate --deploy</code></pre><p>简化</p><pre><code>hexo g -d</code></pre><h3 id="命令-III"><a href="#命令-III" class="headerlink" title="命令 III"></a>命令 III</h3><pre><code>hexo deploy --generate</code></pre><p>简化</p><pre><code>hexo d -g</code></pre><h3 id="命令执行结果"><a href="#命令执行结果" class="headerlink" title="命令执行结果"></a>命令执行结果</h3><p>必须看到以下 Log 才算完全成功</p><pre><code>INFO  Deploy done:</code></pre><h2 id="查看你的博客"><a href="#查看你的博客" class="headerlink" title="查看你的博客"></a>查看你的博客</h2><p>浏览器地址栏输入 <font color="orange">username</font><font color="skyblue">.github.io</font> </p><h2 id="接下来说说把整个项目同步到-GitHub"><a href="#接下来说说把整个项目同步到-GitHub" class="headerlink" title="接下来说说把整个项目同步到 GitHub"></a>接下来说说把整个项目同步到 GitHub</h2><p>有两种方法</p><ul><li>放到 username.github.io 仓库下</li><li>放到其他仓库下( 当然是你自己建的仓库,仓库名根据自己的喜好取 )</li></ul><h3 id="username-github-io"><a href="#username-github-io" class="headerlink" title="username.github.io"></a>username.github.io</h3><ul><li><p>在你自己的 username.github.io 下新建 Branch (分支),分支名自取,例: hexo</p></li><li><p>初始化 git</p><p>  git init</p></li><li><p>新建分支 hexo (替换为你刚才在 username.github.io 下新建的分支,下同)</p><p>  git branch hexo</p></li><li><p>切换分支</p><p>  git checkout hexo</p></li><li><p>关联远程仓库</p><p>  git remote add origin <a href="https://github.com/username/username.github.io.git" target="_blank" rel="noopener">https://github.com/username/username.github.io.git</a></p></li><li><p>添加文件</p><p>  git add -A<br>  ( -A 为添加所有改动文件,也可以单独指定文件或文件夹)</p></li><li><p>提交改动</p><p>  git commit -m message<br>  ( message 为改动信息,自己填,如果有空格需要用 “ “ 引起来 )</p></li><li><p>同步到远程仓库</p><p>  git push origin hexo<br>  (注:分支名 hexo 加不加都可以,因为已经切换到 hexo 分支,若不在 hexo 必须加)</p></li></ul><h3 id="其他仓库"><a href="#其他仓库" class="headerlink" title="其他仓库"></a>其他仓库</h3><ul><li><p>在自己的 GitHub 新建一个仓库,例: hexo</p></li><li><p>初始化 git</p><p>  git init</p></li><li><p>关联远程仓库,替换 username,hexo 为自己的用户名和仓库名</p><p>  git remote add origin <a href="https://github.com/username/hexo.git" target="_blank" rel="noopener">https://github.com/username/hexo.git</a></p></li><li><p>添加文件</p><p>  git add -A<br>  ( -A 为添加所有改动文件,也可以单独指定文件或文件夹)</p></li><li><p>提交改动</p><p>  git commit -m message<br>  ( message 为改动信息,自己填,如果有空格需要用 “ “ 引起来 )</p></li><li><p>同步到远程仓库</p><p>  git push origin master<br>  (注:分支名 master 加不加都可以,因为默认在 master 分支,若不在 master 必须加)</p></li></ul>]]></content>
       
       
       <categories>
           
-          <category> 笔试 </category>
-          
-          <category> 美图 </category>
+          <category> Hexo </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> C++ </tag>
+            <tag> hexo </tag>
             
-            <tag> source </tag>
+            <tag> 博客 </tag>
             
         </tags>
       
@@ -1377,18 +1377,18 @@
     
     
     <entry>
-      <title>创新工场涂鸦移动2018校园招聘测试题-软件工程师-编程题二</title>
-      <link href="/posts/%E5%88%9B%E6%96%B0%E5%B7%A5%E5%9C%BA%E6%B6%82%E9%B8%A6%E7%A7%BB%E5%8A%A82018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E6%B5%8B%E8%AF%95%E9%A2%98-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/"/>
-      <url>/posts/%E5%88%9B%E6%96%B0%E5%B7%A5%E5%9C%BA%E6%B6%82%E9%B8%A6%E7%A7%BB%E5%8A%A82018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E6%B5%8B%E8%AF%95%E9%A2%98-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/</url>
+      <title>美图 2018校招 后端研发工程师在线考试-编程题一</title>
+      <link href="/posts/%E7%BE%8E%E5%9B%BE-2018%E6%A0%A1%E6%8B%9B-%E5%90%8E%E7%AB%AF%E7%A0%94%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
+      <url>/posts/%E7%BE%8E%E5%9B%BE-2018%E6%A0%A1%E6%8B%9B-%E5%90%8E%E7%AB%AF%E7%A0%94%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
       
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>给定一字符串只包含数字，请写一个算法，找出该字符串中的最长不重复子串（不重复是指子串中每一元素不同于子串中其他元素）</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行,一个字符全为数字的字符串</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>1 行,最长不重复子串</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>120135435</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>201354</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>定义 len(i) 为以下标 i 开始的不重复子串的最大长度</li><li>初始化 len(i) 为与str[i]相同的下一个字符的距离,若没有则设定下个相同字符的位置为 n</li><li>状态转移方程:</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len(i)=min(len(i),len(i+1)+1)</span><br></pre></td></tr></table></figure><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//最长不重复子串</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">lookUp</span><span class="params">(<span class="built_in">string</span> str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//获取串长度</span></span><br><span class="line">    <span class="keyword">int</span> n=str.length(); </span><br><span class="line">    <span class="comment">//申请辅助空间,flag[i] 为后一个 i 在 str 中的位置,</span></span><br><span class="line"><span class="comment">//len[i] 为以 i 为第一个字符的不重复子串的长度</span></span><br><span class="line">    <span class="keyword">int</span> flag[<span class="number">10</span>],*len=<span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">5</span>]; </span><br><span class="line">    <span class="comment">//初始化 flag</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;++i)   </span><br><span class="line">        flag[i]=n;</span><br><span class="line">    <span class="comment">//初始化 len</span></span><br><span class="line">    <span class="built_in">memset</span>(len,<span class="number">0</span>,<span class="keyword">sizeof</span> len);   </span><br><span class="line">    len[n]=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//初始化 len[i] 为当前字符与其后面第一个相同的自字符的距离</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i) </span><br><span class="line">    &#123;</span><br><span class="line">        len[i]=flag[str[i]-<span class="string">'0'</span>]-i;</span><br><span class="line">        flag[str[i]-<span class="string">'0'</span>]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//保存最大子串的首</span></span><br><span class="line">    <span class="keyword">int</span> maxi=n; </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//len[i] 的值更新为 len[i] 与 len[i+1]+1 两数之中的小者</span></span><br><span class="line">        len[i]=min(len[i],len[i+<span class="number">1</span>]+<span class="number">1</span>); </span><br><span class="line">        <span class="comment">//更新最长不重复子串首字符位置 </span></span><br><span class="line">        <span class="keyword">if</span>(len[maxi]&lt;len[i])maxi=i; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//输出最长不重复子串</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=maxi;i-maxi&lt;len[maxi];++i)    </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%c"</span>,str[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;str)</span><br><span class="line">    &#123;</span><br><span class="line">        lookUp(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="题目-Bit位数计算"><a href="#题目-Bit位数计算" class="headerlink" title="题目 Bit位数计算"></a>题目 Bit位数计算</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>两个 int32 整数 m 和 n 的二进制表达，计算有多少个位 (bit) 不同？</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>一行中给定两个数字</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出这两个数字中bit不同的个数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>15 8</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>3</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>两数异或</li><li>统计 1 的个数</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> m,n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;m&gt;&gt;n)</span><br><span class="line">    &#123;</span><br><span class="line">        m^=n;</span><br><span class="line">        <span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(m)</span><br><span class="line">        &#123;</span><br><span class="line">            m&amp;=m<span class="number">-1</span>;</span><br><span class="line">            ++count;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;count&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
           
           <category> 笔试 </category>
           
-          <category> 涂鸦移动 </category>
+          <category> 美图 </category>
           
       </categories>
       
@@ -1397,11 +1397,7 @@
             
             <tag> C++ </tag>
             
-            <tag> 笔试 </tag>
-            
-            <tag> 动态规划 </tag>
-            
-            <tag> 涂鸦移动 </tag>
+            <tag> source </tag>
             
         </tags>
       
@@ -1437,6 +1433,39 @@
             <tag> Windows </tag>
             
             <tag> Linux </tag>
+            
+            <tag> 涂鸦移动 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>创新工场涂鸦移动2018校园招聘测试题-软件工程师-编程题二</title>
+      <link href="/posts/%E5%88%9B%E6%96%B0%E5%B7%A5%E5%9C%BA%E6%B6%82%E9%B8%A6%E7%A7%BB%E5%8A%A82018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E6%B5%8B%E8%AF%95%E9%A2%98-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/"/>
+      <url>/posts/%E5%88%9B%E6%96%B0%E5%B7%A5%E5%9C%BA%E6%B6%82%E9%B8%A6%E7%A7%BB%E5%8A%A82018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E6%B5%8B%E8%AF%95%E9%A2%98-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>给定一字符串只包含数字，请写一个算法，找出该字符串中的最长不重复子串（不重复是指子串中每一元素不同于子串中其他元素）</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行,一个字符全为数字的字符串</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>1 行,最长不重复子串</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>120135435</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>201354</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>定义 len(i) 为以下标 i 开始的不重复子串的最大长度</li><li>初始化 len(i) 为与str[i]相同的下一个字符的距离,若没有则设定下个相同字符的位置为 n</li><li>状态转移方程:</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len(i)=min(len(i),len(i+1)+1)</span><br></pre></td></tr></table></figure><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//最长不重复子串</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">lookUp</span><span class="params">(<span class="built_in">string</span> str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//获取串长度</span></span><br><span class="line">    <span class="keyword">int</span> n=str.length(); </span><br><span class="line">    <span class="comment">//申请辅助空间,flag[i] 为后一个 i 在 str 中的位置,</span></span><br><span class="line"><span class="comment">//len[i] 为以 i 为第一个字符的不重复子串的长度</span></span><br><span class="line">    <span class="keyword">int</span> flag[<span class="number">10</span>],*len=<span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">5</span>]; </span><br><span class="line">    <span class="comment">//初始化 flag</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;++i)   </span><br><span class="line">        flag[i]=n;</span><br><span class="line">    <span class="comment">//初始化 len</span></span><br><span class="line">    <span class="built_in">memset</span>(len,<span class="number">0</span>,<span class="keyword">sizeof</span> len);   </span><br><span class="line">    len[n]=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//初始化 len[i] 为当前字符与其后面第一个相同的自字符的距离</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i) </span><br><span class="line">    &#123;</span><br><span class="line">        len[i]=flag[str[i]-<span class="string">'0'</span>]-i;</span><br><span class="line">        flag[str[i]-<span class="string">'0'</span>]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//保存最大子串的首</span></span><br><span class="line">    <span class="keyword">int</span> maxi=n; </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//len[i] 的值更新为 len[i] 与 len[i+1]+1 两数之中的小者</span></span><br><span class="line">        len[i]=min(len[i],len[i+<span class="number">1</span>]+<span class="number">1</span>); </span><br><span class="line">        <span class="comment">//更新最长不重复子串首字符位置 </span></span><br><span class="line">        <span class="keyword">if</span>(len[maxi]&lt;len[i])maxi=i; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//输出最长不重复子串</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=maxi;i-maxi&lt;len[maxi];++i)    </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%c"</span>,str[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;str)</span><br><span class="line">    &#123;</span><br><span class="line">        lookUp(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔试 </category>
+          
+          <category> 涂鸦移动 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 笔试 </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> 涂鸦移动 </tag>
             
@@ -1715,9 +1744,9 @@
             
             <tag> 二分法 </tag>
             
-            <tag> 腾讯 </tag>
-            
             <tag> 二叉排序树 </tag>
+            
+            <tag> 腾讯 </tag>
             
         </tags>
       
