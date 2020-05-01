@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://bestmind.space/posts/Java-Lambda-Expression/</loc>
+    
+    <lastmod>2020-05-01T16:11:03.890Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://bestmind.space/posts/%E9%93%BE%E5%AE%B62018%E9%93%BE%E4%B9%A0%E7%94%9F%E6%8B%9B%E8%81%98%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/</loc>
     
     <lastmod>2020-05-01T15:12:15.597Z</lastmod>
@@ -418,13 +425,6 @@
     <loc>http://bestmind.space/posts/%E6%90%9C%E7%8B%972018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98/</loc>
     
     <lastmod>2020-05-01T15:12:15.207Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bestmind.space/posts/Java-Lambda-Expression/</loc>
-    
-    <lastmod>2020-05-01T15:07:13.867Z</lastmod>
     
   </url>
   
