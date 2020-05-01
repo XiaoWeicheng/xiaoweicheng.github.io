@@ -118,6 +118,37 @@
     
     
     <entry>
+      <title>Java Lambda Expression</title>
+      <link href="/posts/Java-Lambda-Expression/"/>
+      <url>/posts/Java-Lambda-Expression/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Lambda表达式本质"><a href="#Lambda表达式本质" class="headerlink" title="Lambda表达式本质"></a>Lambda表达式本质</h1><p>一个Lambda表达式本质上是一个匿名函数</p><h1 id="Lambda表达式出现的原因"><a href="#Lambda表达式出现的原因" class="headerlink" title="Lambda表达式出现的原因"></a>Lambda表达式出现的原因</h1><p>匿名类型最大的问题就在于其冗余的语法，而Lambda表达式提供了轻量级的语法，解决了匿名内部类代码冗余的问题。</p><h1 id="Lambda表达式语法"><a href="#Lambda表达式语法" class="headerlink" title="Lambda表达式语法"></a>Lambda表达式语法</h1><p>lambda表达式的语法由参数列表、箭头符号-&gt;和函数体组成。函数体既可以是一个表达式，也可以是一个语句块：</p><ul><li>表达式：表达式会被执行然后返回执行结果。</li><li>语句块：语句块中的语句会被依次执行，就像方法中的语句一样——<ul><li>return语句会把控制权交给匿名方法的调用者</li><li>break和continue只能在循环中使用</li><li>如果函数体有返回值，那么函数体内部的每一条路径都必须返回值<br>表达式函数体适合小型lambda表达式，它消除了return关键字，使得语法更加简洁。<br>lambda表达式也会经常出现在嵌套环境中，比如说作为方法的参数。为了使lambda表达式在这些场景下尽可能简洁，去除了不必要的分隔符。不过在某些情况下我们也可以把它分为多行，然后用括号包起来，就像其它普通表达式一样。<br>栗子：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">int</span> x, <span class="keyword">int</span> y) -&gt; x + y</span><br><span class="line">() -&gt; <span class="number">42</span></span><br><span class="line">(String s) -&gt; &#123; System.out.println(s); &#125;</span><br><span class="line">FileFilter java = (File f) -&gt; f.getName().endsWith(<span class="string">"*.java"</span>);</span><br><span class="line">String user = doPrivileged(() -&gt; System.getProperty(<span class="string">"user.name"</span>));</span><br><span class="line"><span class="keyword">new</span> Thread( () -&gt; &#123;</span><br><span class="line">    connectToService();</span><br><span class="line">    sendNotification();</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure></li></ul></li></ul><h1 id="Lambda表达式的目标类型"><a href="#Lambda表达式的目标类型" class="headerlink" title="Lambda表达式的目标类型"></a>Lambda表达式的目标类型</h1><p>Lambda表达式的目标类型是由其上下文推导而来<br>编译器负责推导lambda表达式的类型。它利用lambda表达式所在上下文所期待的类型进行推导，这个被期待的类型被称为目标类型。lambda表达式只能出现在目标类型为函数式接口的上下文中。<br>lambda表达式对目标类型也是有要求的。编译器会检查lambda表达式的类型和目标类型的方法签名（method signature）是否一致。当且仅当下面所有条件均满足时，lambda表达式才可以被赋给目标类型T：</p><ul><li>T是一个函数式接口</li><li>lambda表达式的参数和T的方法参数在数量和类型上一一对应</li><li>lambda表达式的返回值和T的方法返回值相兼容（Compatible）</li><li>lambda表达式内所抛出的异常和T的方法throws类型相兼容<br>由于目标类型（函数式接口）已经“知道”lambda表达式的形式参数（Formal parameter）类型，lambda表达式的参数类型可以从目标类型中得出。<br>栗子：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ActionListener l = (ActionEvent e) -&gt; ui.dazzle(e.getModifiers());</span><br><span class="line">Callable&lt;String&gt; c = () -&gt; <span class="string">"done"</span>;</span><br><span class="line">PrivilegedAction&lt;String&gt; a = () -&gt; <span class="string">"done"</span>;</span><br><span class="line">Comparator&lt;String&gt; c = (s1, s2) -&gt; s1.compareToIgnoreCase(s2);</span><br><span class="line">FileFilter java = f -&gt; f.getName().endsWith(<span class="string">".java"</span>);</span><br><span class="line">button.addActionListener(e -&gt; ui.dazzle(e.getModifiers()));</span><br></pre></td></tr></table></figure></li></ul><h1 id="Lambda表达式词法作用域"><a href="#Lambda表达式词法作用域" class="headerlink" title="Lambda表达式词法作用域"></a>Lambda表达式词法作用域</h1><p>在内部类中使用变量名（以及this）非常容易出错。内部类中通过继承得到的成员（包括来自Object的方法）可能会把外部类的成员掩盖（shadow），此外未限定（unqualified）的this引用会指向内部类自己而非外部类。<br>相对于内部类，lambda表达式的语义就十分简单：它不会从超类（supertype）中继承任何变量名，也不会引入一个新的作用域。lambda表达式基于词法作用域，也就是说lambda表达式函数体里面的变量和它外部环境的变量具有相同的语义（也包括lambda表达式的形式参数）。此外，’this’关键字及其引用在lambda表达式内部和外部也拥有相同的语义。<br>也就是说在内部类中的 this 是有可能有歧义的，而Lambda表达式中的 this 和表达式外部 this 予以相同</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line">    Runnable r1 = () -&gt; &#123; System.out.println(<span class="keyword">this</span>);&#125;;</span><br><span class="line">    Runnable r2 = () -&gt; &#123; System.out.println(toString()); &#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="string">"Hello, world"</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Hello().r1.run();</span><br><span class="line">        <span class="keyword">new</span> Hello().r2.run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="变量捕获"><a href="#变量捕获" class="headerlink" title="变量捕获"></a>变量捕获</h1><p>在Java SE 7中，编译器对内部类中引用的外部变量（即捕获的变量）要求非常严格：如果捕获的变量没有被声明为final就会产生一个编译错误。对于lambda表达式和内部类，允许在其中捕获那些符合有效只读（Effectively final）的局部变量，尽管放宽了对捕获变量的语法限制，但试图修改捕获变量的行为仍然会被禁止。<br>简单的说在内部类中捕获的外部变量必须是final修饰的变量，儿Lambda表达式内捕获外部变量时不要求变量的final属性，但是依然不能修改。<br>栗子：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Callable&lt;String&gt; <span class="title">helloCallable</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    String hello = <span class="string">"Hello"</span>;</span><br><span class="line">    <span class="keyword">return</span> () -&gt; (hello + <span class="string">", "</span> + name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="方法引用"><a href="#方法引用" class="headerlink" title="方法引用"></a>方法引用</h1><p>方法引用和lambda表达式拥有相同的特性，不过我们并不需要为方法引用提供方法体，我们可以直接通过方法名称引用已有方法。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> age; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> name; &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person[] people = ...</span><br><span class="line">Comparator&lt;Person&gt; byName = Comparator.comparing(Person::getName);</span><br><span class="line">Arrays.sort(people, byName);</span><br><span class="line"></span><br><span class="line">Consumer&lt;Integer&gt; b1 = System::exit; <span class="comment">// void exit(int status)</span></span><br><span class="line">Consumer&lt;String[]&gt; b2 = Arrays:sort; <span class="comment">// void sort(Object[] a)</span></span><br><span class="line">Consumer&lt;String&gt; b3 = MyProgram::main; <span class="comment">// void main(String... args)</span></span><br><span class="line">Runnable r = Myprogram::mapToInt <span class="comment">// void main(String... args)</span></span><br></pre></td></tr></table></figure><p>#方法引用的种类<br>方法引用有很多种，它们的语法如下：</p><ul><li>静态方法引用：ClassName::methodName</li><li>实例上的实例方法引用：instanceReference::methodName</li><li>超类上的实例方法引用：super::methodName</li><li>类型上的实例方法引用：ClassName::methodName</li><li>构造方法引用：Class::new</li><li>数组构造方法引用：TypeName[]::new</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+          <category> Java 8 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Java 8 </tag>
+            
+            <tag> Lambda </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>去哪儿2018校招在线考试-编程题三</title>
       <link href="/posts/%E5%8E%BB%E5%93%AA%E5%84%BF2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/"/>
       <url>/posts/%E5%8E%BB%E5%93%AA%E5%84%BF2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/</url>
@@ -140,9 +171,9 @@
             
             <tag> 笔试 </tag>
             
-            <tag> 去哪儿 </tag>
-            
             <tag> 最短距离 </tag>
+            
+            <tag> 去哪儿 </tag>
             
         </tags>
       
@@ -171,9 +202,9 @@
             
             <tag> C++ </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 笔试 </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> 去哪儿 </tag>
             
@@ -206,9 +237,9 @@
             
             <tag> 笔试 </tag>
             
-            <tag> 广度优先搜索 </tag>
-            
             <tag> 去哪儿 </tag>
+            
+            <tag> 广度优先搜索 </tag>
             
         </tags>
       
@@ -244,6 +275,39 @@
     
     
     <entry>
+      <title>小米2018校招在线考试-编程题一</title>
+      <link href="/posts/%E5%B0%8F%E7%B1%B32018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
+      <url>/posts/%E5%B0%8F%E7%B1%B32018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目-名称转换"><a href="#题目-名称转换" class="headerlink" title="题目 名称转换"></a>题目 名称转换</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>在C++头文件中可以使用include guard以避免头文件被重复include，譬如：#ifndef MYHEADER_H_#define MYHEADER_H_ ...#endif 现在我希望你编写一个程序，将类名按照某种规则转换为include guard所使用的宏。类名会包含namespace前缀，使用“.”作为分隔符。被分隔符分开的各个部分称之为组件，组件只会包含大小写字母和数字，且不能以数字开头。转换规则：* 在开头和结尾都添加下划线；* 将“.”转化为下划线；* 根据下面的规则识别出组件中的单词，并使用下划线将单词进行分隔（具体参照输入输出样例）：    * 第一个大写字母与后面连续的小写字母一起识别为一个单词，如果不以大写字母开头，则直接将连续的小写字母识别为一个单词；    * 连续的大写字母一起识别为一个单词，但是如果最后一个大写字母后面跟着小写字母，则最后一个大写字母不包含在内；    * 连续的数字一起识别为一个单词；</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>多行字符串，每行是一个类名</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>多行字符串，每行是一个转化后的include guard宏，与输入对应</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>amy.ABCsimple.HelloServiceMY.ASTParser12</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>_A__MY_ABC__SIMPLE_HELLO_SERVICE__MY_AST_PARSER_12_</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>暴力,注意替换和添加’_’的条件</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">1000</span>];</span><br><span class="line"><span class="keyword">char</span> tmp[<span class="number">2000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;str)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> len=<span class="built_in">strlen</span>(str);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;i&lt;len;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!i) tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">            <span class="keyword">if</span>(str[i]==<span class="string">'.'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str[i]&gt;=<span class="string">'A'</span>&amp;&amp;str[i]&lt;=<span class="string">'Z'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>( i &amp;&amp; tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span> &amp;&amp;</span><br><span class="line">                   ( str[i<span class="number">-1</span>]&lt;<span class="string">'A'</span>||str[i<span class="number">-1</span>]&gt;<span class="string">'Z'</span> ||</span><br><span class="line">                     str[i<span class="number">-1</span>]&gt;=<span class="string">'A'</span>&amp;&amp;str[i<span class="number">-1</span>]&lt;=<span class="string">'Z'</span> &amp;&amp;</span><br><span class="line">                     str[i+<span class="number">1</span>]&gt;=<span class="string">'a'</span>&amp;&amp;str[i+<span class="number">1</span>]&lt;=<span class="string">'z'</span></span><br><span class="line">                    )</span><br><span class="line">                   )</span><br><span class="line">                    tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">                tmp[j++]=str[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str[i]&gt;=<span class="string">'a'</span>&amp;&amp;str[i]&lt;=<span class="string">'z'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i &amp;&amp; tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span> &amp;&amp;</span><br><span class="line">                   ( str[i<span class="number">-1</span>]&lt;<span class="string">'A'</span> || str[i<span class="number">-1</span>]&gt;<span class="string">'Z'</span> &amp;&amp;</span><br><span class="line">                     str[i<span class="number">-1</span>]&lt;<span class="string">'a'</span> || str[i<span class="number">-1</span>]&gt;<span class="string">'z'</span></span><br><span class="line">                    )</span><br><span class="line">                   )</span><br><span class="line">                    tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">                tmp[j++]=str[i]<span class="number">-32</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str[i]&gt;=<span class="string">'0'</span>&amp;&amp;str[i]&lt;=<span class="string">'9'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i &amp;&amp; tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span> &amp;&amp;</span><br><span class="line">                   ( str[i<span class="number">-1</span>]&lt;<span class="string">'0'</span>||str[i<span class="number">-1</span>]&gt;<span class="string">'9'</span> )</span><br><span class="line">                   )</span><br><span class="line">                    tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">                tmp[j++]=str[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str[i]=<span class="string">'_'</span>&amp;&amp;tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span>)</span><br><span class="line">                tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">            <span class="keyword">if</span>(i==len<span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span>)</span><br><span class="line">                    tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">                tmp[j++]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;tmp&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔试 </category>
+          
+          <category> 小米 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 笔试 </tag>
+            
+            <tag> 字符串 </tag>
+            
+            <tag> 小米 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>小米2018校招在线考试-编程题三</title>
       <link href="/posts/%E5%B0%8F%E7%B1%B32018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/"/>
       <url>/posts/%E5%B0%8F%E7%B1%B32018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/</url>
@@ -268,9 +332,9 @@
             
             <tag> 字符串 </tag>
             
-            <tag> 深度优先搜索 </tag>
-            
             <tag> 小米 </tag>
+            
+            <tag> 深度优先搜索 </tag>
             
         </tags>
       
@@ -306,39 +370,6 @@
             <tag> 小米 </tag>
             
             <tag> 字典树 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>小米2018校招在线考试-编程题一</title>
-      <link href="/posts/%E5%B0%8F%E7%B1%B32018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
-      <url>/posts/%E5%B0%8F%E7%B1%B32018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
-      
-        <content type="html"><![CDATA[<h2 id="题目-名称转换"><a href="#题目-名称转换" class="headerlink" title="题目 名称转换"></a>题目 名称转换</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>在C++头文件中可以使用include guard以避免头文件被重复include，譬如：#ifndef MYHEADER_H_#define MYHEADER_H_ ...#endif 现在我希望你编写一个程序，将类名按照某种规则转换为include guard所使用的宏。类名会包含namespace前缀，使用“.”作为分隔符。被分隔符分开的各个部分称之为组件，组件只会包含大小写字母和数字，且不能以数字开头。转换规则：* 在开头和结尾都添加下划线；* 将“.”转化为下划线；* 根据下面的规则识别出组件中的单词，并使用下划线将单词进行分隔（具体参照输入输出样例）：    * 第一个大写字母与后面连续的小写字母一起识别为一个单词，如果不以大写字母开头，则直接将连续的小写字母识别为一个单词；    * 连续的大写字母一起识别为一个单词，但是如果最后一个大写字母后面跟着小写字母，则最后一个大写字母不包含在内；    * 连续的数字一起识别为一个单词；</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>多行字符串，每行是一个类名</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>多行字符串，每行是一个转化后的include guard宏，与输入对应</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>amy.ABCsimple.HelloServiceMY.ASTParser12</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>_A__MY_ABC__SIMPLE_HELLO_SERVICE__MY_AST_PARSER_12_</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>暴力,注意替换和添加’_’的条件</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">1000</span>];</span><br><span class="line"><span class="keyword">char</span> tmp[<span class="number">2000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;str)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> len=<span class="built_in">strlen</span>(str);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;i&lt;len;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!i) tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">            <span class="keyword">if</span>(str[i]==<span class="string">'.'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str[i]&gt;=<span class="string">'A'</span>&amp;&amp;str[i]&lt;=<span class="string">'Z'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>( i &amp;&amp; tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span> &amp;&amp;</span><br><span class="line">                   ( str[i<span class="number">-1</span>]&lt;<span class="string">'A'</span>||str[i<span class="number">-1</span>]&gt;<span class="string">'Z'</span> ||</span><br><span class="line">                     str[i<span class="number">-1</span>]&gt;=<span class="string">'A'</span>&amp;&amp;str[i<span class="number">-1</span>]&lt;=<span class="string">'Z'</span> &amp;&amp;</span><br><span class="line">                     str[i+<span class="number">1</span>]&gt;=<span class="string">'a'</span>&amp;&amp;str[i+<span class="number">1</span>]&lt;=<span class="string">'z'</span></span><br><span class="line">                    )</span><br><span class="line">                   )</span><br><span class="line">                    tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">                tmp[j++]=str[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str[i]&gt;=<span class="string">'a'</span>&amp;&amp;str[i]&lt;=<span class="string">'z'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i &amp;&amp; tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span> &amp;&amp;</span><br><span class="line">                   ( str[i<span class="number">-1</span>]&lt;<span class="string">'A'</span> || str[i<span class="number">-1</span>]&gt;<span class="string">'Z'</span> &amp;&amp;</span><br><span class="line">                     str[i<span class="number">-1</span>]&lt;<span class="string">'a'</span> || str[i<span class="number">-1</span>]&gt;<span class="string">'z'</span></span><br><span class="line">                    )</span><br><span class="line">                   )</span><br><span class="line">                    tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">                tmp[j++]=str[i]<span class="number">-32</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str[i]&gt;=<span class="string">'0'</span>&amp;&amp;str[i]&lt;=<span class="string">'9'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i &amp;&amp; tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span> &amp;&amp;</span><br><span class="line">                   ( str[i<span class="number">-1</span>]&lt;<span class="string">'0'</span>||str[i<span class="number">-1</span>]&gt;<span class="string">'9'</span> )</span><br><span class="line">                   )</span><br><span class="line">                    tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">                tmp[j++]=str[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str[i]=<span class="string">'_'</span>&amp;&amp;tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span>)</span><br><span class="line">                tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">            <span class="keyword">if</span>(i==len<span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(tmp[j<span class="number">-1</span>]!=<span class="string">'_'</span>)</span><br><span class="line">                    tmp[j++]=<span class="string">'_'</span>;</span><br><span class="line">                tmp[j++]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;tmp&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 笔试 </category>
-          
-          <category> 小米 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
-            <tag> 笔试 </tag>
-            
-            <tag> 字符串 </tag>
-            
-            <tag> 小米 </tag>
             
         </tags>
       
@@ -556,9 +587,40 @@
             
             <tag> 笔试 </tag>
             
+            <tag> 算法 </tag>
+            
             <tag> 巨人网络 </tag>
             
-            <tag> 算法 </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>巨人网络2018校招在线笔试-编程题一</title>
+      <link href="/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
+      <url>/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>把 36 分为 3 个互不相同整数的乘积,并降序输出每个因子,中间以空格隔开</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>无</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>降序输出每个因子,中间以空格隔开</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>9 2 2</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>神.推理.题</li><li>因为说是和某家的门牌号相同,而且还需要别的信息说明有多组对应一个门牌号</li><li>年龄最大的狗狗有点矮,说明年龄最大的狗狗年龄不重复</li></ul><pre><code></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔试 </category>
+          
+          <category> 巨人网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔试 </tag>
+            
+            <tag> 巨人网络 </tag>
+            
+            <tag> 推理 </tag>
             
         </tags>
       
@@ -629,37 +691,6 @@
     
     
     <entry>
-      <title>巨人网络2018校招在线笔试-编程题一</title>
-      <link href="/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
-      <url>/posts/%E5%B7%A8%E4%BA%BA%E7%BD%91%E7%BB%9C2018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
-      
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>把 36 分为 3 个互不相同整数的乘积,并降序输出每个因子,中间以空格隔开</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>无</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>降序输出每个因子,中间以空格隔开</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>9 2 2</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>神.推理.题</li><li>因为说是和某家的门牌号相同,而且还需要别的信息说明有多组对应一个门牌号</li><li>年龄最大的狗狗有点矮,说明年龄最大的狗狗年龄不重复</li></ul><pre><code></code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 笔试 </category>
-          
-          <category> 巨人网络 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 笔试 </tag>
-            
-            <tag> 推理 </tag>
-            
-            <tag> 巨人网络 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>今日头条2018校园招聘后端方向-附加编程题</title>
       <link href="/posts/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A12018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%90%8E%E7%AB%AF%E6%96%B9%E5%90%91-%E9%99%84%E5%8A%A0%E7%BC%96%E7%A8%8B%E9%A2%98/"/>
       <url>/posts/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A12018%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98%E5%90%8E%E7%AB%AF%E6%96%B9%E5%90%91-%E9%99%84%E5%8A%A0%E7%BC%96%E7%A8%8B%E9%A2%98/</url>
@@ -713,9 +744,9 @@
             
             <tag> 笔试 </tag>
             
-            <tag> 莫队算法 </tag>
-            
             <tag> 今日头条 </tag>
+            
+            <tag> 莫队算法 </tag>
             
         </tags>
       
@@ -746,9 +777,9 @@
             
             <tag> 笔试 </tag>
             
-            <tag> 今日头条 </tag>
-            
             <tag> 滑动窗口 </tag>
+            
+            <tag> 今日头条 </tag>
             
         </tags>
       
@@ -938,9 +969,9 @@
             
             <tag> 牛客 </tag>
             
-            <tag> 2017校招 </tag>
-            
             <tag> 二分法 </tag>
+            
+            <tag> 2017校招 </tag>
             
         </tags>
       
@@ -1002,9 +1033,9 @@
             
             <tag> 牛客 </tag>
             
-            <tag> 2017校招 </tag>
-            
             <tag> 二分法 </tag>
+            
+            <tag> 2017校招 </tag>
             
         </tags>
       
@@ -1079,39 +1110,6 @@
     
     
     <entry>
-      <title>京东2018校招C++工程师笔试题-编程题二</title>
-      <link href="/posts/%E4%BA%AC%E4%B8%9C2018%E6%A0%A1%E6%8B%9BC-%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%AC%94%E8%AF%95%E9%A2%98-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/"/>
-      <url>/posts/%E4%BA%AC%E4%B8%9C2018%E6%A0%A1%E6%8B%9BC-%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%AC%94%E8%AF%95%E9%A2%98-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/</url>
-      
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>一个十进制数字的各个位上的数若可以分成两部分 p1,p2,且两分内的元素之和 sum(p1)=sum(p2),则称这个数为神奇数 ,例如 242,可以分为 {2,2} 与 {4},且两部分元素之和都为 4,则 242 为神奇数.</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行,两个数 l,r</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出 [l,r] 内神奇数的个数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>1 55</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>4</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="穷举"><a href="#穷举" class="headerlink" title="穷举"></a>穷举</h3><ul><li>对于每个数,穷举每个组合,判断是否为神奇数</li><li>判断是否是神奇数使用 dp</li><li>时间复杂度 O((l-r)<em>(log n)</em>(log r)) (log r &lt;= 9)</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pos[<span class="number">10</span>],nz=<span class="number">0</span>,sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t=n%<span class="number">10</span>;</span><br><span class="line">        sum+=t;</span><br><span class="line">        <span class="keyword">if</span>(t)</span><br><span class="line">            pos[++nz]=t;</span><br><span class="line">        n/=<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(sum&amp;<span class="number">1</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    sum&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">bool</span> *dp=<span class="keyword">new</span> <span class="keyword">bool</span>[sum+<span class="number">1</span>];</span><br><span class="line">    dp[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    sort(pos+<span class="number">1</span>,pos+nz+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(pos[nz]&gt;sum)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=nz;i&gt;<span class="number">0</span>;--i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=sum;j&gt;=pos[i];--j)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[j]=dp[j]|dp[j-pos[i]];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(dp[sum])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">delete</span>[]dp;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span>[] dp;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> r,l,c=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;l&gt;&gt;r;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;=r)</span><br><span class="line">    &#123;</span><br><span class="line">        c+=check(l++);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 笔试 </category>
-          
-          <category> 京东 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
-            <tag> 动态规划 </tag>
-            
-            <tag> 笔试 </tag>
-            
-            <tag> 京东 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>京东2018校招C++工程师笔试题-编程题一</title>
       <link href="/posts/%E4%BA%AC%E4%B8%9C2018%E6%A0%A1%E6%8B%9BC-%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%AC%94%E8%AF%95%E9%A2%98-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
       <url>/posts/%E4%BA%AC%E4%B8%9C2018%E6%A0%A1%E6%8B%9BC-%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%AC%94%E8%AF%95%E9%A2%98-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
@@ -1143,6 +1141,39 @@
     
     
     <entry>
+      <title>京东2018校招C++工程师笔试题-编程题二</title>
+      <link href="/posts/%E4%BA%AC%E4%B8%9C2018%E6%A0%A1%E6%8B%9BC-%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%AC%94%E8%AF%95%E9%A2%98-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/"/>
+      <url>/posts/%E4%BA%AC%E4%B8%9C2018%E6%A0%A1%E6%8B%9BC-%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%AC%94%E8%AF%95%E9%A2%98-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>一个十进制数字的各个位上的数若可以分成两部分 p1,p2,且两分内的元素之和 sum(p1)=sum(p2),则称这个数为神奇数 ,例如 242,可以分为 {2,2} 与 {4},且两部分元素之和都为 4,则 242 为神奇数.</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>1 行,两个数 l,r</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>输出 [l,r] 内神奇数的个数</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>1 55</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>4</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="穷举"><a href="#穷举" class="headerlink" title="穷举"></a>穷举</h3><ul><li>对于每个数,穷举每个组合,判断是否为神奇数</li><li>判断是否是神奇数使用 dp</li><li>时间复杂度 O((l-r)<em>(log n)</em>(log r)) (log r &lt;= 9)</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pos[<span class="number">10</span>],nz=<span class="number">0</span>,sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t=n%<span class="number">10</span>;</span><br><span class="line">        sum+=t;</span><br><span class="line">        <span class="keyword">if</span>(t)</span><br><span class="line">            pos[++nz]=t;</span><br><span class="line">        n/=<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(sum&amp;<span class="number">1</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    sum&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">bool</span> *dp=<span class="keyword">new</span> <span class="keyword">bool</span>[sum+<span class="number">1</span>];</span><br><span class="line">    dp[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    sort(pos+<span class="number">1</span>,pos+nz+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(pos[nz]&gt;sum)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=nz;i&gt;<span class="number">0</span>;--i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=sum;j&gt;=pos[i];--j)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[j]=dp[j]|dp[j-pos[i]];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(dp[sum])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">delete</span>[]dp;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span>[] dp;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> r,l,c=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;l&gt;&gt;r;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;=r)</span><br><span class="line">    &#123;</span><br><span class="line">        c+=check(l++);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔试 </category>
+          
+          <category> 京东 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 笔试 </tag>
+            
+            <tag> 京东 </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>搜狗2018校招在线考试-编程题</title>
       <link href="/posts/%E6%90%9C%E7%8B%972018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98/"/>
       <url>/posts/%E6%90%9C%E7%8B%972018%E6%A0%A1%E6%8B%9B%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98/</url>
@@ -1163,9 +1194,9 @@
             
             <tag> C++ </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 笔试 </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> 搜狗 </tag>
             
@@ -1333,9 +1364,9 @@
             
             <tag> C++ </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 笔试 </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> 美图 </tag>
             
@@ -1366,9 +1397,9 @@
             
             <tag> C++ </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 笔试 </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> 涂鸦移动 </tag>
             
@@ -1436,42 +1467,9 @@
             
             <tag> C++ </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 笔试 </tag>
             
-            <tag> 链家 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>链家2018链习生招聘考试-编程题三</title>
-      <link href="/posts/%E9%93%BE%E5%AE%B62018%E9%93%BE%E4%B9%A0%E7%94%9F%E6%8B%9B%E8%81%98%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/"/>
-      <url>/posts/%E9%93%BE%E5%AE%B62018%E9%93%BE%E4%B9%A0%E7%94%9F%E6%8B%9B%E8%81%98%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/</url>
-      
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>小明有 n( 1&lt;=n&lt;=2000 )个美味的食物,他想卖掉它们来赚钱.这些食物放在一些箱子里,他们有些有趣的特性1. 这些食物被编号为 1~n,每一天小明可以从这些箱子的头部或者尾部取出食物去卖2. 这些食物放得越久,年龄越大,价值越大,食物 i 有一个出事的价值 v(i)3. 放了 a 天后年龄为 a ,食物最终价值为 v(i)*a给定每一个食物的初始价值v(i),请求出小明卖掉它们后可以获得的最大价值,第一天出售的食物的年龄为 1,此后每增加一天食物的年龄就加 1</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第 1 行:一个整数 n第 2 到第 n+1 行:每个食物的初始价值 v </code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>1 行:小明最终可以获得的最大价值</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>513152</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>43</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ul><li>定义 income(i,j) 为已经卖出除编号 i 到 j 之外的食物,所得到的最大价值</li><li>income(i,i) 中最大值即为所求</li><li>可以优化空间复杂度 O(n*n) 为 O(n)</li><li>状态转移方程:( day 为卖出除编号 i 到 j 之外的食物所用的时间 )</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">income( i,j )=max( income( i-1,j )+food[i-1]*day,income( i,j+1 )+food[j+1]*day )</span><br></pre></td></tr></table></figure><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,food[<span class="number">2002</span>],income[<span class="number">2002</span>],day,maxIncome;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(income,<span class="number">0</span>,<span class="keyword">sizeof</span> income);</span><br><span class="line">    maxIncome=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    food[<span class="number">0</span>]=food[n+<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;food[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        day=i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=n;j&gt;=i;--j)</span><br><span class="line">        &#123;</span><br><span class="line">            income[j]=max(income[j]+food[i<span class="number">-1</span>]*day,income[j+<span class="number">1</span>]+food[j+<span class="number">1</span>]*day);</span><br><span class="line">            ++day;</span><br><span class="line">        &#125;</span><br><span class="line">        maxIncome=max(maxIncome,income[i]+food[i]*n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;maxIncome;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 笔试 </category>
-          
-          <category> 链家 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
             <tag> 动态规划 </tag>
-            
-            <tag> 笔试 </tag>
             
             <tag> 链家 </tag>
             
@@ -1502,9 +1500,42 @@
             
             <tag> C++ </tag>
             
+            <tag> 笔试 </tag>
+            
             <tag> 动态规划 </tag>
             
+            <tag> 链家 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>链家2018链习生招聘考试-编程题三</title>
+      <link href="/posts/%E9%93%BE%E5%AE%B62018%E9%93%BE%E4%B9%A0%E7%94%9F%E6%8B%9B%E8%81%98%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/"/>
+      <url>/posts/%E9%93%BE%E5%AE%B62018%E9%93%BE%E4%B9%A0%E7%94%9F%E6%8B%9B%E8%81%98%E8%80%83%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%89/</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>小明有 n( 1&lt;=n&lt;=2000 )个美味的食物,他想卖掉它们来赚钱.这些食物放在一些箱子里,他们有些有趣的特性1. 这些食物被编号为 1~n,每一天小明可以从这些箱子的头部或者尾部取出食物去卖2. 这些食物放得越久,年龄越大,价值越大,食物 i 有一个出事的价值 v(i)3. 放了 a 天后年龄为 a ,食物最终价值为 v(i)*a给定每一个食物的初始价值v(i),请求出小明卖掉它们后可以获得的最大价值,第一天出售的食物的年龄为 1,此后每增加一天食物的年龄就加 1</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>第 1 行:一个整数 n第 2 到第 n+1 行:每个食物的初始价值 v </code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>1 行:小明最终可以获得的最大价值</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>513152</code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>43</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ul><li>定义 income(i,j) 为已经卖出除编号 i 到 j 之外的食物,所得到的最大价值</li><li>income(i,i) 中最大值即为所求</li><li>可以优化空间复杂度 O(n*n) 为 O(n)</li><li>状态转移方程:( day 为卖出除编号 i 到 j 之外的食物所用的时间 )</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">income( i,j )=max( income( i-1,j )+food[i-1]*day,income( i,j+1 )+food[j+1]*day )</span><br></pre></td></tr></table></figure><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,food[<span class="number">2002</span>],income[<span class="number">2002</span>],day,maxIncome;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(income,<span class="number">0</span>,<span class="keyword">sizeof</span> income);</span><br><span class="line">    maxIncome=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    food[<span class="number">0</span>]=food[n+<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;food[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        day=i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=n;j&gt;=i;--j)</span><br><span class="line">        &#123;</span><br><span class="line">            income[j]=max(income[j]+food[i<span class="number">-1</span>]*day,income[j+<span class="number">1</span>]+food[j+<span class="number">1</span>]*day);</span><br><span class="line">            ++day;</span><br><span class="line">        &#125;</span><br><span class="line">        maxIncome=max(maxIncome,income[i]+food[i]*n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;maxIncome;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔试 </category>
+          
+          <category> 链家 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
             <tag> 笔试 </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> 链家 </tag>
             
@@ -1684,9 +1715,9 @@
             
             <tag> 二分法 </tag>
             
-            <tag> 二叉排序树 </tag>
-            
             <tag> 腾讯 </tag>
+            
+            <tag> 二叉排序树 </tag>
             
         </tags>
       
@@ -1695,11 +1726,11 @@
     
     
     <entry>
-      <title>搜狐集团2018秋季校招笔试题（技术类）-编程题一</title>
-      <link href="/posts/%E6%90%9C%E7%8B%90%E9%9B%86%E5%9B%A22018%E7%A7%8B%E5%AD%A3%E6%A0%A1%E6%8B%9B%E7%AC%94%E8%AF%95%E9%A2%98%EF%BC%88%E6%8A%80%E6%9C%AF%E7%B1%BB%EF%BC%89-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
-      <url>/posts/%E6%90%9C%E7%8B%90%E9%9B%86%E5%9B%A22018%E7%A7%8B%E5%AD%A3%E6%A0%A1%E6%8B%9B%E7%AC%94%E8%AF%95%E9%A2%98%EF%BC%88%E6%8A%80%E6%9C%AF%E7%B1%BB%EF%BC%89-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
+      <title>搜狐集团2018秋季校招笔试题（技术类）-编程题二</title>
+      <link href="/posts/%E6%90%9C%E7%8B%90%E9%9B%86%E5%9B%A22018%E7%A7%8B%E5%AD%A3%E6%A0%A1%E6%8B%9B%E7%AC%94%E8%AF%95%E9%A2%98%EF%BC%88%E6%8A%80%E6%9C%AF%E7%B1%BB%EF%BC%89-%20%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/"/>
+      <url>/posts/%E6%90%9C%E7%8B%90%E9%9B%86%E5%9B%A22018%E7%A7%8B%E5%AD%A3%E6%A0%A1%E6%8B%9B%E7%AC%94%E8%AF%95%E9%A2%98%EF%BC%88%E6%8A%80%E6%9C%AF%E7%B1%BB%EF%BC%89-%20%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/</url>
       
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>Kolakoski 序列是个随机生成的无限序列.例如,当给定的整数组为 [1,2] 时,Kolakoski 序列是这样的:[1,2,2,1,1,2,1,2,2,1,2,2,1,1,2,1,1,2,2,1,2,1,1,2,1,2,2,1,1,...]如果我们将相邻的相同的数字分成一组,那么将会得到:[[1],[2,2],[1,1],[2],[1],[2,2],[1],[2,2],[1,1],[2],[1,1],[2,2],[1],[2],[1,1],[2],[1],[2,2],[1,1],...]可以看出,每组数字交替由 1,2 组成.接下来对每个分组求它的长度,得到:[1,2,2,1,1,2,1,2,2,1,2,2,1,1,2,1,1,2,2,1,2,1,1,2,1,2,2,1,1,...]可以看出,经过上述变换后,数列保持不变.对于其他给定的整数组,同样可以用类似的方法构造 Kolakoski 序列,例如给定整数组 [2,3] 时:[2,2,3,3,2,2,2,3,3,3,2,2,3,3,2,2,3,3,3,2,2,2,3,3,3,2,2,3,3,...]给定整数组 [2,1,3,1] 时,构造得到如下:[2,2,1,1,3,1,2,2,2,1,3,3,1,1,2,2,1,3,3,3,1,1,1,2,1,3,3,1,1,...]</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>输入由两行组成,第一行包括两个正整数 n,m第二行包括 m 个正整数 a[]数据规模与限制:0 &lt; n &lt; 100001 &lt; m&lt; 10000 &lt; a[i] &lt; 1000a[i] 不等于 a[i+1]a[0] 不等于 a[m-1]</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>每行只有一个数字,共 n 行整数组 a 生成的 Kolakoski 序列的前 n 项</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>30 42 1 3 1  </code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>221131222133112213331112133112</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>i 表示当前正在生成的分组</li><li>j 表示已生成的 Kolakoski 序列的个数</li><li>k 表示生成当前分组所用的整数在 a[] 中的位置</li><li>若 i=j,说明没有生成第 i 组的长度,则需要生成的 i 组的长度为 a[k]</li><li>若 i&lt;j,说明已经生成第 i 组长度,则需要生成的 i 组的长度 b[j]</li><li>循环生成第 i 组</li><li>若 j&gt;=n 说明已生成完毕</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ull unsigned long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">1000</span>],n,m,Kolakoski[<span class="number">10000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,k,t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;m;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(i=j=k=<span class="number">0</span>;j&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i&lt;j)</span><br><span class="line">                t=Kolakoski[i];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                t=a[k];</span><br><span class="line">            <span class="keyword">while</span>(t&gt;<span class="number">0</span>&amp;&amp;j&lt;n)</span><br><span class="line">            &#123;</span><br><span class="line">                Kolakoski[j]=a[k];</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;Kolakoski[j]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">                --t,++j;</span><br><span class="line">            &#125;</span><br><span class="line">            k=(k+<span class="number">1</span>)%m;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>工厂生产的产品包装在相同高度 h,尺寸为1*1,2*2,3*3,4*4,5*5,6*6 的方形包装中.这些产品始终以与产品高度相同的尺寸为 6*6 的包裹交付给客户.因为邮费很贵,所以工厂要想方设法地减少每个订单运送时的包裹数量.他们很需要有一个好的程序员帮他们解决这个问题从而节省费用.现在这个程序由你来设计.</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>输入文件包括几行,每一行代表一个订单.每个订单里的一行包括六个整数,中间用空格隔开,分别为 1*1 至 6*6 这六种产品的数量.输入文件将以 6 个 0 组成一行结尾.</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>除了输入的最后一行 6 个 0 以外,输入文件里每一行对应着输出文件一行,每一行输出一个整数代表对应订单所需的最小包裹数.</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>0 0 4 0 0 17 5 1 0 0 00 0 0 0 0 0  </code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>21</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="直接求解"><a href="#直接求解" class="headerlink" title="直接求解"></a>直接求解</h3><p>由于数据量不大,直接求解</p><ul><li>1 个 6*6 的产品单独组成一个包裹</li><li>1 个 5<em>5 的产品可以和 11 个 1</em>1 的产品组成一个包裹</li><li>1 个 4<em>4 的产品可以和 2</em>2 或 1*1 的产品组成一个包裹</li><li>4 个 3<em>3 的产品单独组成一个包裹,若 3</em>3 的产品不足 4 个,则可以和 2<em>2 的产品或者 1</em>1 的产品或者两者混合组成一个包裹</li><li>9 个 2<em>2 的产品单独组成一个包裹,若 2</em>2 的产品不足9个,则可以和1*1的产品组成一个包裹</li><li>36 个 1*1 的产品单独组成一个包裹</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> prod[<span class="number">6</span>],c,rest2[<span class="number">4</span>]=&#123;<span class="number">0</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">1</span>&#125;,t;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d%d%d"</span>,&amp;prod[<span class="number">0</span>],&amp;prod[<span class="number">1</span>],&amp;prod[<span class="number">2</span>],&amp;prod[<span class="number">3</span>],&amp;prod[<span class="number">4</span>],&amp;prod[<span class="number">5</span>]);</span><br><span class="line">        <span class="keyword">if</span>(prod[<span class="number">0</span>]|prod[<span class="number">1</span>]|prod[<span class="number">2</span>]|prod[<span class="number">3</span>]|prod[<span class="number">4</span>]|prod[<span class="number">5</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            c=<span class="number">0</span>;</span><br><span class="line">            c+=prod[<span class="number">5</span>];</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"6 "</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            c+=prod[<span class="number">4</span>];</span><br><span class="line">            prod[<span class="number">0</span>]-=min(prod[<span class="number">0</span>],prod[<span class="number">4</span>]*<span class="number">11</span>);</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"5 "</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            c+=prod[<span class="number">3</span>];</span><br><span class="line">            prod[<span class="number">0</span>]-=min(prod[<span class="number">0</span>],max(<span class="number">0</span>,prod[<span class="number">3</span>]*<span class="number">5</span>-prod[<span class="number">1</span>])*<span class="number">4</span>);</span><br><span class="line">            prod[<span class="number">1</span>]-=min(prod[<span class="number">1</span>],prod[<span class="number">3</span>]*<span class="number">5</span>);</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"4 "</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            t=prod[<span class="number">2</span>]/<span class="number">4</span>;</span><br><span class="line">            prod[<span class="number">2</span>]-=<span class="number">4</span>*t;</span><br><span class="line">            c+=t;</span><br><span class="line">            <span class="keyword">if</span>(prod[<span class="number">2</span>])++c;</span><br><span class="line">            prod[<span class="number">0</span>]-=min(prod[<span class="number">0</span>],<span class="number">36</span><span class="number">-9</span>*prod[<span class="number">2</span>]<span class="number">-4</span>*min(rest2[prod[<span class="number">2</span>]],prod[<span class="number">1</span>]));</span><br><span class="line">            prod[<span class="number">1</span>]-=min(rest2[prod[<span class="number">2</span>]],prod[<span class="number">1</span>]);</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"3 "</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            t=prod[<span class="number">1</span>]/<span class="number">9</span>;</span><br><span class="line">            prod[<span class="number">1</span>]-=<span class="number">9</span>*t;</span><br><span class="line">            c+=t;</span><br><span class="line">            <span class="keyword">if</span>(prod[<span class="number">1</span>])++c;</span><br><span class="line">            prod[<span class="number">0</span>]-=min(prod[<span class="number">0</span>],<span class="number">36</span><span class="number">-4</span>*prod[<span class="number">1</span>]);</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"2 "</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            c+=prod[<span class="number">0</span>]/<span class="number">36</span>;</span><br><span class="line">            <span class="keyword">if</span>(prod[<span class="number">0</span>])++c;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1726,11 +1757,11 @@
     
     
     <entry>
-      <title>搜狐集团2018秋季校招笔试题（技术类）-编程题二</title>
-      <link href="/posts/%E6%90%9C%E7%8B%90%E9%9B%86%E5%9B%A22018%E7%A7%8B%E5%AD%A3%E6%A0%A1%E6%8B%9B%E7%AC%94%E8%AF%95%E9%A2%98%EF%BC%88%E6%8A%80%E6%9C%AF%E7%B1%BB%EF%BC%89-%20%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/"/>
-      <url>/posts/%E6%90%9C%E7%8B%90%E9%9B%86%E5%9B%A22018%E7%A7%8B%E5%AD%A3%E6%A0%A1%E6%8B%9B%E7%AC%94%E8%AF%95%E9%A2%98%EF%BC%88%E6%8A%80%E6%9C%AF%E7%B1%BB%EF%BC%89-%20%E7%BC%96%E7%A8%8B%E9%A2%98%E4%BA%8C/</url>
+      <title>搜狐集团2018秋季校招笔试题（技术类）-编程题一</title>
+      <link href="/posts/%E6%90%9C%E7%8B%90%E9%9B%86%E5%9B%A22018%E7%A7%8B%E5%AD%A3%E6%A0%A1%E6%8B%9B%E7%AC%94%E8%AF%95%E9%A2%98%EF%BC%88%E6%8A%80%E6%9C%AF%E7%B1%BB%EF%BC%89-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/"/>
+      <url>/posts/%E6%90%9C%E7%8B%90%E9%9B%86%E5%9B%A22018%E7%A7%8B%E5%AD%A3%E6%A0%A1%E6%8B%9B%E7%AC%94%E8%AF%95%E9%A2%98%EF%BC%88%E6%8A%80%E6%9C%AF%E7%B1%BB%EF%BC%89-%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%80/</url>
       
-        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>工厂生产的产品包装在相同高度 h,尺寸为1*1,2*2,3*3,4*4,5*5,6*6 的方形包装中.这些产品始终以与产品高度相同的尺寸为 6*6 的包裹交付给客户.因为邮费很贵,所以工厂要想方设法地减少每个订单运送时的包裹数量.他们很需要有一个好的程序员帮他们解决这个问题从而节省费用.现在这个程序由你来设计.</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>输入文件包括几行,每一行代表一个订单.每个订单里的一行包括六个整数,中间用空格隔开,分别为 1*1 至 6*6 这六种产品的数量.输入文件将以 6 个 0 组成一行结尾.</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>除了输入的最后一行 6 个 0 以外,输入文件里每一行对应着输出文件一行,每一行输出一个整数代表对应订单所需的最小包裹数.</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>0 0 4 0 0 17 5 1 0 0 00 0 0 0 0 0  </code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>21</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="直接求解"><a href="#直接求解" class="headerlink" title="直接求解"></a>直接求解</h3><p>由于数据量不大,直接求解</p><ul><li>1 个 6*6 的产品单独组成一个包裹</li><li>1 个 5<em>5 的产品可以和 11 个 1</em>1 的产品组成一个包裹</li><li>1 个 4<em>4 的产品可以和 2</em>2 或 1*1 的产品组成一个包裹</li><li>4 个 3<em>3 的产品单独组成一个包裹,若 3</em>3 的产品不足 4 个,则可以和 2<em>2 的产品或者 1</em>1 的产品或者两者混合组成一个包裹</li><li>9 个 2<em>2 的产品单独组成一个包裹,若 2</em>2 的产品不足9个,则可以和1*1的产品组成一个包裹</li><li>36 个 1*1 的产品单独组成一个包裹</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> prod[<span class="number">6</span>],c,rest2[<span class="number">4</span>]=&#123;<span class="number">0</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">1</span>&#125;,t;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d%d%d"</span>,&amp;prod[<span class="number">0</span>],&amp;prod[<span class="number">1</span>],&amp;prod[<span class="number">2</span>],&amp;prod[<span class="number">3</span>],&amp;prod[<span class="number">4</span>],&amp;prod[<span class="number">5</span>]);</span><br><span class="line">        <span class="keyword">if</span>(prod[<span class="number">0</span>]|prod[<span class="number">1</span>]|prod[<span class="number">2</span>]|prod[<span class="number">3</span>]|prod[<span class="number">4</span>]|prod[<span class="number">5</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            c=<span class="number">0</span>;</span><br><span class="line">            c+=prod[<span class="number">5</span>];</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"6 "</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            c+=prod[<span class="number">4</span>];</span><br><span class="line">            prod[<span class="number">0</span>]-=min(prod[<span class="number">0</span>],prod[<span class="number">4</span>]*<span class="number">11</span>);</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"5 "</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            c+=prod[<span class="number">3</span>];</span><br><span class="line">            prod[<span class="number">0</span>]-=min(prod[<span class="number">0</span>],max(<span class="number">0</span>,prod[<span class="number">3</span>]*<span class="number">5</span>-prod[<span class="number">1</span>])*<span class="number">4</span>);</span><br><span class="line">            prod[<span class="number">1</span>]-=min(prod[<span class="number">1</span>],prod[<span class="number">3</span>]*<span class="number">5</span>);</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"4 "</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            t=prod[<span class="number">2</span>]/<span class="number">4</span>;</span><br><span class="line">            prod[<span class="number">2</span>]-=<span class="number">4</span>*t;</span><br><span class="line">            c+=t;</span><br><span class="line">            <span class="keyword">if</span>(prod[<span class="number">2</span>])++c;</span><br><span class="line">            prod[<span class="number">0</span>]-=min(prod[<span class="number">0</span>],<span class="number">36</span><span class="number">-9</span>*prod[<span class="number">2</span>]<span class="number">-4</span>*min(rest2[prod[<span class="number">2</span>]],prod[<span class="number">1</span>]));</span><br><span class="line">            prod[<span class="number">1</span>]-=min(rest2[prod[<span class="number">2</span>]],prod[<span class="number">1</span>]);</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"3 "</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            t=prod[<span class="number">1</span>]/<span class="number">9</span>;</span><br><span class="line">            prod[<span class="number">1</span>]-=<span class="number">9</span>*t;</span><br><span class="line">            c+=t;</span><br><span class="line">            <span class="keyword">if</span>(prod[<span class="number">1</span>])++c;</span><br><span class="line">            prod[<span class="number">0</span>]-=min(prod[<span class="number">0</span>],<span class="number">36</span><span class="number">-4</span>*prod[<span class="number">1</span>]);</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"2 "</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            c+=prod[<span class="number">0</span>]/<span class="number">36</span>;</span><br><span class="line">            <span class="keyword">if</span>(prod[<span class="number">0</span>])++c;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;c&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><pre><code>Kolakoski 序列是个随机生成的无限序列.例如,当给定的整数组为 [1,2] 时,Kolakoski 序列是这样的:[1,2,2,1,1,2,1,2,2,1,2,2,1,1,2,1,1,2,2,1,2,1,1,2,1,2,2,1,1,...]如果我们将相邻的相同的数字分成一组,那么将会得到:[[1],[2,2],[1,1],[2],[1],[2,2],[1],[2,2],[1,1],[2],[1,1],[2,2],[1],[2],[1,1],[2],[1],[2,2],[1,1],...]可以看出,每组数字交替由 1,2 组成.接下来对每个分组求它的长度,得到:[1,2,2,1,1,2,1,2,2,1,2,2,1,1,2,1,1,2,2,1,2,1,1,2,1,2,2,1,1,...]可以看出,经过上述变换后,数列保持不变.对于其他给定的整数组,同样可以用类似的方法构造 Kolakoski 序列,例如给定整数组 [2,3] 时:[2,2,3,3,2,2,2,3,3,3,2,2,3,3,2,2,3,3,3,2,2,2,3,3,3,2,2,3,3,...]给定整数组 [2,1,3,1] 时,构造得到如下:[2,2,1,1,3,1,2,2,2,1,3,3,1,1,2,2,1,3,3,3,1,1,1,2,1,3,3,1,1,...]</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>输入由两行组成,第一行包括两个正整数 n,m第二行包括 m 个正整数 a[]数据规模与限制:0 &lt; n &lt; 100001 &lt; m&lt; 10000 &lt; a[i] &lt; 1000a[i] 不等于 a[i+1]a[0] 不等于 a[m-1]</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>每行只有一个数字,共 n 行整数组 a 生成的 Kolakoski 序列的前 n 项</code></pre><h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><pre><code>30 42 1 3 1  </code></pre><h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><pre><code>221131222133112213331112133112</code></pre><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>i 表示当前正在生成的分组</li><li>j 表示已生成的 Kolakoski 序列的个数</li><li>k 表示生成当前分组所用的整数在 a[] 中的位置</li><li>若 i=j,说明没有生成第 i 组的长度,则需要生成的 i 组的长度为 a[k]</li><li>若 i&lt;j,说明已经生成第 i 组长度,则需要生成的 i 组的长度 b[j]</li><li>循环生成第 i 组</li><li>若 j&gt;=n 说明已生成完毕</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ull unsigned long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">1000</span>],n,m,Kolakoski[<span class="number">10000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,k,t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;m;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(i=j=k=<span class="number">0</span>;j&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i&lt;j)</span><br><span class="line">                t=Kolakoski[i];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                t=a[k];</span><br><span class="line">            <span class="keyword">while</span>(t&gt;<span class="number">0</span>&amp;&amp;j&lt;n)</span><br><span class="line">            &#123;</span><br><span class="line">                Kolakoski[j]=a[k];</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;Kolakoski[j]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">                --t,++j;</span><br><span class="line">            &#125;</span><br><span class="line">            k=(k+<span class="number">1</span>)%m;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
