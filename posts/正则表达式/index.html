@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Best Mind">
 <meta property="og:description" content="正则表达式又称规则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE） 通常被用来检索、替换那些符合某个模式(规则)的文本 符号正则表达式由一些 普通字符 和一些 元字符（metacharacters）组成。普通字符包括大小写的字母和数字，而元字符则具有特殊的含义 以下是元字符表    元字符 描述    \ 将下一个字符标记符、或一个向后引用、或一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-02T17:37:10.476Z">
+<meta property="og:updated_time" content="2020-05-02T17:38:08.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="正则表达式又称规则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE） 通常被用来检索、替换那些符合某个模式(规则)的文本 符号正则表达式由一些 普通字符 和一些 元字符（metacharacters）组成。普通字符包括大小写的字母和数字，而元字符则具有特殊的含义 以下是元字符表    元字符 描述    \ 将下一个字符标记符、或一个向后引用、或一">
@@ -591,8 +591,11 @@
 <td>( )</td>
 <td>将 ( 和 ) 之间的表达式定义为“组”（group），并且将匹配这个表达式的字符保存到一个临时区域（一个正则表达式中最多可以保存9个），它们可以用 \1 到\9 的符号来引用。</td>
 </tr>
+<tr>
+<td>|</td>
+<td>将两个匹配条件进行逻辑“或”（Or）运算。例如正则表达式(him|her) 匹配”it belongs to him”和”it belongs to her”，但是不能匹配”it belongs to them.”。注意：这个元字符不是所有的软件都支持的。</td>
+</tr>
 </tbody></table>
-<p>|||将两个匹配条件进行逻辑“或”（Or）运算。例如正则表达式(him|her) 匹配”it belongs to him”和”it belongs to her”，但是不能匹配”it belongs to them.”。注意：这个元字符不是所有的软件都支持的。|</p>
 <h1 id="等价"><a href="#等价" class="headerlink" title="等价"></a>等价</h1><ul>
 <li>?等价于匹配长度{0,1}</li>
 <li>*等价于匹配长度{0,} </li>
