@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Best Mind">
 <meta property="og:description" content="正则表达式又称规则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE） 通常被用来检索、替换那些符合某个模式(规则)的文本 符号正则表达式由一些 普通字符 和一些 元字符（metacharacters）组成。普通字符包括大小写的字母和数字，而元字符则具有特殊的含义 以下是元字符表    元字符 描述    \ 将下一个字符标记符、或一个向后引用、或一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-02T17:21:47.816Z">
+<meta property="og:updated_time" content="2020-05-02T17:30:41.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="正则表达式又称规则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE） 通常被用来检索、替换那些符合某个模式(规则)的文本 符号正则表达式由一些 普通字符 和一些 元字符（metacharacters）组成。普通字符包括大小写的字母和数字，而元字符则具有特殊的含义 以下是元字符表    元字符 描述    \ 将下一个字符标记符、或一个向后引用、或一">
@@ -493,7 +493,7 @@
 </tr>
 <tr>
 <td>[a-z]</td>
-<td>字符范围。匹配指定范围内的任意字符。例如，“[a-z]”可以匹配“a”到“z”范围内的任意小写字母字符。\n注意:只有连字符在字符组内部时，并且出现在两个字符之间时，才能表示字符的范围; 如果出字符组的开头，则只能表示连字符本身。</td>
+<td>字符范围。匹配指定范围内的任意字符。例如，“[a-z]”可以匹配“a”到“z”范围内的任意小写字母字符。注意:只有连字符在字符组内部时，并且出现在两个字符之间时，才能表示字符的范围; 如果出字符组的开头，则只能表示连字符本身。</td>
 </tr>
 <tr>
 <td>[^a-z]</td>
@@ -581,14 +581,18 @@
 </tr>
 <tr>
 <td>\p{P}</td>
-<td>小写 p 是 property 的意思，表示 Unicode 属性，用于 Unicode 正表达式的前缀。中括号内的“P”表示Unicode 字符集七个字符属性之一：标点字符。\n其他六个属性：\nL：字母；\nM：标记符号（一般不会单独出现）；\nZ：分隔符（比如空格、换行等）；\nS：符号（比如数学符号、货币符号等）；\nN：数字（比如阿拉伯数字、罗马数字等）；\nC：其他字符。\n\*注：此语法部分语言不支持，例：javascript。</td>
+<td>小写 p 是 property 的意思，表示 Unicode 属性，用于 Unicode 正表达式的前缀。中括号内的“P”表示Unicode 字符集七个字符属性之一：标点字符。* 其他六个属性：* L：字母；* M：标记符号（一般不会单独出现）；* Z：分隔符（比如空格、换行等）；* S：符号（比如数学符号、货币符号等）；* N：数字（比如阿拉伯数字、罗马数字等）；* C：其他字符。* *注：此语法部分语言不支持，例：javascript。</td>
 </tr>
 <tr>
 <td>\&lt;\n\&gt;</td>
 <td>匹配词（word）的开始（\&lt;）和结束（\&gt;）。例如正则表达式\&lt;the\&gt;能够匹配字符串”for the wise”中的”the”，但是不能匹配字符串”otherwise”中的”the”。注意：这个元字符不是所有的软件都支持的。</td>
 </tr>
+<tr>
+<td>( )</td>
+<td>将 ( 和 ) 之间的表达式定义为“组”（group），并且将匹配这个表达式的字符保存到一个临时区域（一个正则表达式中最多可以保存9个），它们可以用 \1 到\9 的符号来引用。</td>
+</tr>
 </tbody></table>
-<p>|( )|将 ( 和 ) 之间的表达式定义为“组”（group），并且将匹配这个表达式的字符保存到一个临时区域（一个正则表达式中最多可以保存9个），它们可以用 \1 到\9 的符号来引用。|<br>|||将两个匹配条件进行逻辑“或”（Or）运算。例如正则表达式(him|her) 匹配”it belongs to him”和”it belongs to her”，但是不能匹配”it belongs to them.”。注意：这个元字符不是所有的软件都支持的。|</p>
+<p>|||将两个匹配条件进行逻辑“或”（Or）运算。例如正则表达式(him|her) 匹配”it belongs to him”和”it belongs to her”，但是不能匹配”it belongs to them.”。注意：这个元字符不是所有的软件都支持的。|</p>
 <h1 id="等价"><a href="#等价" class="headerlink" title="等价"></a>等价</h1><ul>
 <li>?等价于匹配长度{0,1}</li>
 <li>*等价于匹配长度{0,} </li>
@@ -617,26 +621,26 @@
 <p>正则字符串 = “开始（[包含内容]{长度}）（[包含内容]{长度}）（[包含内容]{长度}）结束”</p>
 <p>支持情况<br>|命令或环境|.|[ ]|^|$|\( \)|\{ \}|?|+|||( )|<br>|—|—|—|—|—|—|—|—|—|—|—|<br>|vi|√|√|√|√|√||||||<br>|Visual C++|√|√|√|√|√||||||<br>|awk|√|√|√|√|awk是支持该语法的，只是要在命令行加入 –posix or –re-interval参数即可，可见man awk中的interval expression|√|√|√|√|<br>|sed|√|√|√|√|√|√|||||<br>|delphi|√|√|√|√|√||√|√|√|√|<br>|python|√|√|√|√|√|√|√|√|√|√|<br>|java|√|√|√|√|√|√|√|√|√|√|[3]|<br>|javascript|√|√|√|√|√||√|√|√|√|<br>|php|√|√|√|√|√||||||<br>|perl|√|√|√|√|√||√|√|√|√|<br>|C#|√|√|√|√|||√|√|√|√|</p>
 <h1 id="Java中的应用"><a href="#Java中的应用" class="headerlink" title="Java中的应用"></a>Java中的应用</h1><h2 id="java-util-regex-Pattern"><a href="#java-util-regex-Pattern" class="headerlink" title="java.util.regex.Pattern"></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html" target="_blank" rel="noopener">java.util.regex.Pattern</a></h2><ul>
-<li>static Pattern compile(String regex) 使用regex构造一个正则表达式</li>
-<li>static Pattern compile(String regex, int flags) 使用regex和标志flags构造一个正则表达式</li>
-<li>int flags() 返回正则表达式的标示</li>
-<li>Matcher matcher(CharSequence input) 创建一个input关于正则表达式的Matcher</li>
-<li>static boolean matches(String regex, CharSequence input) 判断input是否匹配regex，效果同input.matches(regex)</li>
-<li>String pattern(\ 返回一个正则表达式字符串</li>
-<li>static String quote(String s) 返回一个字符串的正则表达式字符串</li>
-<li>String[] split(CharSequence input) 字符串分割同String.split()</li>
-<li>String[] split(CharSequence input, int limit) 字符串分割同String.split()</li>
-<li>Stream&lt;String&gt; splitAsStream(CharSequence input) 把字符串分割为流</li>
+<li>static Pattern compile(String regex)：使用regex构造一个正则表达式</li>
+<li>static Pattern compile(String regex, int flags)：使用regex和标志flags构造一个正则表达式</li>
+<li>int flags()：返回正则表达式的标示</li>
+<li>Matcher matcher(CharSequence input)：创建一个input关于正则表达式的Matcher</li>
+<li>static boolean matches(String regex, CharSequence input)：判断input是否匹配regex，效果同input.matches(regex)</li>
+<li>String pattern()：返回一个正则表达式字符串</li>
+<li>static String quote(String s)：返回一个字符串的正则表达式字符串</li>
+<li>String[] split(CharSequence input)：字符串分割同String.split()</li>
+<li>String[] split(CharSequence input, int limit)：字符串分割同String.split()</li>
+<li>Stream&lt;String&gt; splitAsStream(CharSequence input)：把字符串分割为流</li>
 </ul>
 <h2 id="java-util-regex-Matcher"><a href="#java-util-regex-Matcher" class="headerlink" title="java.util.regex.Matcher"></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Matcher.html" target="_blank" rel="noopener">java.util.regex.Matcher</a></h2><ul>
-<li>boolean matches() 尝试进行一次匹配</li>
-<li>String group() 返回匹配的子串</li>
-<li>String group(int group) 返回匹配到的第g个组</li>
-<li>String replaceAll(String replacement) 替换所有匹配项</li>
-<li>String replaceFirst(String replacement) 替换第一个匹配项</li>
-<li>Matcher reset() 重置</li>
-<li>Matcher reset(CharSequence input) 重置匹配字符串</li>
-<li>Matcher usePattern(Pattern newPattern) 以新的模式创建一个新的Matcher</li>
+<li>boolean matches()：尝试进行一次匹配</li>
+<li>String group()：返回匹配的子串</li>
+<li>String group(int group)：返回匹配到的第g个组</li>
+<li>String replaceAll(String replacement)：替换所有匹配项</li>
+<li>String replaceFirst(String replacement)：替换第一个匹配项</li>
+<li>Matcher reset()：重置</li>
+<li>Matcher reset(CharSequence input)：重置匹配字符串</li>
+<li>Matcher usePattern(Pattern newPattern)：以新的模式创建一个新的Matcher</li>
 </ul>
 
       
