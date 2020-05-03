@@ -95,16 +95,17 @@
 
 
 
-<meta name="description" content="Xiao Weicheng&apos;s Mind">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Best Mind">
-<meta property="og:url" content="http://bestmind.space/tags/滑动窗口/index.html">
+<meta name="description" content="Pom文件Super Pompom文件是可以继承的，达到高效复用 占位符 通过version占位符，可以统一管理相同框架下的jar包 可以在子pom里修改父pom的配置  Profile扩展用途：针对不同的环境提供不同的配置文件 Maven Scope compile：用于所有阶段，会随着项目一起发布 runtime：只在运行时使用， provided：JDK，容器提供的依赖 test：只在测试时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven入门">
+<meta property="og:url" content="http://bestmind.space/posts/Maven入门/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="Xiao Weicheng&apos;s Mind">
+<meta property="og:description" content="Pom文件Super Pompom文件是可以继承的，达到高效复用 占位符 通过version占位符，可以统一管理相同框架下的jar包 可以在子pom里修改父pom的配置  Profile扩展用途：针对不同的环境提供不同的配置文件 Maven Scope compile：用于所有阶段，会随着项目一起发布 runtime：只在运行时使用， provided：JDK，容器提供的依赖 test：只在测试时">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-03T16:53:11.085Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Best Mind">
-<meta name="twitter:description" content="Xiao Weicheng&apos;s Mind">
+<meta name="twitter:title" content="Maven入门">
+<meta name="twitter:description" content="Pom文件Super Pompom文件是可以继承的，达到高效复用 占位符 通过version占位符，可以统一管理相同框架下的jar包 可以在子pom里修改父pom的配置  Profile扩展用途：针对不同的环境提供不同的配置文件 Maven Scope compile：用于所有阶段，会随着项目一起发布 runtime：只在运行时使用， provided：JDK，容器提供的依赖 test：只在测试时">
 
 
 
@@ -134,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://bestmind.space/tags/滑动窗口/">
+  <link rel="canonical" href="http://bestmind.space/posts/Maven入门/">
 
 
 
 
 
-  <title>标签: 滑动窗口 | Best Mind</title>
+  <title>Maven入门 | Best Mind</title>
   
 
 
@@ -159,7 +160,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -295,52 +296,240 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>滑动窗口<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bestmind.space/posts/Maven入门/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiao Weicheng">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Best Mind">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/posts/今日头条2018校园招聘后端方向-编程题一/" itemprop="url">
-              
-                <span itemprop="name">今日头条2018校园招聘后端方向-编程题一</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Maven入门</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-09-11T00:00:00+08:00" content="2017-09-11">
-          09-11
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T00:00:00+08:00">
+                2017-12-20
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Pom文件"><a href="#Pom文件" class="headerlink" title="Pom文件"></a>Pom文件</h1><h2 id="Super-Pom"><a href="#Super-Pom" class="headerlink" title="Super Pom"></a>Super Pom</h2><p>pom文件是可以继承的，达到高效复用</p>
+<h2 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h2><ul>
+<li>通过version占位符，可以统一管理相同框架下的jar包</li>
+<li>可以在子pom里修改父pom的配置</li>
+</ul>
+<h2 id="Profile扩展"><a href="#Profile扩展" class="headerlink" title="Profile扩展"></a>Profile扩展</h2><p>用途：针对不同的环境提供不同的配置文件</p>
+<h2 id="Maven-Scope"><a href="#Maven-Scope" class="headerlink" title="Maven Scope"></a>Maven Scope</h2><ul>
+<li>compile：用于所有阶段，会随着项目一起发布</li>
+<li>runtime：只在运行时使用，</li>
+<li>provided：JDK，容器提供的依赖</li>
+<li>test：只在测试时使用，用于编译和运行测试代码，不会随项目发布</li>
+<li>import：仅仅用来导入依赖</li>
+</ul>
+<h2 id="Jar包版本的使用与维护"><a href="#Jar包版本的使用与维护" class="headerlink" title="Jar包版本的使用与维护"></a>Jar包版本的使用与维护</h2><ul>
+<li>版本定义<br>  &lt;主版本&gt;.&lt;次版本&gt;.&lt;增量版本&gt;-&lt;里程碑版本&gt;<ul>
+<li>&lt;主版本&gt;：重大架构变更</li>
+<li>&lt;次版本&gt;：较大范围的功能增加和变化</li>
+<li>&lt;增量版本&gt;：日常bug修复或者小需求发布</li>
+</ul>
+</li>
+<li>快照版本<ul>
+<li>为了不频繁的修改version</li>
+<li>maven在编译时，会按照一定策略拉去最新的快照版本</li>
+<li>不稳定，不能用于线上</li>
+</ul>
+</li>
+</ul>
+<h2 id="依赖冲突"><a href="#依赖冲突" class="headerlink" title="依赖冲突"></a>依赖冲突</h2><p>原因：依赖的传递性</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ul>
+<li>最短路径优先</li>
+<li>第一声明优先</li>
+</ul>
+<h3 id="版本冲突"><a href="#版本冲突" class="headerlink" title="版本冲突"></a>版本冲突</h3><ul>
+<li>尽量使用更高版本</li>
+<li>尽量使用已知最稳定版本</li>
+<li>不要exclude，除非理由充分</li>
+</ul>
+<h3 id="Duplicated-classes"><a href="#Duplicated-classes" class="headerlink" title="Duplicated classes"></a>Duplicated classes</h3><ul>
+<li>exclude 某个jar包</li>
+</ul>
+<h1 id="生命周期和插件"><a href="#生命周期和插件" class="headerlink" title="生命周期和插件"></a>生命周期和插件</h1><h2 id="生命周期概述"><a href="#生命周期概述" class="headerlink" title="生命周期概述"></a>生命周期概述</h2><p>maven的生命周期是对所有构建过程的抽象和统一</p>
+<ul>
+<li>clean 主要完成清理工作<ul>
+<li>pre-clean</li>
+<li>clean</li>
+<li>post-clean</li>
+</ul>
+</li>
+<li>default 包括核心构建工作<ul>
+<li>compile</li>
+<li>test</li>
+<li>package</li>
+<li>install</li>
+<li>deploy</li>
+</ul>
+</li>
+<li>site 建立项目站点<ul>
+<li>pre-site</li>
+<li>site</li>
+<li>post-site</li>
+<li>site-deploy</li>
+</ul>
+</li>
+</ul>
+<h2 id="插件机制"><a href="#插件机制" class="headerlink" title="插件机制"></a>插件机制</h2><ul>
+<li>Maven是一个 微内核 的框架，主要通过插件来完成核心功能</li>
+<li>每个插件可以支持多个功能，通过goal来表达</li>
+</ul>
+<h2 id="插件工具"><a href="#插件工具" class="headerlink" title="插件工具"></a>插件工具</h2><ul>
+<li>dependency：依赖分析</li>
+<li>versions：版本管理</li>
+<li>help：maven基础功能</li>
+<li>archetype：maven项目架构</li>
+<li>idea：生成idea配置</li>
+<li>eclipse：生成eclipse配置</li>
+<li>tomcat：tomcat Web容器</li>
+<li>jetly：jetly Wed容器</li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Xiao Weicheng
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://bestmind.space/posts/Maven入门/" title="Maven入门">http://bestmind.space/posts/Maven入门/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/MyBatis入门/" rel="next" title="MyBatis入门">
+                <i class="fa fa-chevron-left"></i> MyBatis入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/设计模式/" rel="prev" title="设计模式">
+                设计模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -348,6 +537,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -370,8 +563,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Xiao Weicheng">
           <p class="site-author-name" itemprop="name">Xiao Weicheng</p>
@@ -445,6 +647,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pom文件"><span class="nav-number">1.</span> <span class="nav-text">Pom文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Super-Pom"><span class="nav-number">1.1.</span> <span class="nav-text">Super Pom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#占位符"><span class="nav-number">1.2.</span> <span class="nav-text">占位符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Profile扩展"><span class="nav-number">1.3.</span> <span class="nav-text">Profile扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven-Scope"><span class="nav-number">1.4.</span> <span class="nav-text">Maven Scope</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jar包版本的使用与维护"><span class="nav-number">1.5.</span> <span class="nav-text">Jar包版本的使用与维护</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖冲突"><span class="nav-number">1.6.</span> <span class="nav-text">依赖冲突</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-number">1.6.1.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本冲突"><span class="nav-number">1.6.2.</span> <span class="nav-text">版本冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Duplicated-classes"><span class="nav-number">1.6.3.</span> <span class="nav-text">Duplicated classes</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生命周期和插件"><span class="nav-number">2.</span> <span class="nav-text">生命周期和插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期概述"><span class="nav-number">2.1.</span> <span class="nav-text">生命周期概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件机制"><span class="nav-number">2.2.</span> <span class="nav-text">插件机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件工具"><span class="nav-number">2.3.</span> <span class="nav-text">插件工具</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -562,10 +780,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
