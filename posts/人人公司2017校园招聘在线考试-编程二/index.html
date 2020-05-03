@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="language,source,">
+  <meta name="keywords" content="C++,笔试,人人,">
 
 
 
@@ -96,14 +96,14 @@
 
 
 <meta name="description" content="题目-最长子串描述小M得到了一个由小写英文字符构成的字符串，她想从中挑选出一个美丽的子串。 一个字符串的子串是由其一段区间的字符所构成的字符串。 小M不喜欢重复， 所以她认为一个字符串是美丽的当且仅当它至多只包含Ca个字符’a’，Cb个字符’b’，…，Cz个字符’z’。 请你帮她找出一个最长的美丽的子串。输入第一行包含一个字符串s。1≤s的长度≤10^5 第二行包含26个整数表示0≤Ca，Cb……">
-<meta name="keywords" content="language,source">
+<meta name="keywords" content="C++,笔试,人人">
 <meta property="og:type" content="article">
 <meta property="og:title" content="人人公司2017校园招聘在线考试-编程二">
 <meta property="og:url" content="http://bestmind.space/posts/人人公司2017校园招聘在线考试-编程二/index.html">
 <meta property="og:site_name" content="Best Mind">
 <meta property="og:description" content="题目-最长子串描述小M得到了一个由小写英文字符构成的字符串，她想从中挑选出一个美丽的子串。 一个字符串的子串是由其一段区间的字符所构成的字符串。 小M不喜欢重复， 所以她认为一个字符串是美丽的当且仅当它至多只包含Ca个字符’a’，Cb个字符’b’，…，Cz个字符’z’。 请你帮她找出一个最长的美丽的子串。输入第一行包含一个字符串s。1≤s的长度≤10^5 第二行包含26个整数表示0≤Ca，Cb……">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-01T16:26:52.232Z">
+<meta property="og:updated_time" content="2020-05-03T17:50:09.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="人人公司2017校园招聘在线考试-编程二">
 <meta name="twitter:description" content="题目-最长子串描述小M得到了一个由小写英文字符构成的字符串，她想从中挑选出一个美丽的子串。 一个字符串的子串是由其一段区间的字符所构成的字符串。 小M不喜欢重复， 所以她认为一个字符串是美丽的当且仅当它至多只包含Ca个字符’a’，Cb个字符’b’，…，Cz个字符’z’。 请你帮她找出一个最长的美丽的子串。输入第一行包含一个字符串s。1≤s的长度≤10^5 第二行包含26个整数表示0≤Ca，Cb……">
@@ -351,6 +351,39 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔试/" itemprop="url" rel="index">
+                    <span itemprop="name">笔试</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔试/人人/" itemprop="url" rel="index">
+                    <span itemprop="name">人人</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -391,7 +424,7 @@
 <li>更新最大长度</li>
 <li>时间复杂度 O(n)</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">100005</span>],n;</span><br><span class="line"><span class="keyword">int</span> c[<span class="number">26</span>],cnt[<span class="number">100005</span>][<span class="number">26</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str)!=EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">26</span>;++i)</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;c[i];</span><br><span class="line">        <span class="keyword">int</span> temp[<span class="number">26</span>];</span><br><span class="line">        <span class="built_in">memset</span>(temp,<span class="number">0</span>,<span class="keyword">sizeof</span> temp);</span><br><span class="line">        <span class="keyword">int</span> maxlen=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;str[j];++j)</span><br><span class="line">        &#123;</span><br><span class="line">            ++temp[str[j]-<span class="string">'a'</span>];</span><br><span class="line">            <span class="keyword">if</span>(temp[str[j]-<span class="string">'a'</span>]&gt;c[str[j]-<span class="string">'a'</span>])</span><br><span class="line">            <span class="keyword">for</span>(;i&lt;=j;++i)</span><br><span class="line">            &#123;</span><br><span class="line">                --temp[str[i]-<span class="string">'a'</span>];</span><br><span class="line">                <span class="keyword">if</span>(str[j]==str[i])<span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            maxlen=max(maxlen,j-i+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;maxlen&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">100005</span>],n;</span><br><span class="line"><span class="keyword">int</span> c[<span class="number">26</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str)!=EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">26</span>;++i)</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;c[i];</span><br><span class="line">        <span class="keyword">int</span> temp[<span class="number">26</span>];</span><br><span class="line">        <span class="built_in">memset</span>(temp,<span class="number">0</span>,<span class="keyword">sizeof</span> temp);</span><br><span class="line">        <span class="keyword">int</span> maxlen=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;str[j];++j)</span><br><span class="line">        &#123;</span><br><span class="line">            ++temp[str[j]-<span class="string">'a'</span>];</span><br><span class="line">            <span class="keyword">if</span>(temp[str[j]-<span class="string">'a'</span>]&gt;c[str[j]-<span class="string">'a'</span>])</span><br><span class="line">            <span class="keyword">for</span>(;i&lt;=j;++i)</span><br><span class="line">            &#123;</span><br><span class="line">                --temp[str[i]-<span class="string">'a'</span>];</span><br><span class="line">                <span class="keyword">if</span>(str[j]==str[i])<span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            maxlen=max(maxlen,j-i+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;maxlen&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -426,9 +459,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/language/" rel="tag"># language</a>
+            <a href="/tags/C/" rel="tag"># C++</a>
           
-            <a href="/tags/source/" rel="tag"># source</a>
+            <a href="/tags/笔试/" rel="tag"># 笔试</a>
+          
+            <a href="/tags/人人/" rel="tag"># 人人</a>
           
         </div>
       
@@ -543,7 +578,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -554,7 +589,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
