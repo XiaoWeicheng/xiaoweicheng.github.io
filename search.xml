@@ -96,14 +96,16 @@
       
       <categories>
           
-          <category> 工具 </category>
+          <category> Java </category>
           
-          <category> Maven </category>
+          <category> 工具 </category>
           
       </categories>
       
       
         <tags>
+            
+            <tag> Java </tag>
             
             <tag> 工具 </tag>
             
