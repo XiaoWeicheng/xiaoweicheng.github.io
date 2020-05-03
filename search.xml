@@ -160,7 +160,7 @@
           
           <category> Java </category>
           
-          <category> Tomcat </category>
+          <category> 工具 </category>
           
       </categories>
       
@@ -285,9 +285,9 @@
             
             <tag> 笔试 </tag>
             
-            <tag> 广度优先搜索 </tag>
-            
             <tag> 去哪儿 </tag>
+            
+            <tag> BFS </tag>
             
         </tags>
       
@@ -483,7 +483,7 @@
             
             <tag> 小米 </tag>
             
-            <tag> 深度优先搜索 </tag>
+            <tag> DFS </tag>
             
         </tags>
       
@@ -638,9 +638,9 @@
             
             <tag> 笔试 </tag>
             
-            <tag> 深度优先搜索 </tag>
-            
             <tag> 腾讯 </tag>
+            
+            <tag> DFS </tag>
             
         </tags>
       
@@ -673,11 +673,11 @@
             
             <tag> 最短距离 </tag>
             
-            <tag> 深度优先搜索 </tag>
-            
             <tag> 腾讯 </tag>
             
             <tag> 无向图 </tag>
+            
+            <tag> DFS </tag>
             
         </tags>
       
@@ -1179,11 +1179,11 @@
             
             <tag> C++ </tag>
             
-            <tag> 广度优先搜索 </tag>
-            
             <tag> 牛客 </tag>
             
             <tag> 2017校招 </tag>
+            
+            <tag> BFS </tag>
             
         </tags>
       
@@ -1950,9 +1950,9 @@
       
         <tags>
             
-            <tag> hexo </tag>
-            
             <tag> 博客 </tag>
+            
+            <tag> Hexo </tag>
             
         </tags>
       
