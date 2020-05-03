@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="介绍与安装特点 门槛低，简单 群众基础广发，资料多 免费  安装rpm包1sudo rpm -ivh *.rpm  yum源1sudo yum install q-dba-mysql-56  apt1sudo apt install mysql-server mysql-client  DMLSELECT12345FROM `基本表或(和)视图集合`[WHERE 条件表达式][GROUP BY `">
+<meta name="description" content="介绍与安装特点 门槛低，简单 群众基础广大，资料多 免费  安装rpm包1sudo rpm -ivh *.rpm  yum源1sudo yum install q-dba-mysql-56  apt1sudo apt install mysql-server mysql-client  DMLSELECT12345SELECT FROM `基本表或(和)视图集合`[WHERE 条件表达式][GRO">
 <meta name="keywords" content="数据库,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL数据库入门">
 <meta property="og:url" content="http://bestmind.space/posts/MySQL数据库入门/index.html">
 <meta property="og:site_name" content="Best Mind">
-<meta property="og:description" content="介绍与安装特点 门槛低，简单 群众基础广发，资料多 免费  安装rpm包1sudo rpm -ivh *.rpm  yum源1sudo yum install q-dba-mysql-56  apt1sudo apt install mysql-server mysql-client  DMLSELECT12345FROM `基本表或(和)视图集合`[WHERE 条件表达式][GROUP BY `">
+<meta property="og:description" content="介绍与安装特点 门槛低，简单 群众基础广大，资料多 免费  安装rpm包1sudo rpm -ivh *.rpm  yum源1sudo yum install q-dba-mysql-56  apt1sudo apt install mysql-server mysql-client  DMLSELECT12345SELECT FROM `基本表或(和)视图集合`[WHERE 条件表达式][GRO">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-03T16:23:48.027Z">
+<meta property="og:updated_time" content="2020-05-03T16:40:12.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL数据库入门">
-<meta name="twitter:description" content="介绍与安装特点 门槛低，简单 群众基础广发，资料多 免费  安装rpm包1sudo rpm -ivh *.rpm  yum源1sudo yum install q-dba-mysql-56  apt1sudo apt install mysql-server mysql-client  DMLSELECT12345FROM `基本表或(和)视图集合`[WHERE 条件表达式][GROUP BY `">
+<meta name="twitter:description" content="介绍与安装特点 门槛低，简单 群众基础广大，资料多 免费  安装rpm包1sudo rpm -ivh *.rpm  yum源1sudo yum install q-dba-mysql-56  apt1sudo apt install mysql-server mysql-client  DMLSELECT12345SELECT FROM `基本表或(和)视图集合`[WHERE 条件表达式][GRO">
 
 
 
@@ -413,7 +413,7 @@
       
         <h1 id="介绍与安装"><a href="#介绍与安装" class="headerlink" title="介绍与安装"></a>介绍与安装</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
 <li>门槛低，简单</li>
-<li>群众基础广发，资料多</li>
+<li>群众基础广大，资料多</li>
 <li>免费</li>
 </ul>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="rpm包"><a href="#rpm包" class="headerlink" title="rpm包"></a>rpm包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -ivh *.rpm</span><br></pre></td></tr></table></figure>
@@ -422,7 +422,7 @@
 
 <h3 id="apt"><a href="#apt" class="headerlink" title="apt"></a>apt</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mysql-server mysql-client</span><br></pre></td></tr></table></figure>
 
-<h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><h3 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FROM `基本表或(和)视图集合`</span><br><span class="line">[WHERE 条件表达式]</span><br><span class="line">[GROUP BY `列名1`[,`列名2`...]]</span><br><span class="line">[HAVING 组条件表达式]</span><br><span class="line">[ORDER BY `列名1`[,`列名2`...]];</span><br></pre></td></tr></table></figure>
+<h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><h3 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">FROM</span> <span class="string">`基本表或(和)视图集合`</span></span><br><span class="line">[<span class="keyword">WHERE</span> 条件表达式]</span><br><span class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="string">`列名1`</span>[,<span class="string">`列名2`</span>...]]</span><br><span class="line">[<span class="keyword">HAVING</span> 组条件表达式]</span><br><span class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="string">`列名1`</span>[,<span class="string">`列名2`</span>...]];</span><br></pre></td></tr></table></figure>
 
 <h3 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`表名`</span> (<span class="string">`列名1`</span>[,<span class="string">`列名2`</span>...]) <span class="keyword">VALUES</span> (<span class="string">'列值1'</span>[,<span class="string">'列值2'</span>...]);</span><br></pre></td></tr></table></figure>
 
@@ -433,11 +433,11 @@
 <h3 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h3><h4 id="INNER-JOIN"><a href="#INNER-JOIN" class="headerlink" title="INNER JOIN"></a>INNER JOIN</h4><p>左右两表只有满足连接条件的会显示，默认为INNER JOIN</p>
 <h4 id="LEFT-JOIN"><a href="#LEFT-JOIN" class="headerlink" title="LEFT JOIN"></a>LEFT JOIN</h4><p>左表中的行全部显示，右表中不存在的行以NULL填充</p>
 <h4 id="RIGHT-JOIN"><a href="#RIGHT-JOIN" class="headerlink" title="RIGHT JOIN"></a>RIGHT JOIN</h4><p>右表中的行全部显示，左表中不存在的行以NULL填充</p>
-<h2 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h2><h3 id="CREATE"><a href="#CREATE" class="headerlink" title="CREATE"></a>CREATE</h3><h4 id="DATABASE"><a href="#DATABASE" class="headerlink" title="DATABASE"></a>DATABASE</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="string">`数据库名`</span> [ 其它参数 ];</span><br></pre></td></tr></table></figure>
+<h2 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h2><h3 id="CREATE"><a href="#CREATE" class="headerlink" title="CREATE"></a>CREATE</h3><h4 id="DATABASE"><a href="#DATABASE" class="headerlink" title="DATABASE"></a>DATABASE</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="string">`数据库名`</span> [其它参数];</span><br></pre></td></tr></table></figure>
 
-<h4 id="TABLE"><a href="#TABLE" class="headerlink" title="TABLE"></a>TABLE</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`表名`</span> (</span><br><span class="line">  <span class="string">`COLUMN1`</span> <span class="keyword">TYPE</span> <span class="keyword">CONSTRAINTS</span> [ ,</span><br><span class="line">  <span class="string">`COLUMN2`</span> <span class="keyword">TYPE</span> <span class="keyword">CONSTRAINTS</span>]</span><br><span class="line">  ...</span><br><span class="line">) [ <span class="keyword">CONSTRAINTS</span> ];</span><br></pre></td></tr></table></figure>
+<h4 id="TABLE"><a href="#TABLE" class="headerlink" title="TABLE"></a>TABLE</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`表名`</span> (</span><br><span class="line">  <span class="string">`COLUMN1`</span> <span class="keyword">TYPE</span> <span class="keyword">CONSTRAINTS</span> [,</span><br><span class="line">  <span class="string">`COLUMN2`</span> <span class="keyword">TYPE</span> <span class="keyword">CONSTRAINTS</span>]</span><br><span class="line">  ...</span><br><span class="line">) [<span class="keyword">CONSTRAINTS</span>];</span><br></pre></td></tr></table></figure>
 
-<h3 id="DROP"><a href="#DROP" class="headerlink" title="DROP"></a>DROP</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="string">`NAME`</span> [ OPTIONS ];</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">DATABASE</span> <span class="string">`NAME`</span> [ OPTIONS ];</span><br></pre></td></tr></table></figure>
+<h3 id="DROP"><a href="#DROP" class="headerlink" title="DROP"></a>DROP</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="string">`NAME`</span> [OPTIONS];</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">DATABASE</span> <span class="string">`NAME`</span> [OPTIONS];</span><br></pre></td></tr></table></figure>
 
 <h3 id="TRUNCATE"><a href="#TRUNCATE" class="headerlink" title="TRUNCATE"></a>TRUNCATE</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> <span class="string">`NAME`</span>;</span><br></pre></td></tr></table></figure>
 
@@ -445,9 +445,9 @@
 
 <h3 id="ALTER"><a href="#ALTER" class="headerlink" title="ALTER"></a>ALTER</h3><h4 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`T_NAME`</span> <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> <span class="string">`C_NAME`</span>;</span><br></pre></td></tr></table></figure>
 
-<h4 id="MODIFY-CHANGE"><a href="#MODIFY-CHANGE" class="headerlink" title="MODIFY/CHANGE"></a>MODIFY/CHANGE</h4><h5 id="MODIFY"><a href="#MODIFY" class="headerlink" title="MODIFY"></a>MODIFY</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`T_NAME`</span> <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> <span class="string">`C_NAME`</span> [ OPTIONS ];</span><br></pre></td></tr></table></figure>
+<h4 id="MODIFY-CHANGE"><a href="#MODIFY-CHANGE" class="headerlink" title="MODIFY/CHANGE"></a>MODIFY/CHANGE</h4><h5 id="MODIFY"><a href="#MODIFY" class="headerlink" title="MODIFY"></a>MODIFY</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`T_NAME`</span> <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> <span class="string">`C_NAME`</span> [OPTIONS];</span><br></pre></td></tr></table></figure>
 
-<h5 id="CHANGE"><a href="#CHANGE" class="headerlink" title="CHANGE"></a>CHANGE</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`T_NAM`</span>E <span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> <span class="string">`OLD_NAME`</span> <span class="string">`NEW_NAME`</span> [ OPTIONS ];</span><br></pre></td></tr></table></figure>
+<h5 id="CHANGE"><a href="#CHANGE" class="headerlink" title="CHANGE"></a>CHANGE</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`T_NAM`</span>E <span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> <span class="string">`OLD_NAME`</span> <span class="string">`NEW_NAME`</span> [OPTIONS];</span><br></pre></td></tr></table></figure>
 
 <h4 id="DROP-1"><a href="#DROP-1" class="headerlink" title="DROP"></a>DROP</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`T_NAME`</span> <span class="keyword">DROP</span> <span class="keyword">COLUMN</span> <span class="string">`C_NAME`</span>;</span><br></pre></td></tr></table></figure>
 
@@ -526,7 +526,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>ALL [ PRIVILAGES ]</td>
+<td>ALL [PRIVILEGES]</td>
 <td>设置除GRANT OPTION之外所有的权限</td>
 </tr>
 <tr>
@@ -542,7 +542,7 @@
 <td>删除权限</td>
 </tr>
 <tr>
-<td>UPDARE</td>
+<td>UPDATE</td>
 <td>更新权限</td>
 </tr>
 <tr>
@@ -562,8 +562,7 @@
 <td>允许授予权限</td>
 </tr>
 </tbody></table>
-<h1 id="常用系统命令"><a href="#常用系统命令" class="headerlink" title="常用系统命令"></a>常用系统命令</h1><h2 id="查看帮助信息"><a href="#查看帮助信息" class="headerlink" title="查看帮助信息"></a>查看帮助信息</h2><p>help / ?</p>
-<table>
+<h1 id="常用系统命令"><a href="#常用系统命令" class="headerlink" title="常用系统命令"></a>常用系统命令</h1><h2 id="查看帮助信息"><a href="#查看帮助信息" class="headerlink" title="查看帮助信息"></a>查看帮助信息</h2><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -587,9 +586,9 @@
 <td>查看CREATE TABLE语句的帮助信息</td>
 </tr>
 </tbody></table>
-<h2 id="SHOW命令"><a href="#SHOW命令" class="headerlink" title="SHOW命令"></a>SHOW命令</h2><h3 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span> [ <span class="keyword">like</span> &#123;regex&#125; ]</span><br></pre></td></tr></table></figure>
+<h2 id="SHOW命令"><a href="#SHOW命令" class="headerlink" title="SHOW命令"></a>SHOW命令</h2><h3 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span> [<span class="keyword">like</span> &#123;regex&#125;]</span><br></pre></td></tr></table></figure>
 
-<h3 id="查看表"><a href="#查看表" class="headerlink" title="查看表"></a>查看表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span> [ <span class="keyword">like</span> &#123;regex&#125; ]</span><br></pre></td></tr></table></figure>
+<h3 id="查看表"><a href="#查看表" class="headerlink" title="查看表"></a>查看表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span> [<span class="keyword">like</span> &#123;regex&#125;]</span><br></pre></td></tr></table></figure>
 
 <h3 id="查看数据库定义"><a href="#查看数据库定义" class="headerlink" title="查看数据库定义"></a>查看数据库定义</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">database</span> &#123;<span class="keyword">database</span>&#125;</span><br></pre></td></tr></table></figure>
 
@@ -601,24 +600,23 @@
 
 <h3 id="查看表的列信息"><a href="#查看表的列信息" class="headerlink" title="查看表的列信息"></a>查看表的列信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">columns</span> <span class="keyword">from</span> &#123;<span class="keyword">table</span>&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="查看用户的授权语句"><a href="#查看用户的授权语句" class="headerlink" title="查看用户的授权语句"></a>查看用户的授权语句</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">grants</span> <span class="keyword">for</span> [ &#123;<span class="keyword">user</span>&#125;@&#123;host&#125; ]</span><br></pre></td></tr></table></figure>
+<h3 id="查看用户的授权语句"><a href="#查看用户的授权语句" class="headerlink" title="查看用户的授权语句"></a>查看用户的授权语句</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">grants</span> <span class="keyword">for</span> [&#123;<span class="keyword">user</span>&#125;@&#123;host&#125;]</span><br></pre></td></tr></table></figure>
 
-<h3 id="查看变量值"><a href="#查看变量值" class="headerlink" title="查看变量值"></a>查看变量值</h3><h4 id="会话变量"><a href="#会话变量" class="headerlink" title="会话变量"></a>会话变量</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> [ <span class="keyword">session</span> ] <span class="keyword">variables</span> &#123;<span class="keyword">variable</span>&#125;/(<span class="keyword">like</span> &#123;regex&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="查看变量值"><a href="#查看变量值" class="headerlink" title="查看变量值"></a>查看变量值</h3><h4 id="会话变量"><a href="#会话变量" class="headerlink" title="会话变量"></a>会话变量</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> [<span class="keyword">session</span>] <span class="keyword">variables</span> &#123;<span class="keyword">variable</span>&#125;/(<span class="keyword">like</span> &#123;regex&#125;)</span><br></pre></td></tr></table></figure>
 
 <h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> <span class="keyword">variables</span> &#123;<span class="keyword">variable</span>&#125;/(<span class="keyword">like</span> &#123;regex&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="查看状态信息"><a href="#查看状态信息" class="headerlink" title="查看状态信息"></a>查看状态信息</h3><h4 id="会话信息"><a href="#会话信息" class="headerlink" title="会话信息"></a>会话信息</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> [ <span class="keyword">session</span> ] <span class="keyword">status</span> &#123;<span class="keyword">variable</span>&#125;/(<span class="keyword">like</span> &#123;regex&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="查看状态信息"><a href="#查看状态信息" class="headerlink" title="查看状态信息"></a>查看状态信息</h3><h4 id="会话信息"><a href="#会话信息" class="headerlink" title="会话信息"></a>会话信息</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> [<span class="keyword">session</span>] <span class="keyword">status</span> &#123;<span class="keyword">variable</span>&#125;/(<span class="keyword">like</span> &#123;regex&#125;)</span><br></pre></td></tr></table></figure>
 
 <h4 id="全局信息"><a href="#全局信息" class="headerlink" title="全局信息"></a>全局信息</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> <span class="keyword">status</span> &#123;<span class="keyword">variable</span>&#125;/(<span class="keyword">like</span> &#123;regex&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="查看当前连接的用户以及执行的SQL"><a href="#查看当前连接的用户以及执行的SQL" class="headerlink" title="查看当前连接的用户以及执行的SQL"></a>查看当前连接的用户以及执行的SQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> [ <span class="keyword">full</span> ] <span class="keyword">processlist</span></span><br></pre></td></tr></table></figure>
+<h3 id="查看当前连接的用户以及执行的SQL"><a href="#查看当前连接的用户以及执行的SQL" class="headerlink" title="查看当前连接的用户以及执行的SQL"></a>查看当前连接的用户以及执行的SQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> [<span class="keyword">full</span>] <span class="keyword">processlist</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="SET命令"><a href="#SET命令" class="headerlink" title="SET命令"></a>SET命令</h2><h3 id="设置变量值"><a href="#设置变量值" class="headerlink" title="设置变量值"></a>设置变量值</h3><h4 id="会话变量-1"><a href="#会话变量-1" class="headerlink" title="会话变量"></a>会话变量</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> [ <span class="keyword">session</span> ] &#123;<span class="keyword">variable</span>&#125;=&#123;<span class="keyword">value</span>&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="SET命令"><a href="#SET命令" class="headerlink" title="SET命令"></a>SET命令</h2><h3 id="设置变量值"><a href="#设置变量值" class="headerlink" title="设置变量值"></a>设置变量值</h3><h4 id="会话变量-1"><a href="#会话变量-1" class="headerlink" title="会话变量"></a>会话变量</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> [<span class="keyword">session</span>] &#123;<span class="keyword">variable</span>&#125;=&#123;<span class="keyword">value</span>&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="全局变量-1"><a href="#全局变量-1" class="headerlink" title="全局变量"></a>全局变量</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> &#123;<span class="keyword">variable</span>&#125;=&#123;<span class="keyword">value</span>&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="Master-Slaver原理"><a href="#Master-Slaver原理" class="headerlink" title="Master-Slaver原理"></a>Master-Slaver原理</h1><h2 id="异步复制由来"><a href="#异步复制由来" class="headerlink" title="异步复制由来"></a>异步复制由来</h2><p>为了解决MySQL的单点数据库的缺点</p>
-<p>单点数据库的缺点：</p>
+<h1 id="Master-Slaver原理"><a href="#Master-Slaver原理" class="headerlink" title="Master-Slaver原理"></a>Master-Slaver原理</h1><h2 id="异步复制由来"><a href="#异步复制由来" class="headerlink" title="异步复制由来"></a>异步复制由来</h2><p>为了解决MySQL的单点数据库的缺点<br>单点数据库的缺点：</p>
 <ul>
 <li>数据丢失风险大</li>
 <li>读写无法分离，单点承受能力有限</li>
@@ -687,9 +685,9 @@
 <h2 id="索引类型介绍"><a href="#索引类型介绍" class="headerlink" title="索引类型介绍"></a>索引类型介绍</h2><ul>
 <li>聚簇索引（主键）：叶子结点包含（主键列值 事务ID 回滚主键 非主键列值）</li>
 <li>辅助索引（非主键、二级）：叶子节点包含（索引列值 对应的聚簇索引主键列值）</li>
-<li>单列索引：由单个字段组成，WHERE条件中的字段查询时可以应用到索引，alter table product add index idx_orderno(orderno);</li>
-<li>联合索引：由多个字段组成，alter table product add index idx_orderno_createtime(orderno,createtime);</li>
-<li>Covering Index（覆盖索引）：包含所有要查询的字段的值的索引</li>
+<li>单列索引：由单个字段组成<br>  WHERE条件中的字段查询时可以应用到索引<br>  alter table product add index idx_orderno(orderno);</li>
+<li>联合索引：由多个字段组成<br>  alter table product add index idx_orderno_createtime(orderno,createtime);</li>
+<li>覆盖索引（Covering Index）：包含所有要查询的字段的值的索引</li>
 </ul>
 <h2 id="不使用索引的情况"><a href="#不使用索引的情况" class="headerlink" title="不使用索引的情况"></a>不使用索引的情况</h2><ul>
 <li>where条件中没有内容</li>
