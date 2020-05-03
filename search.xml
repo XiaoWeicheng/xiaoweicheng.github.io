@@ -94,6 +94,22 @@
         <content type="html"><![CDATA[<h1 id="Pom文件"><a href="#Pom文件" class="headerlink" title="Pom文件"></a>Pom文件</h1><h2 id="Super-Pom"><a href="#Super-Pom" class="headerlink" title="Super Pom"></a>Super Pom</h2><p>pom文件是可以继承的，达到高效复用</p><h2 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h2><ul><li>通过version占位符，可以统一管理相同框架下的jar包</li><li>可以在子pom里修改父pom的配置</li></ul><h2 id="Profile扩展"><a href="#Profile扩展" class="headerlink" title="Profile扩展"></a>Profile扩展</h2><p>用途：针对不同的环境提供不同的配置文件</p><h2 id="Maven-Scope"><a href="#Maven-Scope" class="headerlink" title="Maven Scope"></a>Maven Scope</h2><ul><li>compile：用于所有阶段，会随着项目一起发布</li><li>runtime：只在运行时使用，</li><li>provided：JDK，容器提供的依赖</li><li>test：只在测试时使用，用于编译和运行测试代码，不会随项目发布</li><li>import：仅仅用来导入依赖</li></ul><h2 id="Jar包版本的使用与维护"><a href="#Jar包版本的使用与维护" class="headerlink" title="Jar包版本的使用与维护"></a>Jar包版本的使用与维护</h2><ul><li>版本定义<br>  &lt;主版本&gt;.&lt;次版本&gt;.&lt;增量版本&gt;-&lt;里程碑版本&gt;<ul><li>&lt;主版本&gt;：重大架构变更</li><li>&lt;次版本&gt;：较大范围的功能增加和变化</li><li>&lt;增量版本&gt;：日常bug修复或者小需求发布</li></ul></li><li>快照版本<ul><li>为了不频繁的修改version</li><li>maven在编译时，会按照一定策略拉去最新的快照版本</li><li>不稳定，不能用于线上</li></ul></li></ul><h2 id="依赖冲突"><a href="#依赖冲突" class="headerlink" title="依赖冲突"></a>依赖冲突</h2><p>原因：依赖的传递性</p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ul><li>最短路径优先</li><li>第一声明优先</li></ul><h3 id="版本冲突"><a href="#版本冲突" class="headerlink" title="版本冲突"></a>版本冲突</h3><ul><li>尽量使用更高版本</li><li>尽量使用已知最稳定版本</li><li>不要exclude，除非理由充分</li></ul><h3 id="Duplicated-classes"><a href="#Duplicated-classes" class="headerlink" title="Duplicated classes"></a>Duplicated classes</h3><ul><li>exclude 某个jar包</li></ul><h1 id="生命周期和插件"><a href="#生命周期和插件" class="headerlink" title="生命周期和插件"></a>生命周期和插件</h1><h2 id="生命周期概述"><a href="#生命周期概述" class="headerlink" title="生命周期概述"></a>生命周期概述</h2><p>maven的生命周期是对所有构建过程的抽象和统一</p><ul><li>clean 主要完成清理工作<ul><li>pre-clean</li><li>clean</li><li>post-clean</li></ul></li><li>default 包括核心构建工作<ul><li>compile</li><li>test</li><li>package</li><li>install</li><li>deploy</li></ul></li><li>site 建立项目站点<ul><li>pre-site</li><li>site</li><li>post-site</li><li>site-deploy</li></ul></li></ul><h2 id="插件机制"><a href="#插件机制" class="headerlink" title="插件机制"></a>插件机制</h2><ul><li>Maven是一个 微内核 的框架，主要通过插件来完成核心功能</li><li>每个插件可以支持多个功能，通过goal来表达</li></ul><h2 id="插件工具"><a href="#插件工具" class="headerlink" title="插件工具"></a>插件工具</h2><ul><li>dependency：依赖分析</li><li>versions：版本管理</li><li>help：maven基础功能</li><li>archetype：maven项目架构</li><li>idea：生成idea配置</li><li>eclipse：生成eclipse配置</li><li>tomcat：tomcat Web容器</li><li>jetly：jetly Wed容器</li></ul>]]></content>
       
       
+      <categories>
+          
+          <category> 工具 </category>
+          
+          <category> Maven </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> Maven </tag>
+            
+        </tags>
       
     </entry>
     
